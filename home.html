@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mucuna Pruriens – Eje Dopaminérgico</title>
+<style>
+  :root {
+    --bg: #0f0f0f;
+    --surface: #1a1a1a;
+    --surface2: #222222;
+    --border: #2e2e2e;
+    --text: #e8e4dc;
+    --muted: #8a8580;
+    --accent: #d4648a;
+    --accent-soft: rgba(212,100,138,0.12);
+    --accent-glow: rgba(212,100,138,0.25);
+    --green: #5a8a6a;
+    --yellow: #b89a4a;
+    --orange: #c07840;
+    --red: #a85050;
+    --font: 'Georgia', serif;
+    --sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* POPUP */
+  #popup-overlay {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.88);
+    z-index: 1000;
+    display: flex; align-items: center; justify-content: center;
+    padding: 1.5rem;
+    backdrop-filter: blur(4px);
+  }
+
+  #popup {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--accent);
+    max-width: 600px; width: 100%;
+    padding: 2.5rem;
+    border-radius: 4px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  #popup h2 {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.2rem;
+  }
+
+  #popup p {
+    font-size: 0.95rem;
+    color: #c8c4bc;
+    margin-bottom: 1.5rem;
+    line-height: 1.75;
+  }
+
+  #popup .email-section {
+    border-top: 1px solid var(--border);
+    padding-top: 1.5rem;
+    margin-top: 0.5rem;
+  }
+
+  #popup .email-section p {
+    font-size: 0.88rem;
+    color: var(--muted);
+    margin-bottom: 0.8rem;
+  }
+
+  #popup .email-row {
+    display: flex; gap: 0.6rem; flex-wrap: wrap;
+  }
+
+  #popup input[type="email"] {
+    flex: 1; min-width: 180px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 0.6rem 1rem;
+    font-family: var(--sans);
+    font-size: 0.88rem;
+    border-radius: 3px;
+    outline: none;
+  }
+
+  #popup input[type="email"]:focus {
+    border-color: var(--accent);
+  }
+
+  .btn {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1.4rem;
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: opacity 0.2s;
+  }
+
+  .btn:hover { opacity: 0.85; }
+
+  .btn-ghost {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    padding: 0.6rem 1.4rem;
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: all 0.2s;
+    display: block;
+    margin-top: 1rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  .btn-ghost:hover { border-color: var(--muted); color: var(--text); }
+
+  #popup-msg {
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    color: var(--accent);
+    margin-top: 0.5rem;
+    display: none;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0;
+    background: rgba(15,15,15,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    z-index: 100;
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 58px;
+  }
+
+  .nav-brand {
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text);
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+
+  .nav-brand:hover { opacity: 1; }
+
+  .nav-links {
+    display: flex; gap: 0.2rem; align-items: center;
+  }
+
+  .nav-links button {
+    background: none; border: none;
+    color: var(--muted);
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    padding: 0.4rem 0.9rem;
+    border-radius: 3px;
+    transition: all 0.2s;
+  }
+
+  .nav-links button:hover, .nav-links button.active {
+    color: var(--text);
+    background: var(--surface2);
+  }
+
+  .nav-links button.active {
+    color: var(--accent);
+  }
+
+  /* PAGES */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* HERO */
+  .hero {
+    padding: 6rem 2rem 4rem;
+    max-width: 780px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .hero-label {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: normal;
+    line-height: 1.3;
+    margin-bottom: 0.8rem;
+    color: var(--text);
+  }
+
+  .hero .subtitle {
+    font-size: 1rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 3rem;
+  }
+
+  /* SECTIONS */
+  .section {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .section-label {
+    font-family: var(--sans);
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  .section h2 {
+    font-size: 1.4rem;
+    font-weight: normal;
+    margin-bottom: 1rem;
+    color: var(--text);
+  }
+
+  .section p {
+    color: #b8b4ac;
+    margin-bottom: 0.8rem;
+    font-size: 0.97rem;
+  }
+
+  /* TAG LIST */
+  .tag-list {
+    display: flex; flex-wrap: wrap; gap: 0.5rem;
+    margin: 1rem 0;
+  }
+
+  .tag {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+  }
+
+  /* CARDS NAV HOME */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 2px solid var(--accent);
+    padding: 1.6rem 1.4rem;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.25s;
+  }
+
+  .card:hover {
+    border-top-color: var(--accent);
+    background: var(--surface2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  }
+
+  .card-icon {
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .card h3 {
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+    font-family: var(--sans);
+    font-weight: 600;
+  }
+
+  .card p {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* EVIDENCE BLOCKS */
+  .evidence {
+    margin: 1.2rem 0;
+    padding: 1.2rem 1.4rem;
+    border-left: 3px solid;
+    background: var(--surface);
+    border-radius: 0 3px 3px 0;
+  }
+
+  .evidence.green { border-color: var(--green); }
+  .evidence.yellow { border-color: var(--yellow); }
+  .evidence.orange { border-color: var(--orange); }
+  .evidence.red { border-color: var(--red); }
+
+  .evidence-label {
+    font-family: var(--sans);
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .evidence.green .evidence-label { color: var(--green); }
+  .evidence.yellow .evidence-label { color: var(--yellow); }
+  .evidence.orange .evidence-label { color: var(--orange); }
+  .evidence.red .evidence-label { color: var(--red); }
+
+  .evidence p {
+    font-size: 0.91rem;
+    color: #a8a49c;
+    margin: 0;
+    line-height: 1.65;
+  }
+
+  /* SUBSECTION TITLE */
+  .sub-title {
+    font-size: 1.05rem;
+    font-weight: normal;
+    color: var(--text);
+    margin: 2rem 0 0.8rem;
+    font-family: var(--sans);
+    font-weight: 500;
+  }
+
+  /* PAGE HEADER */
+  .page-header {
+    border-bottom: 1px solid var(--border);
+    padding: 4rem 2rem 2.5rem;
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .page-header h1 {
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: normal;
+    margin-bottom: 0.5rem;
+  }
+
+  .page-header p {
+    color: var(--muted);
+    font-style: italic;
+    font-size: 0.95rem;
+  }
+
+  /* DISCLAIMER BOX */
+  .disclaimer {
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-glow);
+    border-radius: 3px;
+    padding: 1.2rem 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .disclaimer p {
+    font-size: 0.88rem;
+    color: #c8b0b8;
+    margin: 0;
+    line-height: 1.65;
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem;
+    text-align: center;
+    margin-top: 4rem;
+  }
+
+  footer p {
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin-bottom: 0.4rem;
+  }
+
+  footer button {
+    background: none; border: none;
+    color: var(--accent);
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  footer button:hover { opacity: 0.75; }
+
+  /* DIVIDER */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2.5rem 0;
+    max-width: 780px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* LEGEND */
+  .legend {
+    display: flex; flex-wrap: wrap; gap: 1rem;
+    margin: 1.5rem 0;
+    padding: 1.2rem 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+  }
+
+  .legend-item {
+    display: flex; align-items: center; gap: 0.4rem;
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+
+  .legend-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 600px) {
+    .nav-links button { padding: 0.4rem 0.5rem; font-size: 0.72rem; }
+    .hero { padding: 4rem 1.5rem 3rem; }
+    .section { padding: 2rem 1.5rem; }
+    .page-header { padding: 3rem 1.5rem 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- POPUP -->
+<div id="popup-overlay">
+  <div id="popup">
+    <h2>Antes de continuar</h2>
+    <p>La Mucuna Pruriens y su alto contenido de Levodopa son maravillosos. Usados desde hace siglos, tienen un impacto positivo en la calidad de vida de quienes las consumen como parte de su dieta, y en las comunidades que la cultivan.</p>
+    <p>Para poder desarrollar su potencial, es importante entender lo que sabemos, lo que intuimos, y lo que no sabemos aún. Por lo tanto, este sitio web no ofrece diagnóstico médico, tratamiento ni recomendaciones clínicas personalizadas. La información aquí presentada no sustituye consulta médica, no propone tratamientos para enfermedades, no afirma prevenir trastornos neurológicos y no reemplaza terapias aprobadas. Consulta con un profesional de salud antes de modificar cualquier intervención en la que estés.</p>
+    <div class="email-section">
+      <p>Si quieres suscribirte a nuestro newsletter para conocer más de este tema, déjanos tu email.</p>
+      <div class="email-row">
+        <input type="email" id="popup-email" placeholder="tu@email.com" />
+        <button class="btn" onclick="submitEmail()">Suscribirme</button>
+      </div>
+      <div id="popup-msg">✓ ¡Gracias! Te tendremos en cuenta.</div>
+    </div>
+    <button class="btn-ghost" onclick="closePopup()">Entendido, continuar →</button>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand" onclick="showPage('home')">Mucuna Pruriens</div>
+  <div class="nav-links">
+    <button onclick="showPage('home')" id="nav-home" class="active">Inicio</button>
+    <button onclick="showPage('parkinson')" id="nav-parkinson">Parkinson</button>
+    <button onclick="showPage('animo')" id="nav-animo">Estado de Ánimo</button>
+    <button onclick="showPage('rendimiento')" id="nav-rendimiento">Rendimiento</button>
+  </div>
+</nav>
+
+<!-- HOME -->
+<div class="page active" id="page-home">
+  <div class="hero">
+    <div class="hero-label">Mucuna pruriens · Eje dopaminérgico</div>
+    <h1>Ciencia, tradición<br>y claridad</h1>
+    <div class="subtitle">Una leguminosa tropical. Siglos de uso. Un neurotransmisor en el centro.</div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">¿Qué es la Mucuna?</div>
+    <h2>Una planta con historia y con ciencia</h2>
+    <p>Mucuna pruriens es una leguminosa tropical utilizada en sistemas médicos tradicionales como el Ayurveda durante siglos, como tónico nervioso y revitalizante. En el siglo XX se identificó que contiene cantidades significativas de <em>Levodopa</em>, el precursor directo de la dopamina.</p>
+    <p>La dopamina es un neurotransmisor central en múltiples funciones del sistema nervioso:</p>
+    <div class="tag-list">
+      <span class="tag">Movimiento</span>
+      <span class="tag">Motivación</span>
+      <span class="tag">Aprendizaje</span>
+      <span class="tag">Regulación emocional</span>
+      <span class="tag">Atención</span>
+      <span class="tag">Control motor fino</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Uso tradicional</div>
+    <h2>Antes de que existiera la ciencia moderna</h2>
+    <p>En la medicina tradicional india, la Mucuna se empleaba como fortalecedor del sistema nervioso, asociada con vitalidad, función motora y el tratamiento de lo que se describía como "temblores". Estos usos preceden en siglos a la identificación científica de la L-Dopa.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Uso contemporáneo</div>
+    <h2>Lo que la investigación explora hoy</h2>
+    <p>Desde que la Levodopa fue establecida como tratamiento estándar para la enfermedad de Parkinson, el interés en fuentes naturales de L-Dopa ha crecido considerablemente. La investigación actual se organiza en tres áreas principales.</p>
+
+    <div class="cards" style="margin-top:1.8rem">
+      <div class="card" onclick="showPage('parkinson')">
+        <div class="card-icon">🧠</div>
+        <h3>Parkinson y sistema motor</h3>
+        <p>Lo que está probado, lo que se está estudiando y lo que es hipótesis.</p>
+      </div>
+      <div class="card" onclick="showPage('animo')">
+        <div class="card-icon">💬</div>
+        <h3>Estado de ánimo</h3>
+        <p>Depresión, apatía, ansiedad y TDAH desde la neurobiología dopaminérgica.</p>
+      </div>
+      <div class="card" onclick="showPage('rendimiento')">
+        <div class="card-icon">⚡</div>
+        <h3>Rendimiento cognitivo y motor</h3>
+        <p>Dopamina, memoria, concentración y aprendizaje motor.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>La información presentada en este sitio es de carácter educativo.</p>
+    <button onclick="showPage('responsabilidad')">Aviso de responsabilidad completo →</button>
+  </footer>
+</div>
+
+<!-- PAGE 1: PARKINSON -->
+<div class="page" id="page-parkinson">
+  <div class="page-header">
+    <div class="section-label">Página 01</div>
+    <h1>Parkinson y Levodopa</h1>
+    <p>De la neurobiología clásica a las fuentes naturales</p>
+  </div>
+
+  <div class="section">
+    <p>La enfermedad de Parkinson es un trastorno neurodegenerativo caracterizado por la pérdida progresiva de neuronas dopaminérgicas en la sustancia negra. Sus síntomas motores principales incluyen temblores en reposo, rigidez muscular, lentitud de movimiento (bradicinesia) e inestabilidad postural.</p>
+
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div> Evidencia sólida</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--yellow)"></div> Evidencia intermedia</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--orange)"></div> Modelos animales / preliminar</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--red)"></div> Sin evidencia suficiente</div>
+    </div>
+
+    <div class="evidence green">
+      <div class="evidence-label">● Establecido</div>
+      <p>La Levodopa es el tratamiento más efectivo conocido para los síntomas motores del Parkinson. Se administra comúnmente en combinación con carbidopa (Levodopa/carbidopa) para evitar su conversión periférica antes de llegar al cerebro.</p>
+    </div>
+
+    <h3 class="sub-title">Mucuna pruriens vs. Levodopa farmacológica</h3>
+
+    <div class="evidence yellow">
+      <div class="evidence-label">● Evidencia intermedia</div>
+      <p>Algunos estudios clínicos pequeños han comparado extractos de Mucuna pruriens con Levodopa farmacológica, reportando inicio de acción más rápido en algunos casos. Sin embargo, existe variabilidad significativa en la concentración de L-Dopa natural. La evidencia es limitada en tamaño y requiere más replicación antes de poder hacer afirmaciones concluyentes.</p>
+    </div>
+
+    <h3 class="sub-title">Neuroprotección</h3>
+
+    <div class="evidence orange">
+      <div class="evidence-label">● Preliminar</div>
+      <p>Existen estudios en modelos animales que sugieren posibles efectos antioxidantes y moduladores de la Mucuna. No hay evidencia concluyente en humanos que demuestre efecto neuroprotector.</p>
+    </div>
+
+    <h3 class="sub-title">Prevención en personas sanas</h3>
+
+    <div class="evidence red">
+      <div class="evidence-label">● Sin evidencia suficiente</div>
+      <p>No existen estudios longitudinales que demuestren que el consumo de Mucuna prevenga la enfermedad de Parkinson. La idea es fisiológicamente plausible, pero actualmente especulativa.</p>
+    </div>
+
+    <div class="disclaimer">
+      <p>Si padeces enfermedad de Parkinson o cuidas a alguien que la padece, consulta siempre con un neurólogo antes de considerar cualquier modificación de tratamiento.</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>La información presentada en este sitio es de carácter educativo.</p>
+    <button onclick="showPage('responsabilidad')">Aviso de responsabilidad completo →</button>
+  </footer>
+</div>
+
+<!-- PAGE 2: ESTADO DE ÁNIMO -->
+<div class="page" id="page-animo">
+  <div class="page-header">
+    <div class="section-label">Página 02</div>
+    <h1>Estado de Ánimo y Regulación Emocional</h1>
+    <p>Dopamina, motivación y circuitos de recompensa</p>
+  </div>
+
+  <div class="section">
+    <p>La dopamina participa activamente en circuitos relacionados con la motivación, la recompensa, la energía psíquica, el control inhibitorio y la atención sostenida. Su rol no se limita al movimiento: es fundamental para cómo experimentamos el mundo emocional.</p>
+
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div> Evidencia sólida</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--yellow)"></div> Evidencia intermedia</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--orange)"></div> Modelos animales / preliminar</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--red)"></div> Sin evidencia suficiente</div>
+    </div>
+
+    <h3 class="sub-title">Depresión y apatía</h3>
+
+    <div class="evidence yellow">
+      <div class="evidence-label">● Evidencia intermedia</div>
+      <p>Algunos estudios han explorado la L-Dopa como coadyuvante en depresión con fuerte componente de anhedonia —la incapacidad de experimentar placer. La lógica neurobiológica es sólida, pero la evidencia clínica aún es preliminar.</p>
+    </div>
+
+    <div class="evidence red">
+      <div class="evidence-label">● Sin evidencia suficiente</div>
+      <p>No existen ensayos clínicos de gran escala que respalden la Mucuna como tratamiento primario para la depresión.</p>
+    </div>
+
+    <h3 class="sub-title">Ansiedad</h3>
+
+    <div class="evidence orange">
+      <div class="evidence-label">● Preliminar</div>
+      <p>La dopamina modula la respuesta al miedo y el aprendizaje emocional. Estudios experimentales muestran que la L-Dopa puede modificar el procesamiento del miedo en condiciones controladas de laboratorio.</p>
+    </div>
+
+    <div class="evidence red">
+      <div class="evidence-label">● Sin evidencia suficiente</div>
+      <p>No hay evidencia suficiente que respalde el uso de Mucuna como tratamiento para trastornos de ansiedad.</p>
+    </div>
+
+    <h3 class="sub-title">TDAH</h3>
+
+    <div class="evidence green">
+      <div class="evidence-label">● Establecido</div>
+      <p>El trastorno por déficit de atención e hiperactividad (TDAH) está asociado a alteraciones dopaminérgicas en circuitos frontales. Los tratamientos farmacológicos aprobados actúan precisamente aumentando la disponibilidad de dopamina en estos circuitos.</p>
+    </div>
+
+    <div class="evidence red">
+      <div class="evidence-label">● Sin evidencia suficiente</div>
+      <p>No hay evidencia robusta que respalde la Mucuna como tratamiento para el TDAH. La relación conceptual existe, pero la evidencia clínica no.</p>
+    </div>
+
+    <h3 class="sub-title">La curva en U invertida</h3>
+    <p style="color:#b8b4ac; font-size:0.95rem; margin-top:0.5rem">Un principio fundamental: la modulación dopaminérgica no es lineal. El déficit de dopamina produce bajo rendimiento y apatía; el exceso puede generar impulsividad, ansiedad o desregulación. El efecto de cualquier intervención depende del estado basal individual, lo que hace que la auto-administración sin supervisión sea particularmente compleja.</p>
+
+    <div class="disclaimer">
+      <p>La dopamina no es simplemente "más es mejor". La intervención en estos sistemas requiere comprensión del estado basal individual y supervisión profesional.</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>La información presentada en este sitio es de carácter educativo.</p>
+    <button onclick="showPage('responsabilidad')">Aviso de responsabilidad completo →</button>
+  </footer>
+</div>
+
+<!-- PAGE 3: RENDIMIENTO -->
+<div class="page" id="page-rendimiento">
+  <div class="page-header">
+    <div class="section-label">Página 03</div>
+    <h1>Rendimiento Cognitivo y Motor</h1>
+    <p>Dopamina, memoria, concentración y aprendizaje</p>
+  </div>
+
+  <div class="section">
+    <p>Más allá de la patología, la dopamina juega un papel activo en el rendimiento cotidiano de personas sanas. Su influencia sobre los circuitos prefrontales y estriatales determina en buena medida nuestra capacidad de aprender, concentrarnos y ejecutar tareas complejas.</p>
+
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div> Evidencia sólida</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--yellow)"></div> Evidencia intermedia</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--orange)"></div> Modelos animales / preliminar</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--red)"></div> Sin evidencia suficiente</div>
+    </div>
+
+    <h3 class="sub-title">Cognición</h3>
+    <p style="color:#b8b4ac; font-size:0.95rem; margin-bottom:1rem">La dopamina influye en la memoria de trabajo, la flexibilidad cognitiva, la toma de decisiones y la motivación dirigida a metas.</p>
+
+    <div class="evidence orange">
+      <div class="evidence-label">● Preliminar</div>
+      <p>Estudios experimentales con L-Dopa muestran efectos en el aprendizaje y la consolidación motora en condiciones controladas.</p>
+    </div>
+
+    <div class="evidence red">
+      <div class="evidence-label">● Sin evidencia suficiente</div>
+      <p>No existen ensayos clínicos robustos que evalúen la suplementación crónica con Mucuna en población sana con el objetivo de mejora cognitiva.</p>
+    </div>
+
+    <h3 class="sub-title">Rendimiento motor</h3>
+    <p style="color:#b8b4ac; font-size:0.95rem; margin-bottom:1rem">La dopamina regula los circuitos cortico-estriatales implicados en coordinación fina, aprendizaje motor, ritmo y precisión.</p>
+
+    <div class="evidence orange">
+      <div class="evidence-label">● Preliminar</div>
+      <p>La L-Dopa ha sido estudiada en el contexto del aprendizaje motor experimental, mostrando efectos en consolidación de secuencias motoras.</p>
+    </div>
+
+    <div class="evidence red">
+      <div class="evidence-label">● Sin evidencia suficiente</div>
+      <p>No hay evidencia formal en artistas o deportistas sanos que utilicen Mucuna como herramienta de optimización del rendimiento.</p>
+    </div>
+
+    <h3 class="sub-title">Interacciones relevantes a considerar</h3>
+
+    <div class="disclaimer">
+      <p>La L-Dopa compite con aminoácidos neutros grandes, por lo que puede verse afectada por comidas altas en proteína. Interactúa con inhibidores MAO y no debe combinarse sin supervisión médica con medicación dopaminérgica existente.</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>La información presentada en este sitio es de carácter educativo.</p>
+    <button onclick="showPage('responsabilidad')">Aviso de responsabilidad completo →</button>
+  </footer>
+</div>
+
+<!-- PAGE: RESPONSABILIDAD -->
+<div class="page" id="page-responsabilidad">
+  <div class="page-header">
+    <div class="section-label">Aviso legal</div>
+    <h1>Alcance de esta información</h1>
+    <p>Transparencia sobre lo que este sitio es y lo que no es</p>
+  </div>
+
+  <div class="section">
+    <p>Este sitio web ha sido diseñado con la intención de organizar de manera clara y honesta la información científica disponible sobre la Mucuna pruriens y el sistema dopaminérgico. La transparencia epistemológica —distinguir lo que sabemos de lo que intuimos y de lo que no sabemos— es su principio organizador.</p>
+
+    <h3 class="sub-title">Este sitio no:</h3>
+    <div class="tag-list" style="margin-bottom:1.5rem">
+      <span class="tag">Recomienda tratamientos</span>
+      <span class="tag">Prescribe dosis</span>
+      <span class="tag">Afirma prevención</span>
+      <span class="tag">Reemplaza terapias médicas</span>
+      <span class="tag">Sustituye evaluación profesional</span>
+    </div>
+
+    <h3 class="sub-title">Cómo se clasifica la información</h3>
+    <p>La información presentada distingue explícitamente entre evidencia clínica robusta, estudios preliminares en humanos, modelos animales e hipótesis fisiológicas. Esta distinción es intencional y refleja el estado real del conocimiento científico.</p>
+
+    <div class="evidence green">
+      <div class="evidence-label">● Evidencia sólida</div>
+      <p>Ensayos clínicos replicados, consenso científico y guías clínicas establecidas.</p>
+    </div>
+
+    <div class="evidence yellow">
+      <div class="evidence-label">● Evidencia intermedia</div>
+      <p>Estudios clínicos pequeños, resultados prometedores que requieren más replicación.</p>
+    </div>
+
+    <div class="evidence orange">
+      <div class="evidence-label">● Preliminar / Modelos animales</div>
+      <p>Investigación preclínica, estudios experimentales o mecanismos plausibles sin validación clínica suficiente.</p>
+    </div>
+
+    <div class="evidence red">
+      <div class="evidence-label">● Sin evidencia suficiente</div>
+      <p>Ideas fisiológicamente plausibles pero sin respaldo empírico actual en humanos.</p>
+    </div>
+
+    <div class="disclaimer" style="margin-top:2rem">
+      <p>Si tienes una condición médica diagnosticada, consulta siempre con un profesional de salud antes de tomar decisiones relacionadas con neurotransmisores o suplementación. Este sitio no puede ni pretende reemplazar esa consulta.</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>© Mucuna Pruriens – Eje Dopaminérgico. Información de carácter educativo.</p>
+    <p style="margin-top:0.4rem"><button onclick="showPage('home')">← Volver al inicio</button></p>
+  </footer>
+</div>
+
+<script>
+  // --- PAGE NAVIGATION ---
+  function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-links button').forEach(b => b.classList.remove('active'));
+    document.getElementById('page-' + id).classList.add('active');
+    const nb = document.getElementById('nav-' + id);
+    if (nb) nb.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // --- POPUP ---
+  function closePopup() {
+    document.getElementById('popup-overlay').style.display = 'none';
+  }
+
+  // --- EMAIL SUBMIT TO GOOGLE SHEETS ---
+  // Replace the URL below with your Google Apps Script Web App deployment URL
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec';
+
+  async function submitEmail() {
+    const emailEl = document.getElementById('popup-email');
+    const msg = document.getElementById('popup-msg');
+    const email = emailEl.value.trim();
+
+    if (!email || !email.includes('@')) {
+      emailEl.style.borderColor = 'var(--red)';
+      return;
+    }
+
+    emailEl.style.borderColor = 'var(--border)';
+
+    try {
+      await fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email, timestamp: new Date().toISOString() })
+      });
+    } catch (e) {
+      // no-cors: response is opaque, treat as success
+    }
+
+    msg.style.display = 'block';
+    emailEl.value = '';
+    setTimeout(closePopup, 1600);
+  }
+
+  document.getElementById('popup-email').addEventListener('keydown', e => {
+    if (e.key === 'Enter') submitEmail();
+  });
+</script>
+</body>
+</html>
