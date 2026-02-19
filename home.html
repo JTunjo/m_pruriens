@@ -6,19 +6,19 @@
 <title>Mucuna Pruriens – Eje Dopaminérgico</title>
 <style>
   :root {
-    --bg: #0f0f0f;
-    --surface: #1a1a1a;
-    --surface2: #222222;
-    --border: #2e2e2e;
-    --text: #e8e4dc;
-    --muted: #8a8580;
-    --accent: #d4648a;
-    --accent-soft: rgba(212,100,138,0.12);
-    --accent-glow: rgba(212,100,138,0.25);
-    --green: #5a8a6a;
-    --yellow: #b89a4a;
-    --orange: #c07840;
-    --red: #a85050;
+    --bg: #f7f2eb;
+    --surface: #ffffff;
+    --surface2: #f0ebe2;
+    --border: #e0d8cc;
+    --text: #1e1a16;
+    --muted: #7a6e63;
+    --accent: #c94d7a;
+    --accent-soft: rgba(201,77,122,0.08);
+    --accent-glow: rgba(201,77,122,0.2);
+    --green: #3a7a52;
+    --yellow: #9a7a20;
+    --orange: #b05e20;
+    --red: #a03030;
     --font: 'Georgia', serif;
     --sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
@@ -36,15 +36,17 @@
   /* POPUP */
   #popup-overlay {
     position: fixed; inset: 0;
-    background: rgba(0,0,0,0.88);
+    background: rgba(0,0,0,0.45);
     z-index: 1000;
     display: flex; align-items: center; justify-content: center;
     padding: 1.5rem;
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(6px);
+    opacity: 0;
+    transition: opacity 0.7s ease;
   }
 
   #popup {
-    background: var(--surface);
+    background: #fff;
     border: 1px solid var(--border);
     border-top: 3px solid var(--accent);
     max-width: 600px; width: 100%;
@@ -65,7 +67,7 @@
 
   #popup p {
     font-size: 0.95rem;
-    color: #c8c4bc;
+    color: #4a4440;
     margin-bottom: 1.5rem;
     line-height: 1.75;
   }
@@ -149,7 +151,7 @@
   /* NAV */
   nav {
     position: sticky; top: 0;
-    background: rgba(15,15,15,0.95);
+    background: rgba(247,242,235,0.96);
     backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--border);
     z-index: 100;
@@ -502,6 +504,7 @@
     <button onclick="showPage('parkinson')" id="nav-parkinson">Parkinson</button>
     <button onclick="showPage('animo')" id="nav-animo">Estado de Ánimo</button>
     <button onclick="showPage('rendimiento')" id="nav-rendimiento">Rendimiento</button>
+    <button onclick="showPage('recetas')" id="nav-recetas">Recetas</button>
   </div>
 </nav>
 
@@ -744,6 +747,180 @@
   </footer>
 </div>
 
+<!-- PAGE: RECETAS -->
+<div class="page" id="page-recetas">
+  <div class="page-header">
+    <div class="section-label">Recetas</div>
+    <h1>Mucuna en la cocina</h1>
+    <p>Cuatro formas de incorporar esta leguminosa a tu alimentación cotidiana</p>
+  </div>
+
+  <div class="section">
+    <div class="disclaimer">
+      <p>Estas recetas utilizan Mucuna pruriens en su forma comestible preparada correctamente. La Mucuna cruda requiere cocción prolongada para eliminar compuestos antinutricionales. Si usas polvo estandarizado, sigue las indicaciones del fabricante.</p>
+    </div>
+
+    <!-- RECETA 1 -->
+    <div style="margin-top:2.5rem">
+      <div class="section-label">Receta 01</div>
+      <h2>Dal de Mucuna con cúrcuma y jengibre</h2>
+      <p style="color:var(--muted); font-style:italic; margin-bottom:1.2rem">Inspirado en la cocina ayurvédica. Reconfortante, nutritivo y fácil de preparar.</p>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-bottom:1.2rem">
+        <div>
+          <p style="font-family:var(--sans); font-size:0.72rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--accent); margin-bottom:0.6rem">Ingredientes</p>
+          <p style="font-size:0.92rem; color:#4a4440; line-height:1.9">
+            300 g de frijoles de Mucuna (remojados 24h)<br>
+            1 cebolla mediana, picada<br>
+            3 dientes de ajo<br>
+            1 trozo de jengibre fresco (2 cm)<br>
+            1 cdta de cúrcuma<br>
+            1 cdta de comino en semilla<br>
+            400 ml de leche de coco<br>
+            Sal, cilantro fresco y limón al gusto
+          </p>
+        </div>
+        <div>
+          <p style="font-family:var(--sans); font-size:0.72rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--accent); margin-bottom:0.6rem">Preparación</p>
+          <p style="font-size:0.92rem; color:#4a4440; line-height:1.9">
+            1. Cocina los frijoles remojados durante 60–90 min hasta que estén tiernos. Descarta el agua de cocción.<br>
+            2. En una olla, sofríe el comino en aceite hasta que truene. Agrega cebolla, ajo y jengibre.<br>
+            3. Incorpora la cúrcuma, los frijoles cocidos y la leche de coco. Cocina 15 min a fuego medio.<br>
+            4. Ajusta sal. Sirve con cilantro, limón y arroz o pan naan.
+          </p>
+        </div>
+      </div>
+      <div class="tag-list">
+        <span class="tag">⏱ 2 horas (incluye remojo)</span>
+        <span class="tag">🍽 4 porciones</span>
+        <span class="tag">Frijol entero</span>
+        <span class="tag">Sin gluten</span>
+      </div>
+    </div>
+
+    <hr class="divider" style="margin:2.5rem 0">
+
+    <!-- RECETA 2 -->
+    <div>
+      <div class="section-label">Receta 02</div>
+      <h2>Hummus de Mucuna con aceite de oliva y pimentón</h2>
+      <p style="color:var(--muted); font-style:italic; margin-bottom:1.2rem">Una versión alternativa al hummus de garbanzo, con perfil nutricional único.</p>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-bottom:1.2rem">
+        <div>
+          <p style="font-family:var(--sans); font-size:0.72rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--accent); margin-bottom:0.6rem">Ingredientes</p>
+          <p style="font-size:0.92rem; color:#4a4440; line-height:1.9">
+            250 g de Mucuna cocida y enfriada<br>
+            2 cdas de tahini<br>
+            2 cdas de aceite de oliva extra virgen<br>
+            1 diente de ajo<br>
+            Jugo de 1 limón<br>
+            Sal y pimienta al gusto<br>
+            Pimentón ahumado para decorar
+          </p>
+        </div>
+        <div>
+          <p style="font-family:var(--sans); font-size:0.72rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--accent); margin-bottom:0.6rem">Preparación</p>
+          <p style="font-size:0.92rem; color:#4a4440; line-height:1.9">
+            1. Procesa la Mucuna cocida con el tahini, el ajo, el limón y una pizca de sal.<br>
+            2. Agrega el aceite de oliva poco a poco mientras procesas hasta obtener una textura cremosa.<br>
+            3. Si queda muy espeso, añade 2–3 cdas del agua de cocción.<br>
+            4. Sirve con pimentón ahumado, un hilo de aceite y vegetales o pan tostado.
+          </p>
+        </div>
+      </div>
+      <div class="tag-list">
+        <span class="tag">⏱ 15 minutos</span>
+        <span class="tag">🍽 6 porciones</span>
+        <span class="tag">Frijol cocido</span>
+        <span class="tag">Vegano</span>
+      </div>
+    </div>
+
+    <hr class="divider" style="margin:2.5rem 0">
+
+    <!-- RECETA 3 -->
+    <div>
+      <div class="section-label">Receta 03</div>
+      <h2>Smoothie de Mucuna en polvo con cacao y plátano</h2>
+      <p style="color:var(--muted); font-style:italic; margin-bottom:1.2rem">Una forma rápida de incorporar el polvo estandarizado en la rutina matutina.</p>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-bottom:1.2rem">
+        <div>
+          <p style="font-family:var(--sans); font-size:0.72rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--accent); margin-bottom:0.6rem">Ingredientes</p>
+          <p style="font-size:0.92rem; color:#4a4440; line-height:1.9">
+            1 plátano maduro congelado<br>
+            1 cda de polvo de Mucuna estandarizado<br>
+            1 cda de cacao puro en polvo<br>
+            200 ml de leche de almendra o avena<br>
+            1 cdta de miel o dátil<br>
+            Hielo al gusto
+          </p>
+        </div>
+        <div>
+          <p style="font-family:var(--sans); font-size:0.72rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--accent); margin-bottom:0.6rem">Preparación</p>
+          <p style="font-size:0.92rem; color:#4a4440; line-height:1.9">
+            1. Coloca todos los ingredientes en la licuadora.<br>
+            2. Procesa a velocidad alta durante 60 segundos hasta obtener una mezcla homogénea.<br>
+            3. Prueba el dulzor y ajusta con miel o dátil si es necesario.<br>
+            4. Sirve inmediatamente. Ideal en ayunas o antes del desayuno principal.
+          </p>
+        </div>
+      </div>
+      <div class="tag-list">
+        <span class="tag">⏱ 5 minutos</span>
+        <span class="tag">🍽 1 porción</span>
+        <span class="tag">Polvo estandarizado</span>
+        <span class="tag">Sin cocción</span>
+      </div>
+    </div>
+
+    <hr class="divider" style="margin:2.5rem 0">
+
+    <!-- RECETA 4 -->
+    <div>
+      <div class="section-label">Receta 04</div>
+      <h2>Sopa rústica de Mucuna con vegetales de raíz</h2>
+      <p style="color:var(--muted); font-style:italic; margin-bottom:1.2rem">Sustanciosa y aromática. Perfecta para climas fríos o como plato principal.</p>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-bottom:1.2rem">
+        <div>
+          <p style="font-family:var(--sans); font-size:0.72rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--accent); margin-bottom:0.6rem">Ingredientes</p>
+          <p style="font-size:0.92rem; color:#4a4440; line-height:1.9">
+            250 g de Mucuna cocida<br>
+            1 zanahoria grande, en cubos<br>
+            1 papa mediana, en cubos<br>
+            1 tallo de apio<br>
+            1 cebolla, 2 dientes de ajo<br>
+            1 litro de caldo de verduras<br>
+            1 hoja de laurel, tomillo, sal y pimienta
+          </p>
+        </div>
+        <div>
+          <p style="font-family:var(--sans); font-size:0.72rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--accent); margin-bottom:0.6rem">Preparación</p>
+          <p style="font-size:0.92rem; color:#4a4440; line-height:1.9">
+            1. Sofríe la cebolla y el ajo en aceite hasta dorar. Agrega el apio y la zanahoria, cocina 5 min.<br>
+            2. Añade la papa, el caldo, el laurel y el tomillo. Lleva a ebullición.<br>
+            3. Incorpora la Mucuna cocida. Reduce el fuego y cocina 20 min.<br>
+            4. Retira el laurel, ajusta sal y pimienta. Sirve caliente con pan rústico.
+          </p>
+        </div>
+      </div>
+      <div class="tag-list">
+        <span class="tag">⏱ 45 minutos</span>
+        <span class="tag">🍽 4 porciones</span>
+        <span class="tag">Frijol cocido</span>
+        <span class="tag">Sin gluten</span>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>La información presentada en este sitio es de carácter educativo.</p>
+    <button onclick="showPage('responsabilidad')">Aviso de responsabilidad completo →</button>
+  </footer>
+</div>
+
 <!-- PAGE: RESPONSABILIDAD -->
 <div class="page" id="page-responsabilidad">
   <div class="page-header">
@@ -849,6 +1026,11 @@
   document.getElementById('popup-email').addEventListener('keydown', e => {
     if (e.key === 'Enter') submitEmail();
   });
+
+  // Delay + fade-in
+  const overlay = document.getElementById('popup-overlay');
+  overlay.style.display = 'flex';
+  setTimeout(() => { overlay.style.opacity = '1'; }, 1200);
 </script>
 </body>
 </html>
