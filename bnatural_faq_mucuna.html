@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Preguntas Frecuentes – Mucuna Pruriens | BNatural</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Raleway:wght@500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── CSS Variables ─── */
+    :root {
+      --primary:        #2d6a4f;
+      --primary-dark:   #1b4332;
+      --primary-light:  #52b788;
+      --primary-pale:   #d8f3dc;
+      --secondary:      #a7c957;
+      --accent:         #f4a261;
+      --bg-main:        #ffffff;
+      --bg-alt:         #f9f9f6;
+      --bg-dark:        #1b4332;
+      --text-primary:   #2d2d2d;
+      --text-secondary: #555555;
+      --text-muted:     #888888;
+      --text-on-dark:   #ffffff;
+      --border:         #e0e0d8;
+      --font-heading:   'Playfair Display', Georgia, serif;
+      --font-body:      'Lato', Helvetica, sans-serif;
+      --font-accent:    'Raleway', sans-serif;
+      --radius:         8px;
+      --shadow-card:    0 2px 16px rgba(0,0,0,0.07);
+      --shadow-hover:   0 8px 32px rgba(45,106,79,0.15);
+      --transition:     0.25s ease;
+      --container:      1100px;
+    }
+
+    /* ─── Reset & Base ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      color: var(--text-primary);
+      background: var(--bg-main);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: var(--primary); text-decoration: none; }
+    a:hover { color: var(--primary-dark); }
+
+    /* ─── Announcement Bar ─── */
+    .announcement-bar {
+      background: var(--primary);
+      color: #fff;
+      text-align: center;
+      font-size: 0.82rem;
+      font-family: var(--font-accent);
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      padding: 10px 20px;
+    }
+
+    /* ─── Navbar ─── */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-main);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      padding: 0 20px;
+    }
+    .navbar-inner {
+      max-width: var(--container);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .navbar-logo {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      letter-spacing: -0.02em;
+    }
+    .navbar-logo span { color: var(--primary-light); font-style: italic; }
+    .navbar-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .navbar-links a {
+      font-family: var(--font-accent);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      letter-spacing: 0.04em;
+      transition: color var(--transition);
+    }
+    .navbar-links a:hover, .navbar-links a.active { color: var(--primary); }
+    .navbar-cta {
+      background: var(--primary);
+      color: #fff !important;
+      padding: 8px 20px;
+      border-radius: 4px;
+      font-weight: 700 !important;
+      transition: background var(--transition) !important;
+    }
+    .navbar-cta:hover { background: var(--primary-dark) !important; color: #fff !important; }
+
+    /* ─── Hero Banner ─── */
+    .hero {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 55%, #40916c 100%);
+      position: relative;
+      overflow: hidden;
+      padding: 90px 20px 80px;
+      text-align: center;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 80% 20%, rgba(167,201,87,0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 10% 80%, rgba(82,183,136,0.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    /* decorative leaf shapes */
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,0.07);
+      top: -150px; right: -150px;
+      pointer-events: none;
+    }
+    .hero-inner {
+      position: relative;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      font-family: var(--font-accent);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--secondary);
+      border: 1px solid rgba(167,201,87,0.4);
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 22px;
+      animation: fadeUp 0.6s ease both;
+    }
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.18;
+      margin-bottom: 18px;
+      animation: fadeUp 0.7s 0.1s ease both;
+    }
+    .hero h1 em { font-style: italic; color: var(--secondary); }
+    .hero-subtitle {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.82);
+      font-weight: 300;
+      max-width: 560px;
+      margin: 0 auto 32px;
+      animation: fadeUp 0.7s 0.2s ease both;
+    }
+    .hero-meta {
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeUp 0.7s 0.3s ease both;
+    }
+    .hero-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.75);
+      font-family: var(--font-accent);
+      font-weight: 500;
+    }
+    .hero-meta-item .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--secondary);
+      flex-shrink: 0;
+    }
+    /* scroll-down indicator */
+    .hero-scroll {
+      position: absolute;
+      bottom: -28px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 56px; height: 56px;
+      background: var(--bg-main);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+      animation: fadeUp 0.8s 0.5s ease both, bounce 2.5s 1.5s ease-in-out infinite;
+    }
+    .hero-scroll svg { color: var(--primary); }
+
+    /* ─── Disclaimer strip ─── */
+    .disclaimer-strip {
+      background: #fffdf5;
+      border-bottom: 1px solid #f0e8c8;
+      padding: 14px 20px;
+      text-align: center;
+    }
+    .disclaimer-strip p {
+      font-size: 0.8rem;
+      color: #a07c2a;
+      font-family: var(--font-accent);
+      font-weight: 500;
+      max-width: var(--container);
+      margin: 0 auto;
+    }
+    .disclaimer-strip strong { font-weight: 700; }
+
+    /* ─── Main Content ─── */
+    .main-content {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 80px 20px 60px;
+    }
+
+    /* ─── Section Label ─── */
+    .section-label {
+      text-align: center;
+      margin-bottom: 52px;
+    }
+    .section-label h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.7rem, 3vw, 2.2rem);
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 10px;
+      line-height: 1.25;
+    }
+    .section-label h2 em { font-style: italic; color: var(--primary-light); }
+    .section-divider {
+      width: 56px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: 2px;
+      margin: 12px auto 14px;
+    }
+    .section-label p {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* ─── Category Tabs ─── */
+    .faq-tabs {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+    .faq-tab {
+      font-family: var(--font-accent);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      padding: 8px 18px;
+      border-radius: 24px;
+      border: 1.5px solid var(--border);
+      background: transparent;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+    .faq-tab:hover, .faq-tab.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+    }
+
+    /* ─── FAQ Accordion ─── */
+    .faq-group {
+      margin-bottom: 48px;
+    }
+    .faq-group-title {
+      font-family: var(--font-accent);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--primary-light);
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--primary-pale);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .faq-group-title::before {
+      content: '';
+      display: inline-block;
+      width: 24px; height: 2px;
+      background: var(--primary-light);
+      border-radius: 2px;
+    }
+
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 10px;
+      overflow: hidden;
+      background: var(--bg-main);
+      transition: box-shadow var(--transition), border-color var(--transition);
+    }
+    .faq-item:hover {
+      border-color: var(--primary-light);
+      box-shadow: var(--shadow-hover);
+    }
+    .faq-item.open {
+      border-color: var(--primary);
+      box-shadow: 0 4px 24px rgba(45,106,79,0.1);
+    }
+
+    .faq-question {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 20px 24px;
+      background: none;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+      font-family: var(--font-body);
+    }
+    .faq-q-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex: 1;
+    }
+    .faq-number {
+      font-family: var(--font-heading);
+      font-size: 0.78rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--primary-light);
+      min-width: 28px;
+      opacity: 0.7;
+    }
+    .faq-q-text {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.4;
+      transition: color var(--transition);
+    }
+    .faq-item.open .faq-q-text { color: var(--primary-dark); }
+
+    .faq-badge {
+      font-family: var(--font-accent);
+      font-size: 0.68rem;
+      font-weight: 600;
+      padding: 3px 9px;
+      border-radius: 12px;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+    .badge-establecido  { background: #d8f3dc; color: #1b4332; }
+    .badge-intermedio   { background: #e8f5e0; color: #3a6b28; }
+    .badge-preliminar   { background: #fff8ec; color: #a07c2a; }
+    .badge-sin-evidencia{ background: #f3f3f3; color: #666; }
+
+    .faq-chevron {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: var(--primary-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background var(--transition), transform var(--transition);
+    }
+    .faq-item.open .faq-chevron {
+      background: var(--primary);
+      transform: rotate(180deg);
+    }
+    .faq-chevron svg { transition: stroke var(--transition); }
+    .faq-item.open .faq-chevron svg { stroke: #fff; }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), padding 0.3s ease;
+    }
+    .faq-answer.open { max-height: 600px; }
+    .faq-answer-inner {
+      padding: 0 24px 24px 66px;
+      border-top: 1px solid var(--primary-pale);
+    }
+    .faq-answer p {
+      font-size: 0.97rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-top: 14px;
+    }
+    .faq-answer p + p { margin-top: 10px; }
+    .faq-answer strong { color: var(--text-primary); }
+    .faq-answer em { color: var(--primary); font-style: italic; }
+
+    .faq-answer-note {
+      margin-top: 16px;
+      padding: 12px 16px;
+      background: var(--bg-alt);
+      border-left: 3px solid var(--primary-light);
+      border-radius: 0 4px 4px 0;
+      font-size: 0.87rem;
+      color: var(--text-muted);
+    }
+    .faq-answer-note strong { color: var(--primary-dark); }
+
+    /* ─── Evidence Legend ─── */
+    .evidence-legend {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+    .ev-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      font-family: var(--font-accent);
+      font-weight: 500;
+      padding: 5px 12px;
+      border-radius: 20px;
+    }
+    .ev-badge .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .ev-badge.est   { background: #d8f3dc; color: #1b4332; } .ev-badge.est .dot { background: #1b4332; }
+    .ev-badge.int   { background: #e8f5e0; color: #3a6b28; } .ev-badge.int .dot { background: #3a6b28; }
+    .ev-badge.pre   { background: #fff8ec; color: #a07c2a; } .ev-badge.pre .dot { background: #a07c2a; }
+    .ev-badge.sin   { background: #f3f3f3; color: #666;    } .ev-badge.sin .dot { background: #bbb; }
+
+    /* ─── CTA Banner ─── */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+      border-radius: 16px;
+      padding: 52px 40px;
+      text-align: center;
+      margin: 60px 0 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-banner::before {
+      content: '';
+      position: absolute;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.08);
+      top: -100px; right: -80px;
+      pointer-events: none;
+    }
+    .cta-banner::after {
+      content: '';
+      position: absolute;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: rgba(167,201,87,0.1);
+      bottom: -60px; left: -60px;
+      pointer-events: none;
+    }
+    .cta-banner h3 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      color: #fff;
+      margin-bottom: 12px;
+      position: relative;
+    }
+    .cta-banner h3 em { color: var(--secondary); font-style: italic; }
+    .cta-banner p {
+      color: rgba(255,255,255,0.78);
+      font-size: 1rem;
+      margin-bottom: 28px;
+      position: relative;
+    }
+    .cta-buttons {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+    }
+    .btn-primary {
+      background: #fff;
+      color: var(--primary-dark);
+      font-family: var(--font-accent);
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 13px 28px;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      transition: all var(--transition);
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-primary:hover {
+      background: var(--secondary);
+      color: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+    .btn-ghost {
+      background: transparent;
+      color: #fff;
+      font-family: var(--font-accent);
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 11px 26px;
+      border-radius: 4px;
+      border: 2px solid rgba(255,255,255,0.5);
+      cursor: pointer;
+      transition: all var(--transition);
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-ghost:hover { border-color: #fff; background: rgba(255,255,255,0.1); color: #fff; }
+
+    /* ─── Footer ─── */
+    footer {
+      background: var(--bg-dark);
+      color: var(--primary-pale);
+      padding: 52px 20px 28px;
+      margin-top: 80px;
+    }
+    .footer-inner {
+      max-width: var(--container);
+      margin: 0 auto;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .footer-brand .brand-name {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .footer-brand .brand-name span { color: var(--secondary); font-style: italic; }
+    .footer-brand p {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+      max-width: 280px;
+    }
+    .footer-col h4 {
+      font-family: var(--font-accent);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--secondary);
+      margin-bottom: 14px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 8px; }
+    .footer-col ul li a {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.6);
+      transition: color var(--transition);
+    }
+    .footer-col ul li a:hover { color: #fff; }
+    .footer-bottom {
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .footer-bottom p { font-size: 0.78rem; color: rgba(255,255,255,0.4); }
+    .footer-disclaimer {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.3);
+      margin-top: 4px;
+    }
+
+    /* ─── Animations ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(6px); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 849px) {
+      .navbar-links { display: none; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: 1 / -1; }
+      .faq-answer-inner { padding-left: 20px; }
+      .hero { padding: 70px 20px 60px; }
+    }
+    @media (max-width: 549px) {
+      .faq-question { padding: 16px; }
+      .faq-q-left { gap: 8px; }
+      .faq-badge { display: none; }
+      .footer-top { grid-template-columns: 1fr; }
+      .cta-banner { padding: 36px 24px; }
+      .evidence-legend { gap: 8px; }
+    }
+
+    /* ─── Editor Panel ─── */
+    #editor-toggle {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 9999;
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(45,106,79,0.4);
+      display: flex; align-items: center; justify-content: center;
+      transition: background var(--transition), transform var(--transition);
+    }
+    #editor-toggle:hover { background: var(--primary-dark); transform: scale(1.08); }
+    #editor-toggle svg { pointer-events: none; }
+
+    #editor-panel {
+      position: fixed;
+      bottom: 92px;
+      right: 28px;
+      z-index: 9998;
+      width: 300px;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+      padding: 0;
+      overflow: hidden;
+      transform: translateY(16px) scale(0.97);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+    #editor-panel.open {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: all;
+    }
+    .ep-header {
+      background: var(--primary-dark);
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .ep-header h3 {
+      font-family: var(--font-accent);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #fff;
+      margin: 0;
+    }
+    .ep-header span {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.5);
+      font-family: var(--font-body);
+    }
+    .ep-body { padding: 20px; display: flex; flex-direction: column; gap: 20px; }
+
+    .ep-field label {
+      display: block;
+      font-family: var(--font-accent);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .ep-field label span {
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: 0;
+      color: #bbb;
+      font-size: 0.68rem;
+    }
+
+    .ep-preview {
+      width: 100%;
+      height: 72px;
+      border-radius: 8px;
+      background: var(--bg-alt);
+      border: 2px dashed var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: border-color var(--transition);
+      position: relative;
+    }
+    .ep-preview:hover { border-color: var(--primary-light); }
+    .ep-preview img {
+      width: 100%; height: 100%;
+      object-fit: contain;
+      object-position: center;
+    }
+    .ep-preview.banner-preview { height: 88px; }
+    .ep-preview.banner-preview img { object-fit: cover; }
+    .ep-preview-hint {
+      display: flex; flex-direction: column; align-items: center; gap: 4px;
+      color: var(--text-muted); font-size: 0.75rem; font-family: var(--font-accent);
+      font-weight: 500; pointer-events: none;
+    }
+    .ep-preview-hint svg { opacity: 0.4; }
+
+    .ep-upload-btn {
+      width: 100%;
+      padding: 9px;
+      border-radius: 6px;
+      border: 1.5px solid var(--primary);
+      background: transparent;
+      color: var(--primary);
+      font-family: var(--font-accent);
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition);
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+    }
+    .ep-upload-btn:hover { background: var(--primary); color: #fff; }
+
+    .ep-reset-btn {
+      width: 100%;
+      padding: 7px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-muted);
+      font-family: var(--font-accent);
+      font-size: 0.72rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all var(--transition);
+      margin-top: 4px;
+    }
+    .ep-reset-btn:hover { border-color: #e63946; color: #e63946; }
+
+    .ep-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 0 -20px;
+    }
+
+    .ep-overlay-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .ep-overlay-row label {
+      font-size: 0.72rem;
+      font-family: var(--font-accent);
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin: 0;
+    }
+    .ep-slider {
+      flex: 1;
+      accent-color: var(--primary);
+      cursor: pointer;
+    }
+    .ep-overlay-val {
+      font-size: 0.72rem;
+      font-family: var(--font-accent);
+      color: var(--primary);
+      font-weight: 700;
+      min-width: 30px;
+      text-align: right;
+    }
+
+    .ep-footer {
+      padding: 12px 20px;
+      background: var(--bg-alt);
+      border-top: 1px solid var(--border);
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      font-family: var(--font-body);
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    /* logo image mode */
+    .navbar-logo img {
+      height: 44px;
+      width: auto;
+      object-fit: contain;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    🌿 Envíos gratis en pedidos superiores a $180.000 · Productos 100% naturales y orgánicos certificados
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <div class="navbar-logo">B<span>natural</span></div>
+      <ul class="navbar-links">
+        <li><a href="#">Productos</a></li>
+        <li><a href="#">Temas</a></li>
+        <li><a href="#">Marcas</a></li>
+        <li><a href="#" class="active">Blog & FAQs</a></li>
+        <li><a href="#" class="navbar-cta">Ver Tienda</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Banner -->
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="hero-eyebrow">Guía de Suplementación</span>
+      <h1>Preguntas frecuentes sobre<br><em>Mucuna Pruriens</em></h1>
+      <p class="hero-subtitle">Todo lo que necesitas saber sobre esta leguminosa tropical, su contenido de L-Dopa y su relación con el sistema dopaminérgico.</p>
+      <div class="hero-meta">
+        <div class="hero-meta-item"><span class="dot"></span>19 preguntas respondidas</div>
+        <div class="hero-meta-item"><span class="dot"></span>Basado en evidencia científica</div>
+        <div class="hero-meta-item"><span class="dot"></span>Información educativa</div>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2d6a4f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+  </section>
+
+  <!-- Disclaimer strip -->
+  <div class="disclaimer-strip">
+    <p><strong>Aviso:</strong> Esta información es de carácter educativo y no constituye diagnóstico, tratamiento ni recomendación médica. Consulta siempre con un profesional de salud antes de modificar cualquier intervención.</p>
+  </div>
+
+  <!-- Main Content -->
+  <main class="main-content">
+
+    <div class="section-label reveal">
+      <h2>Preguntas <em>frecuentes</em></h2>
+      <div class="section-divider"></div>
+      <p>Organizadas por tema para que encuentres rápidamente lo que buscas.</p>
+    </div>
+
+    <!-- Evidence Legend -->
+    <div class="evidence-legend reveal">
+      <div class="ev-badge est"><span class="dot"></span>Evidencia sólida</div>
+      <div class="ev-badge int"><span class="dot"></span>Evidencia intermedia</div>
+      <div class="ev-badge pre"><span class="dot"></span>Preliminar</div>
+      <div class="ev-badge sin"><span class="dot"></span>Sin evidencia suficiente</div>
+    </div>
+
+    <!-- ══════════════════════════════════
+         GRUPO 1: FUNDAMENTOS
+    ══════════════════════════════════ -->
+    <div class="faq-group reveal">
+      <div class="faq-group-title">La planta y sus fundamentos</div>
+
+      <!-- FAQ 1 -->
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false">
+          <div class="faq-q-left">
+            <span class="faq-number">01</span>
+            <span class="faq-q-text">¿Qué es la Mucuna Pruriens y de dónde proviene?</span>
+          </div>
+          <span class="faq-badge badge-establecido">Establecido</span>
+          <div class="faq-chevron">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2d6a4f" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>La <strong>Mucuna pruriens</strong> es una leguminosa tropical de origen asiático y africano, utilizada durante siglos en sistemas médicos tradicionales como el Ayurveda. Se conoce también como "frijol terciopelo" o "cowhage" en inglés.</p>
+            <p>Su particularidad más relevante desde el punto de vista científico es que contiene cantidades <em>significativas de Levodopa (L-Dopa)</em>, el precursor directo de la dopamina, lo que la convierte en uno de los únicos alimentos con esta característica farmacológicamente relevante.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 2 -->
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false">
+          <div class="faq-q-left">
+            <span class="faq-number">02</span>
+            <span class="faq-q-text">¿Cómo se usaba la Mucuna en la medicina tradicional antes de la ciencia moderna?</span>
+          </div>
+          <span class="faq-badge badge-establecido">Establecido</span>
+          <div class="faq-chevron">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2d6a4f" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>En la medicina tradicional india, la Mucuna se empleaba como <strong>fortalecedor del sistema nervioso</strong>, asociada con vitalidad, función motora y el tratamiento de lo que se describía como "temblores". Estos usos preceden en siglos a la identificación científica de la L-Dopa.</p>
+            <p>Estos usos tradicionales como <em>tónico nervioso y revitalizante</em> coinciden curiosamente con lo que la ciencia moderna ha identificado como sus mecanismos de acción: el aumento de disponibilidad de dopamina en el sistema nervioso central.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 3 -->
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false">
+          <div class="faq-q-left">
+            <span class="faq-number">03</span>
+            <span class="faq-q-text">¿Qué es la L-Dopa y por qué es importante que la Mucuna la contenga?</span>
+          </div>
+          <span class="faq-badge badge-establecido">Establecido</span>
+          <div class="faq-chevron">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2d6a4f" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>La <strong>Levodopa (L-Dopa)</strong> es el precursor directo de la dopamina. A diferencia de la dopamina misma, la L-Dopa puede cruzar la barrera hematoencefálica, donde es convertida en dopamina por las neuronas.</p>
+            <p>La dopamina es un neurotransmisor central en funciones como el <em>movimiento, la motivación, el aprendizaje, la regulación emocional, la atención y el control motor fino</em>. Por eso, una fuente natural de L-Dopa como la Mucuna despierta tanto interés científico y clínico.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════
+         GRUPO 2: PARKINSON
+    ══════════════════════════════════ -->
+    <div class="faq-group reveal">
+      <div class="faq-group-title">Mucuna, Parkinson y sistema motor</div>
+
+      <!-- FAQ 4 -->
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false">
+          <div class="faq-q-left">
+            <span class="faq-number">04</span>
+            <span class="faq-q-text">¿Por qué hay tanto interés en la Mucuna para la enfermedad de Parkinson?</span>
+          </div>
+          <span class="faq-badge badge-establecido">Establecido</span>
+          <div class="faq-chevron">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2d6a4f" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>La <strong>enfermedad de Parkinson</strong> es un trastorno neurodegenerativo caracterizado por la pérdida progresiva de neuronas dopaminérgicas en la sustancia negra. Sus síntomas principales —temblores, rigidez, bradicinesia e inestabilidad postural— surgen directamente de ese déficit de dopamina.</p>
+            <p>Dado que la Levodopa farmacológica es el <em>tratamiento más efectivo conocido</em> para los síntomas motores del Parkinson, una fuente natural de L-Dopa como la Mucuna genera interés considerable como posible alternativa o complemento.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 5 -->
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false">
+          <div class="faq-q-left">
+            <span class="faq-number">05</span>
+            <span class="faq-q-text">¿Puede la Mucuna reemplazar a la Levodopa farmacológica en Parkinson?</span>
+          </div>
+          <span class="faq-badge badge-intermedio">Intermedio</span>
+          <div class="faq-chevron">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2d6a4f" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>Algunos estudios clínicos pequeños han comparado extractos de Mucuna pruriens con Levodopa farmacológica, reportando un <strong>inicio de acción más rápido</strong> en ciertos casos. Sin embargo, la evidencia es aún limitada y no suficiente para recomendar la sustitución.</p>
+            <p>Un factor crítico es la <em>variabilidad significativa en la concentración de L-Dopa natural</em> entre distintos lotes y fuentes. Para considerar su uso, la fuente del suplemento debe poder confirmar la concentración exacta con análisis certificados.</p>
+            <div class="faq-answer-note"><strong>⚠️ Importante:</strong> Si padeces Parkinson o cuidas a alguien que lo padece, consulta siempre con un neurólogo antes de considerar cualquier modificación de tratamiento.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 6 -->
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false">
+          <div class="faq-q-left">
+            <span class="faq-number">06</span>
+            <span class="faq-q-text">¿Tiene la Mucuna algún efecto neuroprotector demostrado?</span>
+          </div>
+          <span class="faq-badge badge-preliminar">Preliminar</span>
+          <div class="faq-chevron">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2d6a4f" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>Existen estudios en <strong>modelos animales</strong> que sugieren posibles efectos antioxidantes y moduladores de la Mucuna. Estos hallazgos preclínicos son prometedores, pero la evidencia en humanos que demuestre un efecto neuroprotector sigue siendo <em>preliminar</em>.</p>
+            <p>La Mucuna entra en la categoría de fitoquímica con potencial neuroprotector en investigaciones preclínicas, aunque los ensayos clínicos robustos con este objetivo específico aún no han sido publicados.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 7 -->
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false">
+          <div class="faq-q-left">
+            <span class="faq-number">07</span>
+            <span class="faq-q-text">¿Puede una persona sana consumir Mucuna para prevenir enfermedades neurológicas?</span>
+          </div>
+          <span class="faq-badge badge-preliminar">Preliminar</span>
+          <div class="faq-chevron">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2d6a4f" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>El consumo regular de Mucuna en personas sanas entra en la categoría de <strong>fitoquímica con potencial neuroprotector</strong> en investigaciones preclínicas. Sin embargo, los ensayos clínicos que confirmen este efecto preventivo en humanos no han sido publicados de forma robusta.</p>
+            <p>Si se considera como suplemento, es importante tener en cuenta la <em>variabilidad en el contenido de L-DOPA</em> entre productos, y las posibles interacciones con medicamentos. La decisión debe tomarse con orientación profesional.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════
+         GRUPO 3: ESTADO DE ÁNIMO
+    ══════════════════════════════════ -->
+    <div class="faq-group reveal">
+      <div class="faq-group-title">Estado de ánimo y regulación emocional</div>
+
+      <!-- FAQ 8 -->
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false">
+          <div class="faq-q-left">
+            <span class="faq-number">08</span>
+            <span class="faq-q-text">¿Puede la Mucuna ayudar con la depresión y la apatía?</span>
+          </div>
+          <span class="faq-badge badge-intermedio">Intermedio</span>
+          <div class="faq-chevron">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2d6a4f" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>Un estudio humano reciente investigó la L-DOPA en personas con <strong>depresión mayor y altos niveles de inflamación</strong>. Los resultados mostraron que la L-Dopa aumentó la conectividad funcional en circuitos cerebrales vinculados a la recompensa (ventral striatum → corteza prefrontal) y se asoció con mejoras en motivación y síntomas de anhedonia.</p>
+            <p>Este tipo de hallazgo sugiere que, en subgrupos de depresión con baja dopamina inducida por inflamación, la L-Dopa —y potencialmente la Mucuna como fuente natural— <em>podría ser útil como tratamiento específico</em>. Sin embargo, la evidencia clínica directa con Mucuna aún es preliminar.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 9 -->
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false">
+          <div class="faq-q-left">
+            <span class="faq-number">09</span>
+            <span class="faq-q-text">¿Influye la dopamina (y la Mucuna) en la ansiedad?</span>
+          </div>
+          <span class="faq-badge badge-establecido">Establecido</span>
+          <div class="faq-chevron">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2d6a4f" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>Sí. La dopamina <strong>modula activamente la respuesta al miedo y el aprendizaje emocional</strong>. Estudios experimentales controlados muestran que la L-Dopa puede modificar el procesamiento del miedo en condiciones de laboratorio.</p>
+            <p>No obstante, la relación entre dopamina y ansiedad es compleja. <em>No es lineal</em>: tanto el déficit como el exceso dopaminérgico pueden generar estados de ansiedad. Por eso la modulación debe hacerse con comprensión del estado basal individual.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 10 -->
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false">
+          <div class="faq-q-left">
+            <span class="faq-number">10</span>
+            <span class="faq-q-text">¿Tiene sentido usar Mucuna para el TDAH?</span>
+          </div>
+          <span class="faq-badge badge-preliminar">Preliminar</span>
+          <div class="faq-chevron">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2d6a4f" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>El TDAH está asociado a <strong>alteraciones dopaminérgicas en circuitos frontales</strong>. Los tratamientos farmacológicos aprobados para TDAH actúan precisamente aumentando la disponibilidad de dopamina en estos circuitos, lo que hace la relación conceptual con la Mucuna plausible.</p>
+            <p>Sin embargo, existe apenas <em>evidencia circunstancial</em> que respalde el uso específico de la Mucuna natural como tratamiento para el TDAH. La lógica neurobiológica existe, pero la evidencia clínica directa no es suficiente actualmente.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 11 -->
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false">
+          <div class="faq-q-left">
+            <span class="faq-number">11</span>
+            <span class="faq-q-text">¿Es verdad que "más dopamina siempre es mejor"?</span>
+          </div>
+          <span class="faq-badge badge-establecido">Establecido</span>
+          <div class="faq-chevron">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2d6a4f" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>No. La modulación dopaminérgica sigue una <strong>curva en U invertida</strong>: el déficit produce bajo rendimiento y apatía, pero el exceso puede generar impulsividad, ansiedad o desregulación emocional. El efecto óptimo depende del estado basal individual.</p>
+            <p>Esta es una de las razones por las que la suplementación con Mucuna —o cualquier fuente de L-Dopa— <em>requiere comprensión del contexto individual</em> y, en muchos casos, supervisión profesional para no pasar de un extremo al otro.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════
+         GRUPO 4: RENDIMIENTO
+    ══════════════════════════════════ -->
+    <div class="faq-group reveal">
+      <div class="faq-group-title">Rendimiento cognitivo y físico</div>
+
+      <!-- FAQ 12 -->
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false">
+          <div class="faq-q-left">
+            <span class="faq-number">12</span>
+            <span class="faq-q-text">¿Puede la Mucuna mejorar la memoria y la concentración?</span>
+          </div>
+          <span class="faq-badge badge-sin-evidencia">Sin evidencia suficiente</span>
+          <div class="faq-chevron">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2d6a4f" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>La dopamina influye en la <strong>memoria de trabajo, la flexibilidad cognitiva, la toma de decisiones y la motivación dirigida a metas</strong>. Estudios experimentales con L-Dopa muestran efectos en el aprendizaje y la consolidación motora en condiciones controladas.</p>
+            <p>Sin embargo, <em>no existen ensayos clínicos robustos</em> que evalúen la suplementación crónica con Mucuna en población sana con el objetivo específico de mejora cognitiva. La lógica mecanística existe, pero la evidencia clínica directa aún no.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 13 -->
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false">
+          <div class="faq-q-left">
+            <span class="faq-number">13</span>
+            <span class="faq-q-text">¿Se usa la Mucuna como pre-entreno para el ejercicio físico?</span>
+          </div>
+          <span class="faq-badge badge-preliminar">Preliminar</span>
+          <div class="faq-chevron">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2d6a4f" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>Sí. Existe evidencia empírica en foros y publicaciones especializadas que indica que la Mucuna puede <strong>aumentar la motivación para realizar tareas con esfuerzo físico</strong>. Su uso como complemento en pre-entrenos es frecuente en comunidades de rendimiento físico.</p>
+            <p>La dopamina regula los circuitos cortico-estriatales implicados en <em>coordinación, aprendizaje motor, ritmo y precisión</em>. La L-Dopa también ha sido estudiada experimentalmente en el contexto del aprendizaje motor y la consolidación de secuencias motoras.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 14 -->
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false">
+          <div class="faq-q-left">
+            <span class="faq-number">14</span>
+            <span class="faq-q-text">¿Cómo afectan las comidas a la absorción de la L-Dopa de la Mucuna?</span>
+          </div>
+          <span class="faq-badge badge-establecido">Establecido</span>
+          <div class="faq-chevron">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2d6a4f" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>La L-Dopa <strong>compite directamente con aminoácidos neutros grandes</strong> (presentes en proteínas) en los transportadores intestinales y de la barrera hematoencefálica. Consumirla junto a comidas ricas en proteína animal puede reducir significativamente su absorción y efecto.</p>
+            <p>Para maximizar la absorción, se recomienda consumir Mucuna <em>alejada de comidas altas en proteína</em>, preferiblemente con vegetales o fuentes de carbohidrato. Las recetas funcionales basadas en Mucuna están optimizadas teniendo en cuenta esta interacción.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════
+         GRUPO 5: PREPARACIÓN Y CONSUMO
+    ══════════════════════════════════ -->
+    <div class="faq-group reveal">
+      <div class="faq-group-title">Preparación, formas de consumo y seguridad</div>
+
+      <!-- FAQ 15 -->
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false">
+          <div class="faq-q-left">
+            <span class="faq-number">15</span>
+            <span class="faq-q-text">¿Puedo consumir el frijol de Mucuna directamente sin procesarlo?</span>
+          </div>
+          <span class="faq-badge badge-establecido">Establecido</span>
+          <div class="faq-chevron">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2d6a4f" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>No. La Mucuna cruda contiene <strong>compuestos antinutricionales</strong> que pueden ser tóxicos. Requiere un proceso de preparación obligatorio: remojo prolongado (al menos 16 horas, cambiando el agua 1–2 veces) seguido de cocción suave.</p>
+            <p>La cocción recomendada es <em>a fuego suave durante 25 minutos</em>, descartando siempre el agua de cocción. Se debe evitar la olla a presión y la cocción prolongada por más de 40 minutos, ya que afecta la calidad nutricional. Si se usa polvo estandarizado, hay que seguir las indicaciones del fabricante.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 16 -->
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false">
+          <div class="faq-q-left">
+            <span class="faq-number">16</span>
+            <span class="faq-q-text">¿Cuáles son las principales formas de incorporar la Mucuna a la dieta?</span>
+          </div>
+          <span class="faq-badge badge-establecido">Establecido</span>
+          <div class="faq-chevron">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2d6a4f" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>Existen principalmente dos formatos: el <strong>frijol cocido</strong> y el <strong>polvo estandarizado</strong>. Con el frijol cocido se pueden preparar pastas funcionales, smoothies dopaminérgicos, pre-entrenos metabólicos y tónicos de enfoque.</p>
+            <p>El polvo estandarizado (como el que se puede combinar en un smoothie de cacao y plátano) es la opción más práctica para la rutina diaria. Se recomienda una frecuencia de <em>2–3 veces por semana</em>, no en días consecutivos inicialmente, monitoreando sueño, irritabilidad y niveles de ansiedad.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 17 -->
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false">
+          <div class="faq-q-left">
+            <span class="faq-number">17</span>
+            <span class="faq-q-text">¿Con qué medicamentos puede interactuar la Mucuna de forma peligrosa?</span>
+          </div>
+          <span class="faq-badge badge-establecido">Establecido</span>
+          <div class="faq-chevron">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2d6a4f" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>La interacción más importante y potencialmente peligrosa es con los <strong>inhibidores de la MAO (IMAOs)</strong>. Esta combinación no debe hacerse bajo ninguna circunstancia sin supervisión médica directa, ya que puede producir crisis hipertensivas graves.</p>
+            <p>Adicionalmente, <em>no debe combinarse con medicación dopaminérgica existente</em> (como carbidopa-levodopa en Parkinson) sin supervisión de un neurólogo, ya que los efectos pueden sumarse de forma impredecible y peligrosa.</p>
+            <div class="faq-answer-note"><strong>Regla general:</strong> Si tomas cualquier medicamento que afecte el sistema nervioso central, consulta con tu médico antes de consumir Mucuna.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 18 -->
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false">
+          <div class="faq-q-left">
+            <span class="faq-number">18</span>
+            <span class="faq-q-text">¿Qué señales debo monitorear al empezar a consumir Mucuna?</span>
+          </div>
+          <span class="faq-badge badge-intermedio">Intermedio</span>
+          <div class="faq-chevron">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2d6a4f" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>Al iniciar el consumo de Mucuna, es importante observar cambios en tres áreas principales: <strong>calidad del sueño</strong> (dificultad para dormir o sueños más vívidos), <strong>irritabilidad</strong> (estados de ánimo más reactivos o impulsivos), y <strong>niveles de ansiedad</strong> (aumento de la tensión o inquietud).</p>
+            <p>Estas señales pueden indicar que la dosis o frecuencia es excesiva para tu estado basal dopaminérgico individual. Se recomienda iniciar con <em>frecuencias bajas (2–3 veces por semana)</em> y no en días consecutivos, ajustando gradualmente según tu respuesta.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 19 -->
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(this)" aria-expanded="false">
+          <div class="faq-q-left">
+            <span class="faq-number">19</span>
+            <span class="faq-q-text">¿Cómo sé si el suplemento de Mucuna que compro es de calidad?</span>
+          </div>
+          <span class="faq-badge badge-establecido">Establecido</span>
+          <div class="faq-chevron">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2d6a4f" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>La clave está en la <strong>concentración certificada de L-Dopa</strong>. Dado que la variabilidad en el contenido de L-Dopa entre diferentes lotes y fuentes naturales es significativa, un producto de calidad debe poder indicar exactamente qué porcentaje de L-Dopa contiene, respaldado por análisis de laboratorio.</p>
+            <p>Busca productos con <em>concentración estandarizada verificable</em>, sin aditivos innecesarios y de marcas que ofrezcan transparencia en su proceso de producción. En BNatural solo incluimos suplementos de marcas que cumplen con estos estándares de calidad y cuyas certificaciones puedes verificar.</p>
+            <div class="faq-answer-note"><strong>Consejo BNatural:</strong> Siempre revisa la etiqueta de Certificado de Análisis (COA) antes de comprar cualquier suplemento de Mucuna.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Banner -->
+    <div class="cta-banner reveal">
+      <h3>¿Buscas <em>Mucuna Pruriens</em> de calidad certificada?</h3>
+      <p>En BNatural encontrarás suplementos naturales con concentración estandarizada y certificaciones verificables.</p>
+      <div class="cta-buttons">
+        <a href="#" class="btn-primary">Ver suplementos naturales</a>
+        <a href="#" class="btn-ghost">Hablar con un asesor</a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="brand-name">B<span>natural</span></div>
+          <p>Productos naturales, orgánicos y eco-amigables para tu bienestar y el del planeta. Bogotá, Colombia.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Categorías</h4>
+          <ul>
+            <li><a href="#">Rostro</a></li>
+            <li><a href="#">Cuerpo</a></li>
+            <li><a href="#">Cabello</a></li>
+            <li><a href="#">Suplementos</a></li>
+            <li><a href="#">Ecoamigables</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Información</h4>
+          <ul>
+            <li><a href="#">Blog & FAQs</a></li>
+            <li><a href="#">Marcas</a></li>
+            <li><a href="#">Certificados</a></li>
+            <li><a href="#">Términos y condiciones</a></li>
+            <li><a href="#">contacto@bnaturalstore.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 BNatural Store · Todos los derechos reservados</p>
+        <p class="footer-disclaimer">La información de este sitio es de carácter educativo y no sustituye la consulta médica.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══ EDITOR PANEL ══ -->
+  <button id="editor-toggle" title="Editar imágenes" aria-label="Abrir editor de imágenes">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+      <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+    </svg>
+  </button>
+
+  <div id="editor-panel" role="dialog" aria-label="Editor de imágenes">
+    <div class="ep-header">
+      <h3>✏️ Editor de imágenes</h3>
+      <span>Cambios en tiempo real</span>
+    </div>
+    <div class="ep-body">
+
+      <!-- LOGO -->
+      <div class="ep-field">
+        <label>Logo <span>· PNG o SVG recomendado</span></label>
+        <div class="ep-preview" id="logo-preview" onclick="document.getElementById('logo-input').click()" title="Click para cambiar logo">
+          <div class="ep-preview-hint">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>Vista previa del logo</span>
+          </div>
+        </div>
+        <input type="file" id="logo-input" accept="image/*" style="display:none" onchange="handleLogoUpload(event)" />
+        <button class="ep-upload-btn" onclick="document.getElementById('logo-input').click()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/></svg>
+          Subir logo
+        </button>
+        <button class="ep-reset-btn" onclick="resetLogo()">Restaurar texto original</button>
+      </div>
+
+      <div class="ep-divider"></div>
+
+      <!-- BANNER -->
+      <div class="ep-field">
+        <label>Imagen del banner <span>· JPG o PNG, mín. 1400px</span></label>
+        <div class="ep-preview banner-preview" id="banner-preview" onclick="document.getElementById('banner-input').click()" title="Click para cambiar banner">
+          <div class="ep-preview-hint">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>Vista previa del banner</span>
+          </div>
+        </div>
+        <input type="file" id="banner-input" accept="image/*" style="display:none" onchange="handleBannerUpload(event)" />
+        <button class="ep-upload-btn" onclick="document.getElementById('banner-input').click()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/></svg>
+          Subir imagen de banner
+        </button>
+        <div class="ep-overlay-row" style="margin-top:12px">
+          <label>Oscuridad</label>
+          <input type="range" class="ep-slider" id="overlay-slider" min="0" max="80" value="0" oninput="updateOverlay(this.value)" />
+          <span class="ep-overlay-val" id="overlay-val">0%</span>
+        </div>
+        <button class="ep-reset-btn" onclick="resetBanner()">Restaurar gradiente original</button>
+      </div>
+
+    </div>
+    <div class="ep-footer">
+      Los cambios son visuales y temporales.<br>Recarga la página para volver al original.
+    </div>
+  </div>
+
+  <script>
+    // ── Accordion toggle ──
+    function toggleFAQ(btn) {
+      const item   = btn.closest('.faq-item');
+      const answer = item.querySelector('.faq-answer');
+      const isOpen = item.classList.contains('open');
+
+      // close all
+      document.querySelectorAll('.faq-item.open').forEach(el => {
+        el.classList.remove('open');
+        el.querySelector('.faq-answer').classList.remove('open');
+        el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+      });
+
+      // open clicked if it was closed
+      if (!isOpen) {
+        item.classList.add('open');
+        answer.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+        // smooth scroll on mobile
+        setTimeout(() => {
+          const top = item.getBoundingClientRect().top + window.scrollY - 90;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }, 100);
+      }
+    }
+
+    // ── Scroll reveal ──
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer  = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    revealEls.forEach(el => observer.observe(el));
+
+    // ── Navbar shadow on scroll ──
+    const navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+      navbar.style.boxShadow = window.scrollY > 10
+        ? '0 2px 16px rgba(0,0,0,0.12)'
+        : '0 2px 8px rgba(0,0,0,0.08)';
+    }, { passive: true });
+
+    // ── Editor Panel ──
+    const editorToggle = document.getElementById('editor-toggle');
+    const editorPanel  = document.getElementById('editor-panel');
+
+    editorToggle.addEventListener('click', () => {
+      editorPanel.classList.toggle('open');
+    });
+
+    // Close panel when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!editorPanel.contains(e.target) && e.target !== editorToggle) {
+        editorPanel.classList.remove('open');
+      }
+    });
+
+    // ── Logo upload ──
+    const logoEl      = document.querySelector('.navbar-logo');
+    const logoPreview = document.getElementById('logo-preview');
+    let originalLogoHTML = logoEl.innerHTML;
+
+    function handleLogoUpload(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const url = URL.createObjectURL(file);
+
+      // Update navbar logo
+      logoEl.innerHTML = `<img src="${url}" alt="Logo" style="height:44px;width:auto;object-fit:contain;">`;
+
+      // Update preview panel
+      logoPreview.innerHTML = `<img src="${url}" alt="Logo preview" style="max-height:60px;width:auto;object-fit:contain;padding:6px;">`;
+    }
+
+    function resetLogo() {
+      logoEl.innerHTML = originalLogoHTML;
+      logoPreview.innerHTML = `
+        <div class="ep-preview-hint">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>Vista previa del logo</span>
+        </div>`;
+      document.getElementById('logo-input').value = '';
+    }
+
+    // ── Banner upload ──
+    const heroEl        = document.querySelector('.hero');
+    const bannerPreview = document.getElementById('banner-preview');
+    const originalBg    = heroEl.style.background || '';
+    let currentBannerUrl = null;
+    let currentOverlay   = 0;
+
+    function handleBannerUpload(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const url = URL.createObjectURL(file);
+      currentBannerUrl = url;
+      applyBannerBg();
+
+      // Update preview
+      bannerPreview.innerHTML = `<img src="${url}" alt="Banner preview">`;
+      document.getElementById('overlay-slider').value = currentOverlay;
+    }
+
+    function applyBannerBg() {
+      if (!currentBannerUrl) return;
+      const alpha = (currentOverlay / 100).toFixed(2);
+      heroEl.style.background =
+        `linear-gradient(rgba(27,67,50,${alpha}), rgba(27,67,50,${alpha})),
+         url('${currentBannerUrl}') center center / cover no-repeat`;
+    }
+
+    function updateOverlay(val) {
+      currentOverlay = parseInt(val);
+      document.getElementById('overlay-val').textContent = val + '%';
+      if (currentBannerUrl) applyBannerBg();
+    }
+
+    function resetBanner() {
+      currentBannerUrl = null;
+      currentOverlay = 0;
+      heroEl.style.background = '';
+      heroEl.style.cssText = heroEl.style.cssText.replace(/background[^;]+;/g, '');
+      // Re-apply original CSS class background via a style reset
+      heroEl.removeAttribute('style');
+      bannerPreview.innerHTML = `
+        <div class="ep-preview-hint">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>Vista previa del banner</span>
+        </div>`;
+      document.getElementById('banner-input').value = '';
+      document.getElementById('overlay-slider').value = 0;
+      document.getElementById('overlay-val').textContent = '0%';
+    }
+  </script>
+</body>
+</html>
