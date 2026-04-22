@@ -640,200 +640,6 @@
       .evidence-legend { gap: 8px; }
     }
 
-    /* ─── Editor Panel ─── */
-    #editor-toggle {
-      position: fixed;
-      bottom: 28px;
-      right: 28px;
-      z-index: 9999;
-      width: 52px; height: 52px;
-      border-radius: 50%;
-      background: var(--primary);
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 4px 20px rgba(45,106,79,0.4);
-      display: flex; align-items: center; justify-content: center;
-      transition: background var(--transition), transform var(--transition);
-    }
-    #editor-toggle:hover { background: var(--primary-dark); transform: scale(1.08); }
-    #editor-toggle svg { pointer-events: none; }
-
-    #editor-panel {
-      position: fixed;
-      bottom: 92px;
-      right: 28px;
-      z-index: 9998;
-      width: 300px;
-      background: #fff;
-      border-radius: 14px;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.18);
-      padding: 0;
-      overflow: hidden;
-      transform: translateY(16px) scale(0.97);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.25s ease, transform 0.25s ease;
-    }
-    #editor-panel.open {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-      pointer-events: all;
-    }
-    .ep-header {
-      background: var(--primary-dark);
-      padding: 16px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .ep-header h3 {
-      font-family: var(--font-accent);
-      font-size: 0.82rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #fff;
-      margin: 0;
-    }
-    .ep-header span {
-      font-size: 0.7rem;
-      color: rgba(255,255,255,0.5);
-      font-family: var(--font-body);
-    }
-    .ep-body { padding: 20px; display: flex; flex-direction: column; gap: 20px; }
-
-    .ep-field label {
-      display: block;
-      font-family: var(--font-accent);
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 8px;
-    }
-    .ep-field label span {
-      font-weight: 400;
-      text-transform: none;
-      letter-spacing: 0;
-      color: #bbb;
-      font-size: 0.68rem;
-    }
-
-    .ep-preview {
-      width: 100%;
-      height: 72px;
-      border-radius: 8px;
-      background: var(--bg-alt);
-      border: 2px dashed var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      margin-bottom: 8px;
-      cursor: pointer;
-      transition: border-color var(--transition);
-      position: relative;
-    }
-    .ep-preview:hover { border-color: var(--primary-light); }
-    .ep-preview img {
-      width: 100%; height: 100%;
-      object-fit: contain;
-      object-position: center;
-    }
-    .ep-preview.banner-preview { height: 88px; }
-    .ep-preview.banner-preview img { object-fit: cover; }
-    .ep-preview-hint {
-      display: flex; flex-direction: column; align-items: center; gap: 4px;
-      color: var(--text-muted); font-size: 0.75rem; font-family: var(--font-accent);
-      font-weight: 500; pointer-events: none;
-    }
-    .ep-preview-hint svg { opacity: 0.4; }
-
-    .ep-upload-btn {
-      width: 100%;
-      padding: 9px;
-      border-radius: 6px;
-      border: 1.5px solid var(--primary);
-      background: transparent;
-      color: var(--primary);
-      font-family: var(--font-accent);
-      font-size: 0.78rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all var(--transition);
-      display: flex; align-items: center; justify-content: center; gap: 6px;
-    }
-    .ep-upload-btn:hover { background: var(--primary); color: #fff; }
-
-    .ep-reset-btn {
-      width: 100%;
-      padding: 7px;
-      border-radius: 6px;
-      border: 1px solid var(--border);
-      background: transparent;
-      color: var(--text-muted);
-      font-family: var(--font-accent);
-      font-size: 0.72rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all var(--transition);
-      margin-top: 4px;
-    }
-    .ep-reset-btn:hover { border-color: #e63946; color: #e63946; }
-
-    .ep-divider {
-      height: 1px;
-      background: var(--border);
-      margin: 0 -20px;
-    }
-
-    .ep-overlay-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-    }
-    .ep-overlay-row label {
-      font-size: 0.72rem;
-      font-family: var(--font-accent);
-      font-weight: 600;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin: 0;
-    }
-    .ep-slider {
-      flex: 1;
-      accent-color: var(--primary);
-      cursor: pointer;
-    }
-    .ep-overlay-val {
-      font-size: 0.72rem;
-      font-family: var(--font-accent);
-      color: var(--primary);
-      font-weight: 700;
-      min-width: 30px;
-      text-align: right;
-    }
-
-    .ep-footer {
-      padding: 12px 20px;
-      background: var(--bg-alt);
-      border-top: 1px solid var(--border);
-      font-size: 0.68rem;
-      color: var(--text-muted);
-      font-family: var(--font-body);
-      text-align: center;
-      line-height: 1.5;
-    }
-
-    /* logo image mode */
-    .navbar-logo img {
-      height: 44px;
-      width: auto;
-      object-fit: contain;
-    }
   </style>
 </head>
 <body>
@@ -846,13 +652,16 @@
   <!-- Navbar -->
   <nav class="navbar">
     <div class="navbar-inner">
-      <div class="navbar-logo">B<span>natural</span></div>
+      <div class="navbar-logo" id="navbar-logo-wrap">
+        <!-- ★ LOGO NAVBAR (línea ~849): cambia el src por la URL de tu logo -->
+        <img id="navbar-logo-img" src="AQUI_URL_LOGO_NAVBAR.png" alt="BNatural"
+             onerror="this.style.display='none';document.getElementById('navbar-logo-text').style.display='inline';"
+             onload="document.getElementById('navbar-logo-text').style.display='none';"
+             style="height:44px;width:auto;object-fit:contain;" />
+        <span id="navbar-logo-text">B<span>natural</span></span>
+      </div>
       <ul class="navbar-links">
-        <li><a href="#">Productos</a></li>
-        <li><a href="#">Temas</a></li>
-        <li><a href="#">Marcas</a></li>
-        <li><a href="#" class="active">Blog & FAQs</a></li>
-        <li><a href="#" class="navbar-cta">Ver Tienda</a></li>
+        <li><a href="https://listado.mercadolibre.com.co/_CustId_173479178" target="_blank" rel="noopener" class="navbar-cta">Ver Tienda</a></li>
       </ul>
     </div>
   </nav>
@@ -1319,8 +1128,7 @@
       <h3>¿Buscas <em>Mucuna Pruriens</em> de calidad certificada?</h3>
       <p>En BNatural encontrarás suplementos naturales con concentración estandarizada y certificaciones verificables.</p>
       <div class="cta-buttons">
-        <a href="#" class="btn-primary">Ver suplementos naturales</a>
-        <a href="#" class="btn-ghost">Hablar con un asesor</a>
+        <a href="https://wa.me/573186096066" target="_blank" rel="noopener" class="btn-primary">💬 Hablar con un asesor</a>
       </div>
     </div>
 
@@ -1329,30 +1137,27 @@
   <!-- Footer -->
   <footer>
     <div class="footer-inner">
-      <div class="footer-top">
-        <div class="footer-brand">
-          <div class="brand-name">B<span>natural</span></div>
-          <p>Productos naturales, orgánicos y eco-amigables para tu bienestar y el del planeta. Bogotá, Colombia.</p>
-        </div>
-        <div class="footer-col">
-          <h4>Categorías</h4>
-          <ul>
-            <li><a href="#">Rostro</a></li>
-            <li><a href="#">Cuerpo</a></li>
-            <li><a href="#">Cabello</a></li>
-            <li><a href="#">Suplementos</a></li>
-            <li><a href="#">Ecoamigables</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Información</h4>
-          <ul>
-            <li><a href="#">Blog & FAQs</a></li>
-            <li><a href="#">Marcas</a></li>
-            <li><a href="#">Certificados</a></li>
-            <li><a href="#">Términos y condiciones</a></li>
-            <li><a href="#">contacto@bnaturalstore.com</a></li>
-          </ul>
+      <div class="footer-top" style="grid-template-columns:1fr;text-align:center;">
+        <div class="footer-brand" style="margin:0 auto;">
+          <!-- ★ LOGO FOOTER (línea ~1330): cambia el src por la URL de tu logo (versión clara/blanca) -->
+          <img id="footer-logo-img" src="AQUI_URL_LOGO_FOOTER.png" alt="BNatural"
+               onerror="this.style.display='none';document.getElementById('footer-logo-text').style.display='block';"
+               onload="document.getElementById('footer-logo-text').style.display='none';"
+               style="height:48px;width:auto;object-fit:contain;margin:0 auto 12px;" />
+          <div id="footer-logo-text" class="brand-name">B<span>natural</span></div>
+          <p style="max-width:400px;margin:0 auto;">Productos naturales, orgánicos y eco-amigables para tu bienestar y el del planeta. Bogotá, Colombia.</p>
+          <p style="margin-top:12px;">
+            <a href="https://wa.me/573186096066" target="_blank" rel="noopener"
+               style="color:var(--secondary);font-family:var(--font-accent);font-weight:600;font-size:0.9rem;">
+              💬 WhatsApp · +57 318 609 6066
+            </a>
+          </p>
+          <p style="margin-top:6px;">
+            <a href="https://listado.mercadolibre.com.co/_CustId_173479178" target="_blank" rel="noopener"
+               style="color:rgba(255,255,255,0.6);font-family:var(--font-accent);font-size:0.85rem;">
+              🛒 Ver tienda en Mercado Libre
+            </a>
+          </p>
         </div>
       </div>
       <div class="footer-bottom">
@@ -1362,67 +1167,6 @@
     </div>
   </footer>
 
-  <!-- ══ EDITOR PANEL ══ -->
-  <button id="editor-toggle" title="Editar imágenes" aria-label="Abrir editor de imágenes">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
-      <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
-    </svg>
-  </button>
-
-  <div id="editor-panel" role="dialog" aria-label="Editor de imágenes">
-    <div class="ep-header">
-      <h3>✏️ Editor de imágenes</h3>
-      <span>Cambios en tiempo real</span>
-    </div>
-    <div class="ep-body">
-
-      <!-- LOGO -->
-      <div class="ep-field">
-        <label>Logo <span>· PNG o SVG recomendado</span></label>
-        <div class="ep-preview" id="logo-preview" onclick="document.getElementById('logo-input').click()" title="Click para cambiar logo">
-          <div class="ep-preview-hint">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-            <span>Vista previa del logo</span>
-          </div>
-        </div>
-        <input type="file" id="logo-input" accept="image/*" style="display:none" onchange="handleLogoUpload(event)" />
-        <button class="ep-upload-btn" onclick="document.getElementById('logo-input').click()">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/></svg>
-          Subir logo
-        </button>
-        <button class="ep-reset-btn" onclick="resetLogo()">Restaurar texto original</button>
-      </div>
-
-      <div class="ep-divider"></div>
-
-      <!-- BANNER -->
-      <div class="ep-field">
-        <label>Imagen del banner <span>· JPG o PNG, mín. 1400px</span></label>
-        <div class="ep-preview banner-preview" id="banner-preview" onclick="document.getElementById('banner-input').click()" title="Click para cambiar banner">
-          <div class="ep-preview-hint">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-            <span>Vista previa del banner</span>
-          </div>
-        </div>
-        <input type="file" id="banner-input" accept="image/*" style="display:none" onchange="handleBannerUpload(event)" />
-        <button class="ep-upload-btn" onclick="document.getElementById('banner-input').click()">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/></svg>
-          Subir imagen de banner
-        </button>
-        <div class="ep-overlay-row" style="margin-top:12px">
-          <label>Oscuridad</label>
-          <input type="range" class="ep-slider" id="overlay-slider" min="0" max="80" value="0" oninput="updateOverlay(this.value)" />
-          <span class="ep-overlay-val" id="overlay-val">0%</span>
-        </div>
-        <button class="ep-reset-btn" onclick="resetBanner()">Restaurar gradiente original</button>
-      </div>
-
-    </div>
-    <div class="ep-footer">
-      Los cambios son visuales y temporales.<br>Recarga la página para volver al original.
-    </div>
-  </div>
 
   <script>
     // ── Accordion toggle ──
@@ -1471,97 +1215,6 @@
         : '0 2px 8px rgba(0,0,0,0.08)';
     }, { passive: true });
 
-    // ── Editor Panel ──
-    const editorToggle = document.getElementById('editor-toggle');
-    const editorPanel  = document.getElementById('editor-panel');
-
-    editorToggle.addEventListener('click', () => {
-      editorPanel.classList.toggle('open');
-    });
-
-    // Close panel when clicking outside
-    document.addEventListener('click', (e) => {
-      if (!editorPanel.contains(e.target) && e.target !== editorToggle) {
-        editorPanel.classList.remove('open');
-      }
-    });
-
-    // ── Logo upload ──
-    const logoEl      = document.querySelector('.navbar-logo');
-    const logoPreview = document.getElementById('logo-preview');
-    let originalLogoHTML = logoEl.innerHTML;
-
-    function handleLogoUpload(event) {
-      const file = event.target.files[0];
-      if (!file) return;
-      const url = URL.createObjectURL(file);
-
-      // Update navbar logo
-      logoEl.innerHTML = `<img src="${url}" alt="Logo" style="height:44px;width:auto;object-fit:contain;">`;
-
-      // Update preview panel
-      logoPreview.innerHTML = `<img src="${url}" alt="Logo preview" style="max-height:60px;width:auto;object-fit:contain;padding:6px;">`;
-    }
-
-    function resetLogo() {
-      logoEl.innerHTML = originalLogoHTML;
-      logoPreview.innerHTML = `
-        <div class="ep-preview-hint">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-          <span>Vista previa del logo</span>
-        </div>`;
-      document.getElementById('logo-input').value = '';
-    }
-
-    // ── Banner upload ──
-    const heroEl        = document.querySelector('.hero');
-    const bannerPreview = document.getElementById('banner-preview');
-    const originalBg    = heroEl.style.background || '';
-    let currentBannerUrl = null;
-    let currentOverlay   = 0;
-
-    function handleBannerUpload(event) {
-      const file = event.target.files[0];
-      if (!file) return;
-      const url = URL.createObjectURL(file);
-      currentBannerUrl = url;
-      applyBannerBg();
-
-      // Update preview
-      bannerPreview.innerHTML = `<img src="${url}" alt="Banner preview">`;
-      document.getElementById('overlay-slider').value = currentOverlay;
-    }
-
-    function applyBannerBg() {
-      if (!currentBannerUrl) return;
-      const alpha = (currentOverlay / 100).toFixed(2);
-      heroEl.style.background =
-        `linear-gradient(rgba(27,67,50,${alpha}), rgba(27,67,50,${alpha})),
-         url('${currentBannerUrl}') center center / cover no-repeat`;
-    }
-
-    function updateOverlay(val) {
-      currentOverlay = parseInt(val);
-      document.getElementById('overlay-val').textContent = val + '%';
-      if (currentBannerUrl) applyBannerBg();
-    }
-
-    function resetBanner() {
-      currentBannerUrl = null;
-      currentOverlay = 0;
-      heroEl.style.background = '';
-      heroEl.style.cssText = heroEl.style.cssText.replace(/background[^;]+;/g, '');
-      // Re-apply original CSS class background via a style reset
-      heroEl.removeAttribute('style');
-      bannerPreview.innerHTML = `
-        <div class="ep-preview-hint">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-          <span>Vista previa del banner</span>
-        </div>`;
-      document.getElementById('banner-input').value = '';
-      document.getElementById('overlay-slider').value = 0;
-      document.getElementById('overlay-val').textContent = '0%';
-    }
   </script>
 </body>
 </html>
