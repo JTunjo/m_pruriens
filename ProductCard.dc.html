@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<div onClick="{{ item.onOpen }}" style="cursor:pointer;background:#FFFFFF;border:1px solid rgba(42,33,28,0.10);border-radius:4px;overflow:hidden;display:flex;flex-direction:column;height:100%;transition:box-shadow .2s cubic-bezier(0.2,0,0,1),transform .2s cubic-bezier(0.2,0,0,1);" style-hover="box-shadow:0 12px 30px rgba(42,33,28,0.12);transform:translateY(-3px);">
+  <div style="position:relative;aspect-ratio:4/3;background:{{ item.tone }};display:flex;align-items:center;justify-content:center;">
+    <span style="position:absolute;top:13px;left:13px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.5px;background:rgba(255,255,255,0.72);border:1px solid rgba(42,33,28,0.12);padding:4px 9px;border-radius:999px;color:#2A211C;">{{ item.type }}</span>
+    <svg viewBox="0 0 120 96" style="width:44%;opacity:0.9;">
+      <ellipse cx="60" cy="48" rx="45" ry="33" fill="#C9137E"></ellipse>
+      <path d="M18 54 A45 33 0 0 0 102 54" fill="none" stroke="#3B1228" stroke-width="7" stroke-linecap="round" opacity="0.85"></path>
+      <ellipse cx="44" cy="34" rx="11" ry="7" fill="#FFFFFF" opacity="0.28"></ellipse>
+    </svg>
+  </div>
+  <div style="padding:20px;display:flex;flex-direction:column;gap:9px;flex:1;">
+    <span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;color:#C9137E;">{{ item.benefit }}</span>
+    <h3 style="font-family:'Spectral',serif;font-weight:600;font-size:21px;line-height:1.15;color:#2A211C;margin:0;">{{ item.name }}</h3>
+    <p style="font-family:'Hanken Grotesk',sans-serif;font-size:13.5px;line-height:1.5;color:#6B5D52;margin:0;flex:1;text-wrap:pretty;">{{ item.short }}</p>
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:8px;">
+      <div style="font-family:'Spectral',serif;font-weight:600;font-size:18px;color:#2A211C;"><span style="font-family:'Space Mono',monospace;font-size:10.5px;color:#6B5D52;font-weight:400;letter-spacing:0.5px;">{{ item.fromLabel }}</span>{{ item.priceLabel }}</div>
+      <button onClick="{{ item.onAdd }}" style="background:#C9137E;color:#FFFFFF;border:none;border-radius:8px;padding:10px 16px;font-family:'Hanken Grotesk',sans-serif;font-weight:600;font-size:13px;cursor:pointer;transition:background .2s;" style-hover="background:#A60E66;">Agregar</button>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:320,&quot;height&quot;:420},&quot;item&quot;:{&quot;editor&quot;:null,&quot;default&quot;:{&quot;type&quot;:&quot;POLVO&quot;,&quot;tone&quot;:&quot;#F1E7D6&quot;,&quot;benefit&quot;:&quot;Ánimo y dopamina&quot;,&quot;name&quot;:&quot;Mucuna en Polvo Pura&quot;,&quot;short&quot;:&quot;Frijol terciopelo molido en frío, 15% L-DOPA natural.&quot;,&quot;fromLabel&quot;:&quot;Desde &quot;,&quot;priceLabel&quot;:&quot;$45.900&quot;},&quot;tsType&quot;:&quot;any&quot;}}"></script>
+</body>
+</html>

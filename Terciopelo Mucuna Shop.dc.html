@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{background:#F6F1E7;font-family:'Hanken Grotesk',sans-serif;color:#2A211C;-webkit-font-smoothing:antialiased;}
+  input,button,textarea{font-family:inherit;}
+  input:focus{outline:none;}
+  ::placeholder{color:#A89B8C;}
+  @keyframes tcToast{0%{opacity:0;transform:translate(-50%,16px);}100%{opacity:1;transform:translate(-50%,0);}}
+  @keyframes tcFade{0%{opacity:0;transform:translateY(10px);}100%{opacity:1;transform:translateY(0);}}
+</style>
+</helmet>
+
+<div style="min-height:100vh;background:#F6F1E7;">
+
+  <!-- announcement -->
+  <div style="background:#2E0E20;color:#F6F1E7;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:1.2px;text-align:center;padding:9px 16px;">ENVÍO GRATIS DESDE $120.000 &nbsp;·&nbsp; CULTIVADO Y MOLIDO EN COLOMBIA &nbsp;·&nbsp; 100% MUCUNA PRURIENS</div>
+
+  <!-- nav -->
+  <header style="position:sticky;top:0;z-index:50;background:rgba(246,241,231,0.88);backdrop-filter:blur(10px);border-bottom:1px solid rgba(42,33,28,0.10);">
+    <div style="max-width:1200px;margin:0 auto;padding:0 32px;height:74px;display:flex;align-items:center;justify-content:space-between;">
+      <div onClick="{{ goHome }}" style="display:flex;align-items:center;gap:11px;cursor:pointer;">
+        <svg viewBox="0 0 120 96" style="width:34px;height:auto;">
+          <ellipse cx="60" cy="48" rx="45" ry="33" fill="#C9137E"></ellipse>
+          <path d="M18 54 A45 33 0 0 0 102 54" fill="none" stroke="#3B1228" stroke-width="8" stroke-linecap="round"></path>
+          <ellipse cx="44" cy="34" rx="11" ry="7" fill="#FFFFFF" opacity="0.3"></ellipse>
+        </svg>
+        <div style="display:flex;flex-direction:column;line-height:1;">
+          <span style="font-family:'Spectral',serif;font-weight:600;font-size:20px;letter-spacing:-0.3px;color:#2A211C;">Terciopelo</span>
+          <span style="font-family:'Space Mono',monospace;font-size:8.5px;letter-spacing:2.5px;color:#6B5D52;margin-top:3px;">MUCUNA PRURIENS</span>
+        </div>
+      </div>
+      <nav style="display:flex;gap:30px;align-items:center;">
+        <a onClick="{{ goHome }}" style="font-size:14px;font-weight:500;color:#2A211C;cursor:pointer;text-decoration:none;">Inicio</a>
+        <a onClick="{{ goShop }}" style="font-size:14px;font-weight:500;color:#2A211C;cursor:pointer;text-decoration:none;">Tienda</a>
+        <a onClick="{{ goBenefits }}" style="font-size:14px;font-weight:500;color:#2A211C;cursor:pointer;text-decoration:none;">Beneficios</a>
+        <a onClick="{{ goBenefits }}" style="font-size:14px;font-weight:500;color:#2A211C;cursor:pointer;text-decoration:none;">Nosotros</a>
+      </nav>
+      <div style="display:flex;gap:18px;align-items:center;">
+        <i class="ph-fill ph-magnifying-glass" style="font-size:21px;color:#2A211C;cursor:pointer;"></i>
+        <button onClick="{{ goCart }}" style="position:relative;background:none;border:none;cursor:pointer;padding:4px;display:flex;align-items:center;">
+          <i class="ph-fill ph-shopping-bag" style="font-size:23px;color:#2A211C;"></i>
+          <sc-if value="{{ hasCart }}" hint-placeholder-val="{{ true }}"><span style="position:absolute;top:-3px;right:-6px;background:#C9137E;color:#FFFFFF;font-family:'Space Mono',monospace;font-size:10px;font-weight:700;min-width:18px;height:18px;border-radius:999px;display:flex;align-items:center;justify-content:center;padding:0 4px;">{{ cartCount }}</span></sc-if>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== HOME ===================== -->
+  <sc-if value="{{ screenHome }}" hint-placeholder-val="{{ true }}">
+  <main>
+    <!-- hero -->
+    <section style="max-width:1200px;margin:0 auto;padding:72px 32px 56px;display:grid;grid-template-columns:1.05fr 0.95fr;gap:56px;align-items:center;">
+      <div>
+        <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:2px;color:#C9137E;text-transform:uppercase;">Mucuna Pruriens · Ojo de Venado</span>
+        <h1 style="font-family:'Spectral',serif;font-weight:600;font-size:60px;line-height:1.04;letter-spacing:-1px;color:#2A211C;margin:18px 0 0;text-wrap:balance;">El frijol terciopelo para tu <span style="font-style:italic;color:#C9137E;">ánimo, foco</span> y energía.</h1>
+        <p style="font-size:18px;line-height:1.6;color:#6B5D52;margin:22px 0 0;max-width:480px;text-wrap:pretty;">Cultivamos, tostamos y molemos mucuna en Colombia. Una dosis diaria de L‑DOPA natural para sostener tu dopamina — sin cafeína, sin bajón.</p>
+        <div style="display:flex;gap:14px;margin-top:34px;">
+          <button onClick="{{ goShop }}" style="background:#C9137E;color:#FFFFFF;border:none;border-radius:8px;padding:16px 30px;font-weight:600;font-size:15px;cursor:pointer;transition:background .2s;" style-hover="background:#A60E66;">Ver la tienda</button>
+          <button onClick="{{ goBenefits }}" style="background:transparent;color:#2A211C;border:1px solid rgba(42,33,28,0.25);border-radius:8px;padding:16px 28px;font-weight:600;font-size:15px;cursor:pointer;transition:background .2s,color .2s;" style-hover="background:#2A211C;color:#F6F1E7;">Conocer los beneficios</button>
+        </div>
+        <div style="display:flex;gap:28px;margin-top:42px;flex-wrap:wrap;">
+          <div><div style="font-family:'Spectral',serif;font-weight:600;font-size:26px;color:#2A211C;">15%</div><div style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:1px;color:#6B5D52;">L-DOPA NATURAL</div></div>
+          <div><div style="font-family:'Spectral',serif;font-weight:600;font-size:26px;color:#2A211C;">100%</div><div style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:1px;color:#6B5D52;">COLOMBIANO</div></div>
+          <div><div style="font-family:'Spectral',serif;font-weight:600;font-size:26px;color:#2A211C;">0</div><div style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:1px;color:#6B5D52;">AZÚCAR AÑADIDA</div></div>
+        </div>
+      </div>
+      <div style="position:relative;">
+        <div style="position:relative;aspect-ratio:4/5;background:#F1E7D6;border-radius:6px;overflow:hidden;border:1px solid rgba(42,33,28,0.08);">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="heroImg" shape="rect" placeholder="Arrastra una foto del producto" style="display:block;width:100%;height:100%;" hint-size="100%,100%"></x-import>
+        </div>
+        <div style="position:absolute;bottom:-18px;left:-18px;background:#FFFFFF;border:1px solid rgba(42,33,28,0.10);border-radius:6px;padding:14px 18px;display:flex;align-items:center;gap:12px;box-shadow:0 8px 24px rgba(42,33,28,0.10);">
+          <i class="ph-fill ph-leaf" style="font-size:22px;color:#C9137E;"></i>
+          <div><div style="font-weight:600;font-size:13px;color:#2A211C;">Molido en frío</div><div style="font-family:'Space Mono',monospace;font-size:10px;color:#6B5D52;letter-spacing:0.5px;">CONSERVA LA L-DOPA</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- benefits -->
+    <section id="beneficios" style="background:#FFFFFF;border-top:1px solid rgba(42,33,28,0.08);border-bottom:1px solid rgba(42,33,28,0.08);">
+      <div style="max-width:1200px;margin:0 auto;padding:72px 32px;">
+        <div style="text-align:center;max-width:640px;margin:0 auto 48px;">
+          <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:2px;color:#C9137E;text-transform:uppercase;">Por qué mucuna</span>
+          <h2 style="font-family:'Spectral',serif;font-weight:600;font-size:38px;line-height:1.1;color:#2A211C;margin:14px 0 0;">Un solo frijol, cuatro razones para tu día</h2>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
+          <div style="background:#F6F1E7;border:1px solid rgba(42,33,28,0.08);border-radius:4px;padding:26px;">
+            <i class="ph-fill ph-heart" style="font-size:30px;color:#C9137E;"></i>
+            <h3 style="font-family:'Spectral',serif;font-weight:600;font-size:19px;margin:16px 0 8px;color:#2A211C;">Ánimo y dopamina</h3>
+            <p style="font-size:13.5px;line-height:1.55;color:#6B5D52;margin:0;">La L‑DOPA es precursora directa de la dopamina, el neurotransmisor del bienestar.</p>
+          </div>
+          <div style="background:#F6F1E7;border:1px solid rgba(42,33,28,0.08);border-radius:4px;padding:26px;">
+            <i class="ph-fill ph-brain" style="font-size:30px;color:#C9137E;"></i>
+            <h3 style="font-family:'Spectral',serif;font-weight:600;font-size:19px;margin:16px 0 8px;color:#2A211C;">Foco y claridad</h3>
+            <p style="font-size:13.5px;line-height:1.55;color:#6B5D52;margin:0;">Sostiene la atención sin el pico y la caída brusca de la cafeína.</p>
+          </div>
+          <div style="background:#F6F1E7;border:1px solid rgba(42,33,28,0.08);border-radius:4px;padding:26px;">
+            <i class="ph-fill ph-lightning" style="font-size:30px;color:#C9137E;"></i>
+            <h3 style="font-family:'Spectral',serif;font-weight:600;font-size:19px;margin:16px 0 8px;color:#2A211C;">Energía y vitalidad</h3>
+            <p style="font-size:13.5px;line-height:1.55;color:#6B5D52;margin:0;">Vitalidad estable que te acompaña de la mañana a la noche.</p>
+          </div>
+          <div style="background:#F6F1E7;border:1px solid rgba(42,33,28,0.08);border-radius:4px;padding:26px;">
+            <i class="ph-fill ph-coffee" style="font-size:30px;color:#C9137E;"></i>
+            <h3 style="font-family:'Spectral',serif;font-weight:600;font-size:19px;margin:16px 0 8px;color:#2A211C;">Reset de las 3pm</h3>
+            <p style="font-size:13.5px;line-height:1.55;color:#6B5D52;margin:0;">Tu ritual para el bajón de la tarde, sin un café que te quite el sueño.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- featured products -->
+    <section style="max-width:1200px;margin:0 auto;padding:72px 32px;">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:34px;gap:20px;flex-wrap:wrap;">
+        <div>
+          <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:2px;color:#C9137E;text-transform:uppercase;">Del cultivo a tu ritual</span>
+          <h2 style="font-family:'Spectral',serif;font-weight:600;font-size:38px;line-height:1.1;color:#2A211C;margin:12px 0 0;">Nuestros productos</h2>
+        </div>
+        <a onClick="{{ goShop }}" style="font-weight:600;font-size:15px;color:#C9137E;cursor:pointer;display:flex;align-items:center;gap:6px;">Ver toda la tienda <span style="font-size:18px;">→</span></a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+        <sc-for list="{{ featured }}" as="p" hint-placeholder-count="3">
+          <dc-import name="ProductCard" item="{{ p }}" hint-size="100%,420px" style="width:100%;"></dc-import>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- 3pm ritual band -->
+    <section style="background:#2E0E20;color:#F6F1E7;">
+      <div style="max-width:1200px;margin:0 auto;padding:80px 32px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;">
+        <div>
+          <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:2px;color:#F2A4CE;text-transform:uppercase;">El ritual de las 3pm</span>
+          <h2 style="font-family:'Spectral',serif;font-weight:600;font-size:40px;line-height:1.08;margin:16px 0 0;text-wrap:balance;">Cambia el café de la tarde por algo que sí te sostiene.</h2>
+          <p style="font-size:16.5px;line-height:1.6;color:#E7CDD9;margin:20px 0 0;max-width:460px;">A las 3 de la tarde tu dopamina cae. En vez de otro café que te quita el sueño, una cucharada de mucuna o una barra Reset devuelve el foco sin la ansiedad.</p>
+          <button onClick="{{ goShop }}" style="margin-top:30px;background:#C9137E;color:#FFFFFF;border:none;border-radius:8px;padding:15px 28px;font-weight:600;font-size:15px;cursor:pointer;transition:background .2s;" style-hover="background:#E0339A;">Empezar mi ritual</button>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div style="display:flex;gap:16px;align-items:flex-start;border:1px solid rgba(255,255,255,0.14);border-radius:4px;padding:20px;">
+            <span style="font-family:'Spectral',serif;font-size:30px;color:#F2A4CE;line-height:1;">01</span>
+            <div><div style="font-weight:600;font-size:16px;">Disuelve</div><div style="font-size:13.5px;color:#E7CDD9;margin-top:3px;">1 cucharadita en agua, café o tu bebida vegetal.</div></div>
+          </div>
+          <div style="display:flex;gap:16px;align-items:flex-start;border:1px solid rgba(255,255,255,0.14);border-radius:4px;padding:20px;">
+            <span style="font-family:'Spectral',serif;font-size:30px;color:#F2A4CE;line-height:1;">02</span>
+            <div><div style="font-weight:600;font-size:16px;">Respira</div><div style="font-size:13.5px;color:#E7CDD9;margin-top:3px;">Tómate dos minutos antes de volver a la tarea.</div></div>
+          </div>
+          <div style="display:flex;gap:16px;align-items:flex-start;border:1px solid rgba(255,255,255,0.14);border-radius:4px;padding:20px;">
+            <span style="font-family:'Spectral',serif;font-size:30px;color:#F2A4CE;line-height:1;">03</span>
+            <div><div style="font-weight:600;font-size:16px;">Vuelve con foco</div><div style="font-size:13.5px;color:#E7CDD9;margin-top:3px;">Energía limpia para terminar el día sin bajón.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- quote -->
+    <section style="max-width:820px;margin:0 auto;padding:80px 32px;text-align:center;">
+      <svg viewBox="0 0 120 96" style="width:46px;margin:0 auto 24px;display:block;">
+        <ellipse cx="60" cy="48" rx="45" ry="33" fill="#C9137E"></ellipse>
+        <path d="M18 54 A45 33 0 0 0 102 54" fill="none" stroke="#3B1228" stroke-width="8" stroke-linecap="round"></path>
+      </svg>
+      <p style="font-family:'Spectral',serif;font-weight:500;font-size:28px;line-height:1.35;color:#2A211C;margin:0;font-style:italic;text-wrap:balance;">“Cambié mi café de la tarde por la barra Reset. Sin bajón, sin ansiedad — y por fin termino el día con energía.”</p>
+      <div style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:1px;color:#6B5D52;margin-top:22px;">MARÍA JOSÉ · MEDELLÍN</div>
+    </section>
+  </main>
+  </sc-if>
+
+  <!-- ===================== SHOP ===================== -->
+  <sc-if value="{{ screenShop }}" hint-placeholder-val="{{ true }}">
+  <main style="max-width:1200px;margin:0 auto;padding:56px 32px 80px;">
+    <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:2px;color:#C9137E;text-transform:uppercase;">Tienda</span>
+    <h1 style="font-family:'Spectral',serif;font-weight:600;font-size:44px;line-height:1.06;color:#2A211C;margin:12px 0 0;">Todo el frijol terciopelo</h1>
+    <p style="font-size:16px;color:#6B5D52;margin:14px 0 0;max-width:520px;">Polvos, semillas, chocolate y snacks de mucuna pruriens. Cultivada, tostada y molida en Colombia.</p>
+
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;margin:34px 0 28px;flex-wrap:wrap;border-bottom:1px solid rgba(42,33,28,0.10);padding-bottom:22px;">
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <sc-for list="{{ categories }}" as="c" hint-placeholder-count="5">
+          <button onClick="{{ c.onClick }}" style="font-family:'Hanken Grotesk',sans-serif;font-size:13.5px;font-weight:600;padding:9px 18px;border-radius:999px;cursor:pointer;transition:all .2s;background:{{ c.bg }};color:{{ c.fg }};border:1px solid {{ c.bd }};">{{ c.label }}</button>
+        </sc-for>
+      </div>
+      <div style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.5px;color:#6B5D52;">{{ productCount }} PRODUCTOS</div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+      <sc-for list="{{ filteredProducts }}" as="p" hint-placeholder-count="6">
+        <dc-import name="ProductCard" item="{{ p }}" hint-size="100%,420px" style="width:100%;"></dc-import>
+      </sc-for>
+    </div>
+  </main>
+  </sc-if>
+
+  <!-- ===================== PRODUCT DETAIL ===================== -->
+  <sc-if value="{{ screenProduct }}" hint-placeholder-val="{{ true }}">
+  <main style="max-width:1200px;margin:0 auto;padding:36px 32px 80px;">
+    <div style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.5px;color:#6B5D52;margin-bottom:28px;">
+      <a onClick="{{ goHome }}" style="color:#6B5D52;cursor:pointer;">Inicio</a> &nbsp;/&nbsp; <a onClick="{{ goShop }}" style="color:#6B5D52;cursor:pointer;">Tienda</a> &nbsp;/&nbsp; <span style="color:#2A211C;">{{ cp.name }}</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:start;">
+      <!-- gallery -->
+      <div>
+        <div style="position:relative;aspect-ratio:1/1;background:{{ cp.tone }};border-radius:6px;overflow:hidden;border:1px solid rgba(42,33,28,0.08);">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="prodMain" shape="rect" placeholder="Arrastra la foto del producto" style="display:block;width:100%;height:100%;" hint-size="100%,100%"></x-import>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px;">
+          <div style="aspect-ratio:1/1;background:{{ cp.tone }};border-radius:4px;border:1px solid rgba(42,33,28,0.08);display:flex;align-items:center;justify-content:center;"><svg viewBox="0 0 120 96" style="width:42%;opacity:0.85;"><ellipse cx="60" cy="48" rx="45" ry="33" fill="#C9137E"></ellipse><path d="M18 54 A45 33 0 0 0 102 54" fill="none" stroke="#3B1228" stroke-width="8" stroke-linecap="round"></path></svg></div>
+          <div style="aspect-ratio:1/1;background:#F1E7D6;border-radius:4px;border:1px solid rgba(42,33,28,0.08);display:flex;align-items:center;justify-content:center;"><i class="ph-fill ph-leaf" style="font-size:30px;color:#C9137E;opacity:0.7;"></i></div>
+          <div style="aspect-ratio:1/1;background:#E7D8C4;border-radius:4px;border:1px solid rgba(42,33,28,0.08);display:flex;align-items:center;justify-content:center;"><i class="ph-fill ph-package" style="font-size:30px;color:#3B1228;opacity:0.6;"></i></div>
+        </div>
+      </div>
+      <!-- info -->
+      <div>
+        <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:1.5px;color:#6B5D52;">{{ cp.type }}</span>
+        <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:1.5px;color:#C9137E;text-transform:uppercase;margin-top:8px;">{{ cp.benefit }}</div>
+        <h1 style="font-family:'Spectral',serif;font-weight:600;font-size:40px;line-height:1.08;color:#2A211C;margin:10px 0 0;">{{ cp.name }}</h1>
+        <div style="font-family:'Spectral',serif;font-weight:600;font-size:28px;color:#2A211C;margin:16px 0 0;">{{ cp.priceLabel }}</div>
+        <p style="font-size:15.5px;line-height:1.6;color:#6B5D52;margin:18px 0 0;text-wrap:pretty;">{{ cp.desc }}</p>
+
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin:22px 0 0;">
+          <sc-for list="{{ productTags }}" as="t" hint-placeholder-count="3">
+            <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.5px;padding:6px 12px;border-radius:999px;background:#FBE7F1;color:#A60E66;border:1px solid rgba(201,19,126,0.2);">{{ t.label }}</span>
+          </sc-for>
+        </div>
+
+        <div style="height:1px;background:rgba(42,33,28,0.10);margin:26px 0;"></div>
+
+        <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:1.5px;color:#2A211C;margin-bottom:12px;">PRESENTACIÓN</div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <sc-for list="{{ productVariants }}" as="pv" hint-placeholder-count="3">
+            <button onClick="{{ pv.onSelect }}" style="cursor:pointer;border-radius:8px;padding:12px 18px;font-weight:600;font-size:14px;transition:all .2s;display:flex;flex-direction:column;gap:3px;align-items:flex-start;background:{{ pv.bg }};color:{{ pv.fg }};border:1.5px solid {{ pv.bd }};">{{ pv.label }}<span style="font-family:'Space Mono',monospace;font-size:11px;font-weight:400;opacity:0.8;">{{ pv.priceLabel }}</span></button>
+          </sc-for>
+        </div>
+
+        <div style="display:flex;gap:14px;margin-top:28px;align-items:stretch;">
+          <div style="display:flex;align-items:center;border:1px solid rgba(42,33,28,0.20);border-radius:8px;overflow:hidden;">
+            <button onClick="{{ cp.onDec }}" style="background:none;border:none;width:46px;height:52px;font-size:20px;cursor:pointer;color:#2A211C;">−</button>
+            <span style="font-family:'Space Mono',monospace;font-size:15px;min-width:34px;text-align:center;">{{ cp.qty }}</span>
+            <button onClick="{{ cp.onInc }}" style="background:none;border:none;width:46px;height:52px;font-size:20px;cursor:pointer;color:#2A211C;">+</button>
+          </div>
+          <button onClick="{{ cp.onAdd }}" style="flex:1;background:#C9137E;color:#FFFFFF;border:none;border-radius:8px;padding:0 28px;font-weight:600;font-size:15px;cursor:pointer;transition:background .2s;" style-hover="background:#A60E66;">Agregar al carrito</button>
+        </div>
+
+        <div style="display:flex;gap:22px;margin-top:22px;flex-wrap:wrap;">
+          <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#6B5D52;"><i class="ph-fill ph-truck" style="font-size:18px;color:#C9137E;"></i>Envío gratis desde $120.000</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:#6B5D52;"><i class="ph-fill ph-shield-check" style="font-size:18px;color:#C9137E;"></i>Pago seguro</div>
+        </div>
+
+        <div style="margin-top:30px;display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(42,33,28,0.10);">
+          <div style="padding:18px 0;border-bottom:1px solid rgba(42,33,28,0.10);">
+            <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:1.5px;color:#2A211C;margin-bottom:7px;">MODO DE USO</div>
+            <p style="font-size:14px;line-height:1.55;color:#6B5D52;margin:0;">{{ cp.use }}</p>
+          </div>
+          <div style="padding:18px 0;">
+            <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:1.5px;color:#2A211C;margin-bottom:7px;">INGREDIENTES</div>
+            <p style="font-size:14px;line-height:1.55;color:#6B5D52;margin:0;">{{ cp.ingredients }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- related -->
+    <div style="margin-top:80px;">
+      <h2 style="font-family:'Spectral',serif;font-weight:600;font-size:30px;color:#2A211C;margin:0 0 28px;">También para tu ritual</h2>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+        <sc-for list="{{ related }}" as="p" hint-placeholder-count="3">
+          <dc-import name="ProductCard" item="{{ p }}" hint-size="100%,420px" style="width:100%;"></dc-import>
+        </sc-for>
+      </div>
+    </div>
+  </main>
+  </sc-if>
+
+  <!-- ===================== CART ===================== -->
+  <sc-if value="{{ screenCart }}" hint-placeholder-val="{{ true }}">
+  <main style="max-width:1200px;margin:0 auto;padding:56px 32px 80px;">
+    <h1 style="font-family:'Spectral',serif;font-weight:600;font-size:40px;color:#2A211C;margin:0 0 8px;">Tu carrito</h1>
+
+    <sc-if value="{{ cartEmpty }}" hint-placeholder-val="{{ false }}">
+      <div style="text-align:center;padding:80px 20px;">
+        <svg viewBox="0 0 120 96" style="width:56px;margin:0 auto 22px;display:block;opacity:0.85;"><ellipse cx="60" cy="48" rx="45" ry="33" fill="#E7D8C4"></ellipse><path d="M18 54 A45 33 0 0 0 102 54" fill="none" stroke="#C9137E" stroke-width="8" stroke-linecap="round"></path></svg>
+        <h2 style="font-family:'Spectral',serif;font-weight:600;font-size:26px;color:#2A211C;margin:0;">Tu carrito está vacío</h2>
+        <p style="font-size:15px;color:#6B5D52;margin:12px 0 26px;">Empieza tu ritual con un poco de frijol terciopelo.</p>
+        <button onClick="{{ goShop }}" style="background:#C9137E;color:#FFFFFF;border:none;border-radius:8px;padding:15px 30px;font-weight:600;font-size:15px;cursor:pointer;" style-hover="background:#A60E66;">Ir a la tienda</button>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ hasCart }}" hint-placeholder-val="{{ true }}">
+    <div style="display:grid;grid-template-columns:1.6fr 1fr;gap:48px;align-items:start;margin-top:28px;">
+      <div>
+        <sc-if value="{{ freeRemain }}" hint-placeholder-val="{{ false }}">
+          <div style="background:#FBE7F1;border:1px solid rgba(201,19,126,0.2);border-radius:4px;padding:14px 18px;font-size:13.5px;color:#A60E66;margin-bottom:22px;display:flex;align-items:center;gap:9px;"><i class="ph-fill ph-truck" style="font-size:18px;"></i>{{ freeRemainLabel }}</div>
+        </sc-if>
+        <div style="border-top:1px solid rgba(42,33,28,0.10);">
+          <sc-for list="{{ cartLines }}" as="l" hint-placeholder-count="2">
+            <div style="display:grid;grid-template-columns:88px 1fr auto;gap:18px;align-items:center;padding:22px 0;border-bottom:1px solid rgba(42,33,28,0.10);">
+              <div style="width:88px;height:88px;background:{{ l.tone }};border-radius:4px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(42,33,28,0.08);"><svg viewBox="0 0 120 96" style="width:50%;"><ellipse cx="60" cy="48" rx="45" ry="33" fill="#C9137E"></ellipse><path d="M18 54 A45 33 0 0 0 102 54" fill="none" stroke="#3B1228" stroke-width="8" stroke-linecap="round"></path></svg></div>
+              <div>
+                <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1px;color:#6B5D52;">{{ l.type }}</div>
+                <div style="font-family:'Spectral',serif;font-weight:600;font-size:18px;color:#2A211C;margin:3px 0;">{{ l.name }}</div>
+                <div style="font-size:13px;color:#6B5D52;">{{ l.variant }} · {{ l.unitLabel }} c/u</div>
+                <div style="display:flex;align-items:center;gap:16px;margin-top:12px;">
+                  <div style="display:flex;align-items:center;border:1px solid rgba(42,33,28,0.20);border-radius:6px;overflow:hidden;">
+                    <button onClick="{{ l.onDec }}" style="background:none;border:none;width:34px;height:36px;font-size:17px;cursor:pointer;color:#2A211C;">−</button>
+                    <span style="font-family:'Space Mono',monospace;font-size:14px;min-width:26px;text-align:center;">{{ l.qty }}</span>
+                    <button onClick="{{ l.onInc }}" style="background:none;border:none;width:34px;height:36px;font-size:17px;cursor:pointer;color:#2A211C;">+</button>
+                  </div>
+                  <button onClick="{{ l.onRemove }}" style="background:none;border:none;font-size:13px;color:#6B5D52;cursor:pointer;text-decoration:underline;text-underline-offset:2px;">Quitar</button>
+                </div>
+              </div>
+              <div style="font-family:'Spectral',serif;font-weight:600;font-size:18px;color:#2A211C;text-align:right;">{{ l.lineLabel }}</div>
+            </div>
+          </sc-for>
+        </div>
+        <a onClick="{{ goShop }}" style="display:inline-flex;align-items:center;gap:7px;margin-top:24px;font-weight:600;font-size:14px;color:#C9137E;cursor:pointer;"><span style="font-size:17px;">←</span> Seguir comprando</a>
+      </div>
+
+      <div style="background:#FFFFFF;border:1px solid rgba(42,33,28,0.10);border-radius:6px;padding:28px;position:sticky;top:96px;">
+        <h2 style="font-family:'Spectral',serif;font-weight:600;font-size:22px;color:#2A211C;margin:0 0 20px;">Resumen</h2>
+        <div style="display:flex;justify-content:space-between;font-size:14.5px;color:#6B5D52;margin-bottom:12px;"><span>Subtotal</span><span style="color:#2A211C;font-weight:500;">{{ subtotalLabel }}</span></div>
+        <sc-if value="{{ hasDiscount }}" hint-placeholder-val="{{ false }}"><div style="display:flex;justify-content:space-between;font-size:14.5px;color:#C9137E;margin-bottom:12px;"><span>Descuento (MUCUNA10)</span><span style="font-weight:600;">{{ discountLabel }}</span></div></sc-if>
+        <div style="display:flex;justify-content:space-between;font-size:14.5px;color:#6B5D52;margin-bottom:16px;"><span>Envío</span><span style="color:#2A211C;font-weight:500;">{{ shippingLabel }}</span></div>
+        <div style="display:flex;gap:8px;margin-bottom:18px;">
+          <input value="{{ coupon }}" onChange="{{ onCoupon }}" placeholder="Código de cupón" style="flex:1;border:1px solid rgba(42,33,28,0.20);border-radius:6px;padding:11px 13px;font-size:13.5px;background:#F6F1E7;"/>
+          <button onClick="{{ onApplyCoupon }}" style="background:#2A211C;color:#F6F1E7;border:none;border-radius:6px;padding:0 18px;font-weight:600;font-size:13px;cursor:pointer;">Aplicar</button>
+        </div>
+        <div style="height:1px;background:rgba(42,33,28,0.10);margin:4px 0 18px;"></div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:22px;"><span style="font-weight:600;font-size:16px;color:#2A211C;">Total</span><span style="font-family:'Spectral',serif;font-weight:700;font-size:26px;color:#2A211C;">{{ totalLabel }}</span></div>
+        <button onClick="{{ goCheckout }}" style="width:100%;background:#C9137E;color:#FFFFFF;border:none;border-radius:8px;padding:16px;font-weight:600;font-size:15px;cursor:pointer;transition:background .2s;" style-hover="background:#A60E66;">Ir a pagar</button>
+        <div style="text-align:center;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:0.5px;color:#A89B8C;margin-top:14px;">PAGO 100% SEGURO · COP</div>
+      </div>
+    </div>
+    </sc-if>
+  </main>
+  </sc-if>
+
+  <!-- ===================== CHECKOUT ===================== -->
+  <sc-if value="{{ screenCheckout }}" hint-placeholder-val="{{ true }}">
+  <main style="max-width:1200px;margin:0 auto;padding:56px 32px 80px;">
+    <a onClick="{{ goCart }}" style="display:inline-flex;align-items:center;gap:7px;font-weight:600;font-size:14px;color:#6B5D52;cursor:pointer;margin-bottom:18px;"><span style="font-size:17px;">←</span> Volver al carrito</a>
+    <h1 style="font-family:'Spectral',serif;font-weight:600;font-size:40px;color:#2A211C;margin:0 0 32px;">Finalizar compra</h1>
+    <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:start;">
+      <div>
+        <!-- contacto -->
+        <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:1.5px;color:#C9137E;margin-bottom:14px;">01 · CONTACTO</div>
+        <input value="{{ email }}" onChange="{{ onEmail }}" placeholder="Correo electrónico" style="width:100%;border:1px solid rgba(42,33,28,0.20);border-radius:6px;padding:14px;font-size:14.5px;background:#FFFFFF;margin-bottom:30px;"/>
+
+        <!-- envio -->
+        <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:1.5px;color:#C9137E;margin-bottom:14px;">02 · DATOS DE ENVÍO</div>
+        <input value="{{ nombre }}" onChange="{{ onNombre }}" placeholder="Nombre completo" style="width:100%;border:1px solid rgba(42,33,28,0.20);border-radius:6px;padding:14px;font-size:14.5px;background:#FFFFFF;margin-bottom:12px;"/>
+        <input value="{{ direccion }}" onChange="{{ onDireccion }}" placeholder="Dirección" style="width:100%;border:1px solid rgba(42,33,28,0.20);border-radius:6px;padding:14px;font-size:14.5px;background:#FFFFFF;margin-bottom:12px;"/>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;">
+          <input value="{{ ciudad }}" onChange="{{ onCiudad }}" placeholder="Ciudad" style="width:100%;border:1px solid rgba(42,33,28,0.20);border-radius:6px;padding:14px;font-size:14.5px;background:#FFFFFF;"/>
+          <input value="{{ depto }}" onChange="{{ onDepto }}" placeholder="Departamento" style="width:100%;border:1px solid rgba(42,33,28,0.20);border-radius:6px;padding:14px;font-size:14.5px;background:#FFFFFF;"/>
+        </div>
+        <input value="{{ tel }}" onChange="{{ onTel }}" placeholder="Teléfono" style="width:100%;border:1px solid rgba(42,33,28,0.20);border-radius:6px;padding:14px;font-size:14.5px;background:#FFFFFF;margin-bottom:30px;"/>
+
+        <!-- envio metodo -->
+        <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:1.5px;color:#C9137E;margin-bottom:14px;">03 · MÉTODO DE ENVÍO</div>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:30px;">
+          <div onClick="{{ setEstandar }}" style="display:flex;align-items:center;gap:14px;border:1.5px solid {{ shEstBd }};background:{{ shEstBg }};border-radius:8px;padding:16px;cursor:pointer;">
+            <span style="width:18px;height:18px;border-radius:999px;border:1.5px solid {{ shEstDot }};display:flex;align-items:center;justify-content:center;"><span style="width:9px;height:9px;border-radius:999px;background:{{ shEstFill }};"></span></span>
+            <div style="flex:1;"><div style="font-weight:600;font-size:14.5px;color:#2A211C;">Estándar (3–5 días)</div><div style="font-size:12.5px;color:#6B5D52;">Gratis desde $120.000</div></div>
+            <div style="font-weight:600;font-size:14px;color:#2A211C;">$12.000</div>
+          </div>
+          <div onClick="{{ setExpress }}" style="display:flex;align-items:center;gap:14px;border:1.5px solid {{ shExpBd }};background:{{ shExpBg }};border-radius:8px;padding:16px;cursor:pointer;">
+            <span style="width:18px;height:18px;border-radius:999px;border:1.5px solid {{ shExpDot }};display:flex;align-items:center;justify-content:center;"><span style="width:9px;height:9px;border-radius:999px;background:{{ shExpFill }};"></span></span>
+            <div style="flex:1;"><div style="font-weight:600;font-size:14.5px;color:#2A211C;">Express (24–48 h)</div><div style="font-size:12.5px;color:#6B5D52;">Principales ciudades</div></div>
+            <div style="font-weight:600;font-size:14px;color:#2A211C;">$18.900</div>
+          </div>
+        </div>
+
+        <!-- pago -->
+        <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:1.5px;color:#C9137E;margin-bottom:14px;">04 · PAGO</div>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div onClick="{{ setTarjeta }}" style="border:1.5px solid {{ pyTarBd }};background:{{ pyTarBg }};border-radius:8px;padding:16px;cursor:pointer;">
+            <div style="display:flex;align-items:center;gap:14px;">
+              <span style="width:18px;height:18px;border-radius:999px;border:1.5px solid {{ pyTarDot }};display:flex;align-items:center;justify-content:center;"><span style="width:9px;height:9px;border-radius:999px;background:{{ pyTarFill }};"></span></span>
+              <div style="flex:1;font-weight:600;font-size:14.5px;color:#2A211C;">Tarjeta de crédito / débito</div>
+              <i class="ph-fill ph-credit-card" style="font-size:22px;color:#6B5D52;"></i>
+            </div>
+            <sc-if value="{{ isTarjeta }}" hint-placeholder-val="{{ true }}">
+              <div style="margin-top:16px;display:flex;flex-direction:column;gap:12px;">
+                <input value="{{ card }}" onChange="{{ onCard }}" placeholder="Número de tarjeta" style="width:100%;border:1px solid rgba(42,33,28,0.20);border-radius:6px;padding:13px;font-size:14px;background:#F6F1E7;"/>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+                  <input value="{{ exp }}" onChange="{{ onExp }}" placeholder="MM/AA" style="width:100%;border:1px solid rgba(42,33,28,0.20);border-radius:6px;padding:13px;font-size:14px;background:#F6F1E7;"/>
+                  <input value="{{ cvv }}" onChange="{{ onCvv }}" placeholder="CVV" style="width:100%;border:1px solid rgba(42,33,28,0.20);border-radius:6px;padding:13px;font-size:14px;background:#F6F1E7;"/>
+                </div>
+              </div>
+            </sc-if>
+          </div>
+          <div onClick="{{ setPse }}" style="display:flex;align-items:center;gap:14px;border:1.5px solid {{ pyPseBd }};background:{{ pyPseBg }};border-radius:8px;padding:16px;cursor:pointer;">
+            <span style="width:18px;height:18px;border-radius:999px;border:1.5px solid {{ pyPseDot }};display:flex;align-items:center;justify-content:center;"><span style="width:9px;height:9px;border-radius:999px;background:{{ pyPseFill }};"></span></span>
+            <div style="flex:1;font-weight:600;font-size:14.5px;color:#2A211C;">PSE · Débito desde tu banco</div>
+            <i class="ph-fill ph-bank" style="font-size:22px;color:#6B5D52;"></i>
+          </div>
+          <div onClick="{{ setContra }}" style="display:flex;align-items:center;gap:14px;border:1.5px solid {{ pyConBd }};background:{{ pyConBg }};border-radius:8px;padding:16px;cursor:pointer;">
+            <span style="width:18px;height:18px;border-radius:999px;border:1.5px solid {{ pyConDot }};display:flex;align-items:center;justify-content:center;"><span style="width:9px;height:9px;border-radius:999px;background:{{ pyConFill }};"></span></span>
+            <div style="flex:1;font-weight:600;font-size:14.5px;color:#2A211C;">Pago contra entrega</div>
+            <i class="ph-fill ph-hand-coins" style="font-size:22px;color:#6B5D52;"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- summary -->
+      <div style="background:#FFFFFF;border:1px solid rgba(42,33,28,0.10);border-radius:6px;padding:28px;position:sticky;top:96px;">
+        <h2 style="font-family:'Spectral',serif;font-weight:600;font-size:22px;color:#2A211C;margin:0 0 20px;">Tu pedido</h2>
+        <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:20px;">
+          <sc-for list="{{ cartLines }}" as="l" hint-placeholder-count="2">
+            <div style="display:flex;align-items:center;gap:13px;">
+              <div style="position:relative;width:48px;height:48px;background:{{ l.tone }};border-radius:4px;display:flex;align-items:center;justify-content:center;flex:none;"><svg viewBox="0 0 120 96" style="width:54%;"><ellipse cx="60" cy="48" rx="45" ry="33" fill="#C9137E"></ellipse><path d="M18 54 A45 33 0 0 0 102 54" fill="none" stroke="#3B1228" stroke-width="8" stroke-linecap="round"></path></svg><span style="position:absolute;top:-7px;right:-7px;background:#2A211C;color:#F6F1E7;font-family:'Space Mono',monospace;font-size:10px;min-width:18px;height:18px;border-radius:999px;display:flex;align-items:center;justify-content:center;">{{ l.qty }}</span></div>
+              <div style="flex:1;"><div style="font-weight:600;font-size:13.5px;color:#2A211C;line-height:1.2;">{{ l.name }}</div><div style="font-size:11.5px;color:#6B5D52;">{{ l.variant }}</div></div>
+              <div style="font-weight:600;font-size:13.5px;color:#2A211C;">{{ l.lineLabel }}</div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="height:1px;background:rgba(42,33,28,0.10);margin:0 0 16px;"></div>
+        <div style="display:flex;justify-content:space-between;font-size:14px;color:#6B5D52;margin-bottom:10px;"><span>Subtotal</span><span style="color:#2A211C;">{{ subtotalLabel }}</span></div>
+        <sc-if value="{{ hasDiscount }}" hint-placeholder-val="{{ false }}"><div style="display:flex;justify-content:space-between;font-size:14px;color:#C9137E;margin-bottom:10px;"><span>Descuento</span><span style="font-weight:600;">{{ discountLabel }}</span></div></sc-if>
+        <div style="display:flex;justify-content:space-between;font-size:14px;color:#6B5D52;margin-bottom:16px;"><span>Envío</span><span style="color:#2A211C;">{{ shippingLabel }}</span></div>
+        <div style="height:1px;background:rgba(42,33,28,0.10);margin:0 0 16px;"></div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:22px;"><span style="font-weight:600;font-size:16px;color:#2A211C;">Total</span><span style="font-family:'Spectral',serif;font-weight:700;font-size:26px;color:#2A211C;">{{ totalLabel }}</span></div>
+        <button onClick="{{ placeOrder }}" style="width:100%;background:#C9137E;color:#FFFFFF;border:none;border-radius:8px;padding:16px;font-weight:600;font-size:15px;cursor:pointer;transition:background .2s;" style-hover="background:#A60E66;">{{ payLabel }}</button>
+        <div style="text-align:center;display:flex;align-items:center;justify-content:center;gap:7px;font-size:11.5px;color:#A89B8C;margin-top:14px;"><i class="ph-fill ph-lock-simple" style="font-size:14px;"></i>Pago cifrado y seguro</div>
+      </div>
+    </div>
+  </main>
+  </sc-if>
+
+  <!-- ===================== CONFIRMATION ===================== -->
+  <sc-if value="{{ screenConfirmed }}" hint-placeholder-val="{{ false }}">
+  <main style="max-width:620px;margin:0 auto;padding:90px 32px 100px;text-align:center;">
+    <div style="width:78px;height:78px;border-radius:999px;background:#FBE7F1;display:flex;align-items:center;justify-content:center;margin:0 auto 26px;"><i class="ph-fill ph-check-circle" style="font-size:46px;color:#C9137E;"></i></div>
+    <h1 style="font-family:'Spectral',serif;font-weight:600;font-size:38px;color:#2A211C;margin:0;">¡Pedido confirmado!</h1>
+    <p style="font-size:16px;color:#6B5D52;margin:16px 0 0;line-height:1.6;">Gracias por sumarte al ritual. Te enviamos la confirmación por correo y prepararemos tu mucuna con cuidado.</p>
+    <div style="background:#FFFFFF;border:1px solid rgba(42,33,28,0.10);border-radius:6px;padding:24px;margin:30px 0;display:flex;justify-content:space-around;gap:20px;">
+      <div><div style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:1px;color:#6B5D52;">N° DE PEDIDO</div><div style="font-family:'Spectral',serif;font-weight:600;font-size:20px;color:#2A211C;margin-top:5px;">{{ lastOrderNum }}</div></div>
+      <div style="width:1px;background:rgba(42,33,28,0.10);"></div>
+      <div><div style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:1px;color:#6B5D52;">TOTAL PAGADO</div><div style="font-family:'Spectral',serif;font-weight:600;font-size:20px;color:#2A211C;margin-top:5px;">{{ lastOrderTotal }}</div></div>
+    </div>
+    <div style="display:flex;gap:14px;justify-content:center;">
+      <button onClick="{{ goHome }}" style="background:transparent;color:#2A211C;border:1px solid rgba(42,33,28,0.25);border-radius:8px;padding:14px 26px;font-weight:600;font-size:14.5px;cursor:pointer;" style-hover="background:#2A211C;color:#F6F1E7;">Volver al inicio</button>
+      <button onClick="{{ goShop }}" style="background:#C9137E;color:#FFFFFF;border:none;border-radius:8px;padding:14px 26px;font-weight:600;font-size:14.5px;cursor:pointer;" style-hover="background:#A60E66;">Seguir comprando</button>
+    </div>
+  </main>
+  </sc-if>
+
+  <!-- footer -->
+  <footer style="background:#2E0E20;color:#F6F1E7;">
+    <div style="max-width:1200px;margin:0 auto;padding:64px 32px 32px;">
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;">
+        <div>
+          <div style="display:flex;align-items:center;gap:11px;margin-bottom:16px;">
+            <svg viewBox="0 0 120 96" style="width:32px;"><ellipse cx="60" cy="48" rx="45" ry="33" fill="#C9137E"></ellipse><path d="M18 54 A45 33 0 0 0 102 54" fill="none" stroke="#F6F1E7" stroke-width="8" stroke-linecap="round"></path></svg>
+            <span style="font-family:'Spectral',serif;font-weight:600;font-size:21px;">Terciopelo</span>
+          </div>
+          <p style="font-size:13.5px;line-height:1.6;color:#C9A9BB;max-width:280px;margin:0;">Mucuna pruriens cultivada, tostada y molida en Colombia. Para tu ánimo, foco y energía.</p>
+        </div>
+        <div>
+          <div style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:1.5px;color:#C9A9BB;margin-bottom:14px;">TIENDA</div>
+          <div style="display:flex;flex-direction:column;gap:10px;font-size:13.5px;">
+            <a onClick="{{ goShop }}" style="color:#F6F1E7;cursor:pointer;text-decoration:none;">Polvos</a>
+            <a onClick="{{ goShop }}" style="color:#F6F1E7;cursor:pointer;text-decoration:none;">Semillas</a>
+            <a onClick="{{ goShop }}" style="color:#F6F1E7;cursor:pointer;text-decoration:none;">Chocolate</a>
+            <a onClick="{{ goShop }}" style="color:#F6F1E7;cursor:pointer;text-decoration:none;">Snacks</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:1.5px;color:#C9A9BB;margin-bottom:14px;">MUCUNA</div>
+          <div style="display:flex;flex-direction:column;gap:10px;font-size:13.5px;">
+            <a onClick="{{ goBenefits }}" style="color:#F6F1E7;cursor:pointer;text-decoration:none;">Beneficios</a>
+            <a onClick="{{ goBenefits }}" style="color:#F6F1E7;cursor:pointer;text-decoration:none;">Modo de uso</a>
+            <a onClick="{{ goBenefits }}" style="color:#F6F1E7;cursor:pointer;text-decoration:none;">Nuestro cultivo</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:1.5px;color:#C9A9BB;margin-bottom:14px;">CONTACTO</div>
+          <div style="display:flex;flex-direction:column;gap:10px;font-size:13.5px;color:#F6F1E7;">
+            <span>hola@terciopelo.co</span>
+            <span>WhatsApp · +57 300 000 0000</span>
+            <div style="display:flex;gap:14px;margin-top:6px;"><i class="ph-fill ph-instagram-logo" style="font-size:22px;color:#F2A4CE;"></i><i class="ph-fill ph-tiktok-logo" style="font-size:22px;color:#F2A4CE;"></i></div>
+          </div>
+        </div>
+      </div>
+      <div style="border-top:1px solid rgba(255,255,255,0.12);margin-top:44px;padding-top:22px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;">
+        <span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:0.5px;color:#C9A9BB;">© 2026 TERCIOPELO · MUCUNA PRURIENS · COLOMBIA</span>
+        <span style="font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:0.5px;color:#C9A9BB;">VISA · MASTERCARD · PSE · NEQUI</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- toast -->
+  <sc-if value="{{ hasToast }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;bottom:28px;left:50%;transform:translateX(-50%);z-index:200;background:#2A211C;color:#F6F1E7;padding:14px 22px;border-radius:8px;font-size:14px;font-weight:500;box-shadow:0 10px 30px rgba(0,0,0,0.25);display:flex;align-items:center;gap:10px;animation:tcToast .25s cubic-bezier(0.2,0,0,1);"><i class="ph-fill ph-check-circle" style="font-size:18px;color:#F2A4CE;"></i>{{ toast }}</div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1200,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.products = [
+      { id:'polvo', type:'POLVO', cat:'Polvos', tone:'#F1E7D6', benefit:'Ánimo y dopamina', name:'Mucuna en Polvo Pura',
+        short:'Frijol terciopelo molido en frío, 15% L‑DOPA natural.',
+        desc:'Nuestra mucuna estrella: vainas cosechadas a mano, secadas al sol y molidas en frío para conservar la L‑DOPA. Sabor terroso y achocolatado, ideal en batidos, café o avena.',
+        use:'Empieza con 1 cucharadita (3 g) al día disuelta en tu bebida. Sube a 2 según tu ritmo.',
+        ingredients:'100% Mucuna pruriens en polvo. Nada más.',
+        tags:['Ánimo','Foco','Energía'],
+        variants:[{label:'100 g',price:45900},{label:'250 g',price:89900},{label:'500 g',price:149900}] },
+      { id:'semilla', type:'SEMILLA', cat:'Semillas', tone:'#E7D8C4', benefit:'Energía y vitalidad', name:'Semillas de Mucuna Tostadas',
+        short:'Ojo de venado tostado, listo para infusión o molido.',
+        desc:'El ojo de venado entero, tostado suavemente. Para preparar en infusión, moler en casa o usar en repostería funcional.',
+        use:'Muele 1 cucharada o hierve 5 g en agua durante 10 minutos.',
+        ingredients:'100% semillas de Mucuna pruriens tostadas.',
+        tags:['Energía','Vitalidad'],
+        variants:[{label:'250 g',price:38900},{label:'500 g',price:68900}] },
+      { id:'choco', type:'CHOCOLATE', cat:'Chocolate', tone:'#E3D2C0', benefit:'Foco y claridad', name:'Chocolate de Mucuna 70%',
+        short:'Cacao colombiano 70% con mucuna, sin azúcar añadida.',
+        desc:'Cacao colombiano 70% fundido con mucuna en polvo. El gusto del chocolate oscuro con el respaldo del frijol terciopelo.',
+        use:'2–3 cuadros al día. Perfecto para el antojo de la tarde.',
+        ingredients:'Cacao 70%, manteca de cacao, mucuna, panela.',
+        tags:['Foco','Ánimo'],
+        variants:[{label:'Barra 80 g',price:28900},{label:'Pack x3',price:79900}] },
+      { id:'barras', type:'SNACK', cat:'Snacks', tone:'#F3E0D6', benefit:'Reset de las 3pm', name:'Barras Reset de las 3pm',
+        short:'Dátil, cacao y mucuna para el bajón de la tarde.',
+        desc:'Dátil, almendra, cacao y mucuna prensados en una barra densa pensada para el bajón de las 3 de la tarde.',
+        use:'1 barra cuando llegue el bajón. Acompaña con agua.',
+        ingredients:'Dátil, almendra, cacao, mucuna, sal marina.',
+        tags:['Reset','Energía'],
+        variants:[{label:'Caja x6',price:42900}] },
+      { id:'cacao', type:'BEBIDA', cat:'Snacks', tone:'#E8D6C6', benefit:'Ánimo y dopamina', name:'Cacao + Mucuna para Preparar',
+        short:'Chocolate caliente funcional para tu ritual nocturno.',
+        desc:'Mezcla para chocolate caliente funcional: cacao, especias y mucuna. Tu ritual nocturno sin culpa.',
+        use:'2 cucharadas en leche caliente (vegetal o de vaca).',
+        ingredients:'Cacao, mucuna, canela, panela, sal.',
+        tags:['Ánimo','Ritual'],
+        variants:[{label:'300 g',price:54900}] },
+      { id:'bliss', type:'SNACK', cat:'Snacks', tone:'#EFE3D2', benefit:'Foco y claridad', name:'Bliss Balls de Mucuna',
+        short:'Bocados de coco, cacao y mucuna. Caja x9.',
+        desc:'Bocados de coco, dátil, cacao y mucuna rodados a mano. Snack de un solo bocado para el foco de media mañana.',
+        use:'2–3 bolitas como snack. Conservar refrigerado.',
+        ingredients:'Dátil, coco, cacao, mucuna, vainilla.',
+        tags:['Foco','Snack'],
+        variants:[{label:'Caja x9',price:36900}] }
+    ];
+    this.state = {
+      screen:'home', productId:'polvo', filter:'Todos', variantSel:{}, qty:1,
+      cart:[], coupon:'', couponApplied:null, shippingMethod:'estandar', payment:'tarjeta',
+      co:{ email:'', nombre:'', direccion:'', ciudad:'', depto:'', tel:'', card:'', exp:'', cvv:'' },
+      lastOrder:null, toast:''
+    };
+  }
+  formatCOP(n){ return '$' + Math.round(n).toLocaleString('es-CO'); }
+  scrollTop(){ try{ window.scrollTo({top:0}); }catch(e){} }
+  go(screen){ this.setState({screen}); this.scrollTop(); }
+  goBenefits(){ this.setState({screen:'home'}); setTimeout(()=>{ const el=document.getElementById('beneficios'); if(el){ window.scrollTo({top:el.offsetTop-80, behavior:'smooth'}); } },70); }
+  openProduct(id){ this.setState({screen:'product', productId:id, qty:1}); this.scrollTop(); }
+  variantIndex(id){ return this.state.variantSel[id] != null ? this.state.variantSel[id] : 0; }
+  selectVariant(id, idx){ this.setState(s=>({ variantSel:{...s.variantSel, [id]:idx} })); }
+  setQty(d){ this.setState(s=>({ qty: Math.max(1, s.qty + d) })); }
+  showToast(msg){ this.setState({toast:msg}); clearTimeout(this._t); this._t=setTimeout(()=>this.setState({toast:''}),2200); }
+  addToCart(id, idx, qty){
+    const p=this.products.find(x=>x.id===id); const v=p.variants[idx]; const key=id+'|'+v.label;
+    this.setState(s=>{ const cart=s.cart.map(l=>({...l})); const ex=cart.find(l=>l.key===key);
+      if(ex){ ex.qty+=qty; } else { cart.push({key, id, name:p.name, variant:v.label, price:v.price, tone:p.tone, type:p.type, qty}); }
+      return {cart}; });
+    this.showToast('Agregado: '+p.name);
+  }
+  incLine(key,d){ this.setState(s=>({ cart: s.cart.map(l=> l.key===key?{...l,qty:l.qty+d}:l).filter(l=>l.qty>0) })); }
+  removeLine(key){ this.setState(s=>({ cart: s.cart.filter(l=>l.key!==key) })); }
+  applyCoupon(){ const c=this.state.coupon.trim().toUpperCase();
+    if(c==='MUCUNA10'){ this.setState({couponApplied:'MUCUNA10'}); this.showToast('Cupón aplicado: 10% de descuento'); }
+    else if(c!==''){ this.setState({couponApplied:'invalid'}); this.showToast('Cupón no válido'); } }
+  subtotal(){ return this.state.cart.reduce((a,l)=>a+l.price*l.qty,0); }
+  discount(){ return this.state.couponApplied==='MUCUNA10' ? Math.round(this.subtotal()*0.10) : 0; }
+  shipping(){ if(this.state.cart.length===0) return 0; if(this.state.shippingMethod==='express') return 18900; return this.subtotal()>=120000 ? 0 : 12000; }
+  total(){ return this.subtotal()-this.discount()+this.shipping(); }
+  coField(k,v){ this.setState(s=>({ co:{...s.co,[k]:v} })); }
+  canPlace(){ const c=this.state.co; return this.state.cart.length>0 && c.email && c.nombre && c.direccion && c.ciudad && c.tel; }
+  placeOrder(){ if(!this.canPlace()){ this.showToast('Completa los datos de envío'); return; }
+    const num='TPL-'+Math.floor(100000+Math.random()*900000); const total=this.total();
+    this.setState({ lastOrder:{num, total:this.formatCOP(total)}, cart:[], couponApplied:null, screen:'confirmed' }); this.scrollTop(); }
+
+  decorate(p){
+    const f=this.formatCOP.bind(this);
+    return {
+      id:p.id, type:p.type, name:p.name, tone:p.tone, short:p.short, benefit:p.benefit, cat:p.cat,
+      fromLabel: p.variants.length>1 ? 'Desde ' : '',
+      priceLabel: f(p.variants[0].price),
+      onOpen: ()=>this.openProduct(p.id),
+      onAdd: (e)=>{ if(e && e.stopPropagation) e.stopPropagation(); this.addToCart(p.id, 0, 1); }
+    };
+  }
+
+  renderVals(){
+    const f=this.formatCOP.bind(this);
+    const s=this.state;
+    const cartCount = s.cart.reduce((a,l)=>a+l.qty,0);
+    const products = this.products.map(p=>this.decorate(p));
+    const cats=['Todos','Polvos','Semillas','Chocolate','Snacks'];
+    const categories = cats.map(c=>{ const active=s.filter===c; return {
+      label:c, onClick:()=>this.setState({filter:c}),
+      bg: active?'#C9137E':'transparent', fg: active?'#FFFFFF':'#2A211C', bd: active?'#C9137E':'rgba(42,33,28,0.2)'
+    };});
+    const filteredProducts = (s.filter==='Todos'?this.products:this.products.filter(p=>p.cat===s.filter)).map(p=>this.decorate(p));
+
+    let cp=null, productVariants=[], related=[], productTags=[];
+    const P=this.products.find(x=>x.id===s.productId);
+    if(P){
+      const idx=this.variantIndex(P.id); const v=P.variants[idx];
+      productVariants = P.variants.map((vv,i)=>{ const sel=i===idx; return {
+        label:vv.label, priceLabel:f(vv.price), onSelect:()=>this.selectVariant(P.id,i),
+        bg: sel?'#FBE7F1':'#FFFFFF', fg: sel?'#A60E66':'#2A211C', bd: sel?'#C9137E':'rgba(42,33,28,0.2)'
+      };});
+      productTags = P.tags.map(t=>({label:t}));
+      related = this.products.filter(x=>x.id!==P.id).slice(0,3).map(p=>this.decorate(p));
+      cp={ id:P.id, type:P.type, name:P.name, tone:P.tone, desc:P.desc, short:P.short, benefit:P.benefit,
+        use:P.use, ingredients:P.ingredients, priceLabel:f(v.price), qty:s.qty,
+        onInc:()=>this.setQty(1), onDec:()=>this.setQty(-1),
+        onAdd:()=>this.addToCart(P.id, idx, s.qty) };
+    }
+
+    const cartLines = s.cart.map(l=>({
+      key:l.key, name:l.name, variant:l.variant, tone:l.tone, type:l.type, qty:l.qty,
+      unitLabel:f(l.price), lineLabel:f(l.price*l.qty),
+      onInc:()=>this.incLine(l.key,1), onDec:()=>this.incLine(l.key,-1), onRemove:()=>this.removeLine(l.key)
+    }));
+
+    const sub=this.subtotal();
+    const shipCost=this.shipping();
+    const freeRemain = sub>0 && sub<120000 && s.shippingMethod==='estandar';
+
+    // radio helpers
+    const rad=(on)=>({ bg: on?'#FBE7F1':'#FFFFFF', bd: on?'#C9137E':'rgba(42,33,28,0.15)', dot: on?'#C9137E':'rgba(42,33,28,0.3)', fill: on?'#C9137E':'transparent' });
+    const est=rad(s.shippingMethod==='estandar'), exp=rad(s.shippingMethod==='express');
+    const tar=rad(s.payment==='tarjeta'), pse=rad(s.payment==='pse'), con=rad(s.payment==='contra');
+
+    return {
+      cartCount, hasCart: cartCount>0,
+      screenHome:s.screen==='home', screenShop:s.screen==='shop', screenProduct:s.screen==='product'&&!!cp,
+      screenCart:s.screen==='cart', screenCheckout:s.screen==='checkout', screenConfirmed:s.screen==='confirmed',
+      goHome:()=>this.go('home'), goShop:()=>this.go('shop'), goCart:()=>this.go('cart'),
+      goBenefits:()=>this.goBenefits(),
+      goCheckout:()=>{ if(s.cart.length===0){ this.showToast('Tu carrito está vacío'); } else { this.go('checkout'); } },
+      products, featured:products.slice(0,3), categories, filteredProducts, productCount:filteredProducts.length,
+      cp, productVariants, related, productTags,
+      cartLines, cartEmpty:s.cart.length===0,
+      subtotalLabel:f(sub),
+      shippingLabel: (s.cart.length && shipCost===0) ? 'Gratis' : f(shipCost),
+      discountLabel:'– '+f(this.discount()), hasDiscount:this.discount()>0,
+      totalLabel:f(this.total()),
+      freeRemain, freeRemainLabel: freeRemain ? ('Te faltan '+f(120000-sub)+' para envío gratis') : '',
+      coupon:s.coupon, onCoupon:(e)=>this.setState({coupon:e.target.value}), onApplyCoupon:()=>this.applyCoupon(),
+      email:s.co.email, nombre:s.co.nombre, direccion:s.co.direccion, ciudad:s.co.ciudad, depto:s.co.depto, tel:s.co.tel,
+      card:s.co.card, exp:s.co.exp, cvv:s.co.cvv,
+      onEmail:(e)=>this.coField('email',e.target.value), onNombre:(e)=>this.coField('nombre',e.target.value),
+      onDireccion:(e)=>this.coField('direccion',e.target.value), onCiudad:(e)=>this.coField('ciudad',e.target.value),
+      onDepto:(e)=>this.coField('depto',e.target.value), onTel:(e)=>this.coField('tel',e.target.value),
+      onCard:(e)=>this.coField('card',e.target.value), onExp:(e)=>this.coField('exp',e.target.value), onCvv:(e)=>this.coField('cvv',e.target.value),
+      setEstandar:()=>this.setState({shippingMethod:'estandar'}), setExpress:()=>this.setState({shippingMethod:'express'}),
+      shEstBg:est.bg, shEstBd:est.bd, shEstDot:est.dot, shEstFill:est.fill,
+      shExpBg:exp.bg, shExpBd:exp.bd, shExpDot:exp.dot, shExpFill:exp.fill,
+      setTarjeta:()=>this.setState({payment:'tarjeta'}), setPse:()=>this.setState({payment:'pse'}), setContra:()=>this.setState({payment:'contra'}),
+      isTarjeta:s.payment==='tarjeta',
+      pyTarBg:tar.bg, pyTarBd:tar.bd, pyTarDot:tar.dot, pyTarFill:tar.fill,
+      pyPseBg:pse.bg, pyPseBd:pse.bd, pyPseDot:pse.dot, pyPseFill:pse.fill,
+      pyConBg:con.bg, pyConBd:con.bd, pyConDot:con.dot, pyConFill:con.fill,
+      placeOrder:()=>this.placeOrder(), payLabel:'Pagar '+f(this.total()),
+      lastOrderNum: s.lastOrder?s.lastOrder.num:'', lastOrderTotal: s.lastOrder?s.lastOrder.total:'',
+      toast:s.toast, hasToast:!!s.toast
+    };
+  }
+}
+</script>
+</body>
+</html>
