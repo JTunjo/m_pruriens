@@ -1,0 +1,45 @@
+#cierre.vg-home {
+  padding: 0;
+  background: transparent;
+}
+
+.vg-quote {
+  position: relative;
+  color: var(--vg-green);
+  text-align: center;
+  padding: 5.5rem 1.5rem;
+  overflow: hidden;
+  /* Solo la imagen, sin capa verde */
+  background-color: var(--vg-cream);
+  background-image: var(--vg-cierre-img);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.vg-quote p {
+  font-family: var(--vg-font-serif);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  color: var(--vg-green);
+  max-width: 40rem;
+  margin: 0 auto 1.5rem;
+  line-height: 1.35;
+  text-wrap: balance;
+  text-shadow: 0 1px 2px rgba(253, 251, 247, 0.85);
+}
+
+.vg-quote .vg-btn {
+  background: var(--vg-green);
+  color: var(--vg-white) !important;
+}
+
+.vg-quote .vg-btn:hover {
+  background: var(--vg-green-soft);
+}
+
+@media (max-width: 560px) {
+  .vg-quote {
+    padding: 4rem 1.25rem;
+    background-position: center center;
+  }
+}

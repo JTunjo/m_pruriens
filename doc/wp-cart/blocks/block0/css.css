@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Lato:wght@300;400;700&display=swap');
+
+:root {
+  --vg-cream: #FDFBF7;
+  --vg-cream-2: #F5F0E8;
+  --vg-green: #2A3D24;
+  --vg-green-soft: #3D5640;
+  --vg-pink: #C75B7A;
+  --vg-text: #2A3D24;
+  --vg-muted: #5C6B55;
+  --vg-white: #FFFFFF;
+  --vg-radius: 999px;
+  --vg-font-serif: 'Playfair Display', Georgia, serif;
+  --vg-font-sans: 'Lato', Helvetica, Arial, sans-serif;
+  --vg-header-offset: 96px;
+}
+
+html,
+body {
+  background-color: var(--vg-cream) !important;
+}
+
+body:has(.vg-home) .wp-site-blocks,
+body:has(.vg-home) .wp-block-group,
+body:has(.vg-home) main,
+body:has(.vg-home) .entry-content,
+body:has(.vg-home) .wp-block-post-content,
+body:has(.vg-home) .site-content,
+body:has(.vg-home) #content,
+body:has(.vg-home) #page {
+  background-color: var(--vg-cream) !important;
+}
+
+.vg-base {
+  display: none !important;
+}
+
+.wp-block-woocommerce-cart,
+.wp-block-woocommerce-checkout,
+.wc-block-cart,
+.wc-block-checkout {
+  font-family: var(--vg-font-sans) !important;
+  color: var(--vg-text);
+  background: var(--vg-cream) !important;
+  width: min(1200px, calc(100% - 3rem)) !important;
+  max-width: 1200px !important;
+  margin-inline: auto !important;
+  padding: 3.5rem 0 5rem !important;
+}
+
+.wp-block-woocommerce-cart h1,
+.wp-block-woocommerce-cart h2,
+.wp-block-woocommerce-checkout h1,
+.wp-block-woocommerce-checkout h2,
+.wc-block-cart h2,
+.wc-block-checkout h2,
+.wc-block-cart__totals-title,
+.wc-block-components-sidebar h2 {
+  font-family: var(--vg-font-serif) !important;
+  font-weight: 600 !important;
+  color: var(--vg-green) !important;
+  letter-spacing: 0;
+}
+
+.wc-block-cart-item__product a,
+.wc-block-components-product-name,
+.wc-block-components-product-name a {
+  font-family: var(--vg-font-serif) !important;
+  font-weight: 600 !important;
+  color: var(--vg-green) !important;
+  text-decoration: none !important;
+}
+
+.wc-block-components-product-metadata,
+.wc-block-cart-item__prices,
+.wc-block-components-product-price,
+.wc-block-components-totals-item,
+.wc-block-components-totals-item__label,
+.wc-block-components-totals-item__value,
+.wc-block-cart-items__header,
+.wc-block-components-product-details {
+  font-family: var(--vg-font-sans) !important;
+  color: var(--vg-muted) !important;
+}
+
+.wc-block-components-totals-footer-item .wc-block-components-totals-item__label,
+.wc-block-components-totals-footer-item .wc-block-components-totals-item__value,
+.wc-block-cart-item__total-price-and-sale-badge-wrapper,
+.wc-block-components-formatted-money-amount {
+  font-family: var(--vg-font-serif) !important;
+  color: var(--vg-green) !important;
+  font-weight: 600 !important;
+}
+
+.wc-block-cart-item__image img,
+.wc-block-components-product-image img {
+  border-radius: 4px;
+  background: var(--vg-cream-2);
+}
+
+.wc-block-components-quantity-selector {
+  border: 1px solid rgba(42, 61, 36, 0.2) !important;
+  border-radius: 8px !important;
+  overflow: hidden;
+  background: var(--vg-white) !important;
+}
+
+.wc-block-components-quantity-selector__button,
+.wc-block-components-quantity-selector input {
+  color: var(--vg-green) !important;
+  font-family: var(--vg-font-sans) !important;
+}
+
+.wc-block-cart-item__remove-link {
+  color: var(--vg-muted) !important;
+}
+
+.wc-block-cart-item__remove-link:hover {
+  color: var(--vg-pink) !important;
+}
+
+.wp-block-woocommerce-cart-order-summary-block,
+.wc-block-components-sidebar,
+.wp-block-woocommerce-checkout-order-summary-block {
+  background: var(--vg-white) !important;
+  border: 1px solid rgba(42, 61, 36, 0.1) !important;
+  border-radius: 6px !important;
+  padding: 1.5rem !important;
+}
+
+.wc-block-components-panel__button {
+  font-family: var(--vg-font-sans) !important;
+  color: var(--vg-green) !important;
+  font-weight: 700 !important;
+}
+
+.wc-block-components-text-input input,
+.wc-block-components-totals-coupon__form input {
+  font-family: var(--vg-font-sans) !important;
+  border: 1px solid rgba(42, 61, 36, 0.2) !important;
+  border-radius: 8px !important;
+  background: var(--vg-cream) !important;
+  color: var(--vg-text) !important;
+}
+
+/* Botones: verde pastilla (pisa el negro del tema) */
+body .wp-block-woocommerce-cart .wc-block-components-button,
+body .wp-block-woocommerce-cart .wp-element-button,
+body .wp-block-woocommerce-cart .add_to_cart_button,
+body .wp-block-woocommerce-cart .wp-block-button__link,
+body .wp-block-woocommerce-proceed-to-checkout-block .wc-block-components-button,
+body .wp-block-woocommerce-checkout .wc-block-components-button,
+body .wp-block-woocommerce-checkout .wp-element-button,
+body .wc-block-cart .wc-block-components-button,
+body .wc-block-checkout .wc-block-components-checkout-place-order-button {
+  background: var(--vg-green) !important;
+  background-color: #2a3d24 !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: var(--vg-radius) !important;
+  font-family: var(--vg-font-sans) !important;
+  font-weight: 700 !important;
+  padding: 0.95rem 1.75rem !important;
+  box-shadow: none !important;
+}
+
+body .wp-block-woocommerce-cart .wc-block-components-button:hover,
+body .wp-block-woocommerce-cart .wp-element-button:hover,
+body .wp-block-woocommerce-cart .add_to_cart_button:hover,
+body .wp-block-woocommerce-proceed-to-checkout-block .wc-block-components-button:hover,
+body .wp-block-woocommerce-checkout .wc-block-components-button:hover,
+body .wp-block-woocommerce-checkout .wp-element-button:hover {
+  background: var(--vg-green-soft) !important;
+  background-color: #3d5640 !important;
+  color: #fff !important;
+}
+
+.wp-block-woocommerce-cart-cross-sells-block h2,
+.wp-block-woocommerce-cart-cross-sells-block h3,
+.wc-block-cart-cross-sells__title {
+  font-family: var(--vg-font-serif) !important;
+  color: var(--vg-green) !important;
+  font-weight: 600 !important;
+}
+
+.wp-block-woocommerce-empty-cart-block h2,
+.wc-block-cart__empty-cart__title {
+  font-family: var(--vg-font-serif) !important;
+  color: var(--vg-green) !important;
+}

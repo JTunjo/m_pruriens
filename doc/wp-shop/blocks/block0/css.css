@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Lato:wght@300;400;700&display=swap');
+
+/* Transición suave al ir a una sección (navbar) */
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --vg-cream: #FDFBF7;
+  --vg-cream-2: #F5F0E8;
+  --vg-green: #2A3D24;
+  --vg-green-soft: #3D5640;
+  --vg-pink: #C75B7A;
+  --vg-text: #2A3D24;
+  --vg-muted: #5C6B55;
+  --vg-white: #FFFFFF;
+  --vg-radius: 999px;
+  --vg-font-serif: 'Playfair Display', Georgia, serif;
+  --vg-font-sans: 'Lato', Helvetica, Arial, sans-serif;
+  --vg-header-offset: 96px;
+}
+
+/* Fondo crema en toda la página (evita franjas blancas del tema) */
+html,
+body {
+  background-color: var(--vg-cream) !important;
+}
+body:has(.vg-home) .wp-site-blocks,
+body:has(.vg-home) .wp-block-group,
+body:has(.vg-home) main,
+body:has(.vg-home) .entry-content,
+body:has(.vg-home) .wp-block-post-content,
+body:has(.vg-home) .site-content,
+body:has(.vg-home) #content,
+body:has(.vg-home) #page {
+  background-color: var(--vg-cream) !important;
+}
+
+/* Amplía el contenedor del tema */
+.entry-content:has(.vg-home),
+.wp-block-post-content:has(.vg-home),
+.wp-block-group:has(.vg-home),
+main:has(.vg-home) .entry-content,
+.is-layout-constrained:has(.vg-home) {
+  max-width: none !important;
+  width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+.entry-content:has(.vg-home) > *,
+.wp-block-post-content:has(.vg-home) > * {
+  max-width: none !important;
+}
+
+/* Evita que el shortcode de productos quede en una “caja” estrecha del tema */
+.entry-content:has(#superalimentos) > *,
+.wp-block-post-content:has(#superalimentos) > * {
+  max-width: none !important;
+  width: 100% !important;
+}
+
+.entry-header:has(+ * .vg-home),
+body.page-home .entry-header,
+body.page-slug-home .wp-block-post-title,
+.wp-block-post-title:has(+ * .vg-home) {
+  display: none !important;
+}
+
+.vg-base {
+  display: none !important;
+}
+
+.vg-home {
+  font-family: var(--vg-font-sans);
+  color: var(--vg-text);
+  background: var(--vg-cream);
+  line-height: 1.65;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 5rem 0;
+  scroll-margin-top: var(--vg-header-offset);
+  box-sizing: border-box;
+  overflow-x: clip;
+}
+.vg-home *,
+.vg-home *::before,
+.vg-home *::after {
+  box-sizing: border-box;
+}
+.vg-home img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+.vg-home a {
+  color: inherit;
+  text-decoration: none;
+}
+.vg-home h1,
+.vg-home h2,
+.vg-home h3 {
+  font-family: var(--vg-font-serif);
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--vg-green);
+  margin: 0 0 1rem;
+}
+.vg-home p {
+  margin: 0 0 1rem;
+  color: var(--vg-muted);
+}
+.vg-home .vg-wrap {
+  width: min(1200px, calc(100% - 3rem));
+  margin-inline: auto;
+}
+
+.vg-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--vg-green);
+  color: var(--vg-white) !important;
+  border: none;
+  border-radius: var(--vg-radius);
+  padding: 0.95rem 1.75rem;
+  font-family: var(--vg-font-sans);
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.vg-btn:hover {
+  background: var(--vg-green-soft);
+  transform: translateY(-1px);
+}
+.vg-btn-outline {
+  background: transparent;
+  color: var(--vg-green) !important;
+  border: 1.5px solid rgba(42, 61, 36, 0.35);
+}
+.vg-btn-outline:hover {
+  background: var(--vg-green);
+  color: var(--vg-white) !important;
+  border-color: var(--vg-green);
+}
+.vg-btn-center {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+.vg-link-pink {
+  color: var(--vg-pink) !important;
+  font-weight: 700;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.vg-link-pink:hover {
+  text-decoration: underline;
+}
+.vg-label {
+  display: inline-block;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--vg-pink);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+.vg-img-ph {
+  background: linear-gradient(145deg, #E8E0D4 0%, #D4C8B8 50%, #C5B8A6 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--vg-muted);
+  font-size: 0.8rem;
+  padding: 1rem;
+  min-height: 280px;
+}
+.vg-img-ph.round {
+  border-radius: 50%;
+  aspect-ratio: 1;
+  min-height: 0;
+}
+.vg-img-ph.soft {
+  border-radius: 40% 60% 55% 45% / 55% 40% 60% 45%;
+}

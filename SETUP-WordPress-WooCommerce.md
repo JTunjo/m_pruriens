@@ -217,8 +217,8 @@ Pasos:
 | **Inicio** | Página de inicio (estática) | Constrúyela con el editor de bloques: hero, 4 tarjetas de beneficios, productos destacados (bloque *Productos*), banda "ritual de las 3pm", cita. |
 | **Tienda** | Página **Tienda** (`shop`) | WooCommerce la genera. Activa filtros por categoría (bloque *Filtrar por categoría* o widget). |
 | **Producto** | **Single product** | Plantilla nativa. Agrega galería, selector de presentación (atributo), pestañas Modo de uso/Ingredientes. |
-| **Carrito** | Página **Carrito** | Nativa. Muestra subtotal, envío, cupón. |
-| **Checkout** | Página **Finalizar compra** | Nativa. Contiene contacto, envío, método de envío y pago. |
+| **Carrito** | Página **Carrito** | Nativa. Estilos Velvet Greens: `doc/wp-cart/COMO-PEGAR.md`. |
+| **Checkout** | Página **Finalizar compra** | Nativa. Mismo `block0` que el carrito: `doc/wp-cart/COMO-PEGAR.md`. |
 | **Confirmación** | **Order received / Thank you** | Nativa tras el pago. Personaliza el texto "¡Pedido confirmado!". |
 
 **Textos de marca reutilizables** (copia/pega del mockup):

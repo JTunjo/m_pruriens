@@ -1,0 +1,368 @@
+<!--
+  BLOQUE 09 — FOOTER DEL SITIO (plantilla, no la Home)
+
+  Dónde pegarlo:
+  Apariencia → Editor → Plantillas → Partes de plantilla → Footer
+  (o el lápiz del footer en cualquier página)
+
+  1. Borra TODO lo que hay ahora: logo, título, descripción, Blog/About/Shop, Twenty Twenty-Five.
+  2. Añade un bloque «Personalizado HTML» (Gutenberg).
+  3. Pega este archivo completo (el <style> ya lleva el CSS).
+  4. Guardar.
+
+  LOGO: sube el logo manuscrito a Medios y pega la URL en el <img> de abajo.
+-->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lato:wght@300;400;700&display=swap');
+
+footer:has(#vg-footer),
+.wp-block-template-part:has(#vg-footer),
+.wp-block-group:has(#vg-footer),
+.is-layout-constrained:has(#vg-footer),
+.has-global-padding:has(#vg-footer),
+.wp-block-html:has(#vg-footer),
+.vg-footer-host {
+  max-width: none !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: #F5F0E8 !important;
+}
+.is-layout-constrained:has(#vg-footer) > *:not(#vg-wa-float-wrap):not(.vg-wa-float),
+.is-layout-constrained:has(#vg-footer) .wp-block-html,
+.wp-block-group:has(#vg-footer) > *:not(#vg-wa-float-wrap):not(.vg-wa-float) {
+  max-width: none !important;
+  width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+#vg-footer.vg-site-footer {
+  --vg-cream: #FDFBF7;
+  --vg-cream-2: #F5F0E8;
+  --vg-green: #2A3D24;
+  --vg-green-soft: #3D5640;
+  --vg-pink: #C75B7A;
+  --vg-muted: #5C6B55;
+  --vg-font-serif: 'Playfair Display', Georgia, serif;
+  --vg-font-sans: 'Lato', Helvetica, Arial, sans-serif;
+  font-family: var(--vg-font-sans);
+  color: var(--vg-green);
+  background: var(--vg-cream-2);
+  padding: 4rem 0 1.75rem;
+  line-height: 1.6;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  width: 100vw !important;
+  max-width: 100vw !important;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+  position: relative;
+}
+#vg-footer *,
+#vg-footer *::before,
+#vg-footer *::after { box-sizing: border-box; }
+#vg-footer a { color: inherit; text-decoration: none; }
+.vg-footer-inner { width: min(1200px, calc(100% - 4rem)); margin-inline: auto; }
+.vg-footer-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr 1fr 1.35fr;
+  gap: 2.5rem 3rem;
+  align-items: start;
+}
+.vg-footer-logo { display: inline-block; margin-bottom: 0.85rem; }
+.vg-footer-logo img { display: block; height: 64px; width: auto; max-width: 220px; object-fit: contain; }
+.vg-footer-brand p {
+  margin: 0;
+  max-width: 16.5rem;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--vg-muted);
+}
+.vg-footer-social { display: flex; gap: 0.65rem; margin-top: 1.15rem; }
+.vg-footer-social a {
+  width: 34px;
+  height: 34px;
+  border: 1.5px solid var(--vg-green);
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--vg-green);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.vg-footer-social a svg { width: 15px; height: 15px; }
+.vg-footer-social a:hover { background: var(--vg-green); color: #fff; }
+.vg-footer-col h4 {
+  font-family: var(--vg-font-sans);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--vg-green);
+  margin: 0.35rem 0 1rem;
+}
+.vg-footer-col ul { list-style: none; margin: 0; padding: 0; }
+.vg-footer-col li { margin: 0 0 0.55rem; }
+.vg-footer-col a,
+.vg-footer-col span {
+  font-size: 0.9rem;
+  color: var(--vg-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+.vg-footer-col a:hover { color: var(--vg-green); }
+.vg-footer-contact svg { width: 16px; height: 16px; flex-shrink: 0; color: var(--vg-green); }
+.vg-footer-copy {
+  margin: 2.75rem 0 0;
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--vg-muted);
+}
+@media (min-width: 901px) {
+  .vg-footer-col a,
+  .vg-footer-col span { white-space: nowrap; }
+}
+@media (max-width: 900px) {
+  .vg-footer-grid { grid-template-columns: 1fr 1fr; gap: 2.25rem 1.5rem; }
+  .vg-footer-brand { grid-column: 1 / -1; }
+}
+@media (max-width: 560px) {
+  #vg-footer.vg-site-footer { padding: 3rem 0 1.5rem; }
+  .vg-footer-grid { grid-template-columns: 1fr; gap: 1.75rem; }
+  .vg-footer-copy { text-align: left; margin-top: 2rem; }
+}
+
+/* Botón WhatsApp: círculo fijo (el tema estiraba el <a> a 100%) */
+body #vg-wa-float-wrap,
+body #vg-wa-float-wrap a.vg-wa-float,
+footer a.vg-wa-float,
+.wp-block-html a.vg-wa-float,
+.is-layout-constrained a.vg-wa-float,
+.wp-block-group a.vg-wa-float {
+  position: fixed !important;
+  top: auto !important;
+  left: auto !important;
+  right: 22px !important;
+  bottom: 22px !important;
+  inset: auto 22px 22px auto !important;
+  z-index: 2147483647 !important;
+  width: 58px !important;
+  height: 58px !important;
+  min-width: 58px !important;
+  max-width: 58px !important;
+  min-height: 58px !important;
+  max-height: 58px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  flex: 0 0 58px !important;
+  align-self: auto !important;
+  box-sizing: border-box !important;
+  border-radius: 50% !important;
+  background: #25D366 !important;
+  color: #fff !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 8px 22px rgba(37, 211, 102, 0.45) !important;
+  text-decoration: none !important;
+  overflow: visible !important;
+  float: none !important;
+  transform: none !important;
+}
+body #vg-wa-float-wrap {
+  background: transparent !important;
+  box-shadow: none !important;
+  pointer-events: none !important;
+}
+body #vg-wa-float-wrap a.vg-wa-float {
+  pointer-events: auto !important;
+  position: relative !important;
+  inset: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  left: auto !important;
+  top: auto !important;
+}
+.vg-wa-float svg { width: 30px !important; height: 30px !important; display: block !important; flex: none !important; }
+.vg-wa-float:hover {
+  transform: scale(1.08) !important;
+  box-shadow: 0 10px 26px rgba(37, 211, 102, 0.55) !important;
+  color: #fff !important;
+}
+.vg-wa-float::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.55);
+  animation: vg-wa-pulse 2.2s ease-out infinite;
+  pointer-events: none;
+}
+@keyframes vg-wa-pulse {
+  70% { box-shadow: 0 0 0 14px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+@media (max-width: 560px) {
+  body #vg-wa-float-wrap,
+  body #vg-wa-float-wrap a.vg-wa-float,
+  footer a.vg-wa-float {
+    width: 52px !important;
+    height: 52px !important;
+    min-width: 52px !important;
+    max-width: 52px !important;
+    min-height: 52px !important;
+    max-height: 52px !important;
+    right: 16px !important;
+    bottom: max(16px, env(safe-area-inset-bottom)) !important;
+    flex-basis: 52px !important;
+  }
+  .vg-wa-float svg { width: 26px !important; height: 26px !important; }
+}
+
+/* Oculta WhatsApp cuando el mini carrito está abierto */
+html:has(.wc-block-mini-cart__button[aria-expanded="true"]) #vg-wa-float-wrap,
+html:has(.wc-block-mini-cart__button[aria-expanded="true"]) #vg-wa-float-wrap a.vg-wa-float,
+html:has(.wc-block-mini-cart--open) #vg-wa-float-wrap,
+html:has(.wc-block-mini-cart__drawer[aria-hidden="false"]) #vg-wa-float-wrap,
+html:has(.wc-block-components-drawer__screen-overlay:not(.wc-block-components-drawer__screen-overlay--is-hidden)) #vg-wa-float-wrap,
+html:has(.wc-block-components-drawer__screen-overlay:not(.wc-block-components-drawer__screen-overlay--is-hidden)) #vg-wa-float-wrap a.vg-wa-float,
+#vg-wa-float-wrap.vg-wa-hidden,
+#vg-wa-float-wrap.vg-wa-hidden a.vg-wa-float,
+body.vg-wa-cart-open #vg-wa-float-wrap,
+body.vg-wa-cart-open #vg-wa-float-wrap a.vg-wa-float {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+</style>
+<div id="vg-footer" class="vg-site-footer alignfull">
+  <div class="vg-footer-inner">
+    <div class="vg-footer-grid">
+
+      <div class="vg-footer-brand">
+        <a class="vg-footer-logo" href="/">
+          <!--
+            LOGO FOOTER — manuscrito rosa/verde (como en el diseño)
+            Tamaño ideal: 280 × 140 px (PNG transparente) | Peso: < 80 KB
+          -->
+          <img
+            src="https://wp.velvetgreens.co//wp-content/uploads/2026/09/56574897-vector-illustration-of-cat-logo-on-a-white-background.jpg"
+            alt="Velvet Greens"
+          >
+        </a>
+        <p>Superalimentos 100% naturales para nutrir tu cuerpo, tu mente y tu bienestar.</p>
+        <div class="vg-footer-social">
+          <a href="https://www.instagram.com/velvet.greens/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://www.facebook.com/velvet.greens.col/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h2.6l.4-3H13v-2c0-.6.4-1 1-1z"/></svg>
+          </a>
+          <a href="mailto:hola@velvetgreens.com" aria-label="Correo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M4 7l8 6 8-6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <nav class="vg-footer-col" aria-label="Enlaces">
+        <h4>Enlaces</h4>
+        <ul>
+          <li><a href="/#nuestra-esencia">Nuestra Esencia</a></li>
+          <li><a href="/#superalimentos">Superalimentos</a></li>
+          <li><a href="/#mucuna">Mucuna Pruriens</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <nav class="vg-footer-col" aria-label="Ayuda">
+        <h4>Ayuda</h4>
+        <ul>
+          <li><a href="/preguntas-frecuentes">Preguntas frecuentes</a></li>
+          <li><a href="/envios">Envíos y entregas</a></li>
+          <li><a href="/politicas">Políticas</a></li>
+          <li><a href="/terminos">Términos y condiciones</a></li>
+        </ul>
+      </nav>
+
+      <div class="vg-footer-col">
+        <h4>Contáctanos</h4>
+        <ul class="vg-footer-contact">
+          <li>
+            <a href="https://wa.me/573001234567" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.05 4.91A9.9 9.9 0 0 0 12.04 2C6.55 2 2.1 6.45 2.1 11.94c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.78 1.22h.01c5.49 0 9.94-4.45 9.94-9.94a9.86 9.86 0 0 0-2.93-7zM12.04 20.15h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.35c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.2-8.23 8.2zm4.52-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.4-.12-.56.13-.17.25-.64.8-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.4-.42-.56-.42h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.24 3.74 1.49.64 1.86.7 2.53.59.41-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.23-.17-.48-.29z"/></svg>
+              +57 300 123 4567
+            </a>
+          </li>
+          <li>
+            <a href="mailto:hola@velvetgreens.com">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M4 7l8 6 8-6"/></svg>
+              hola@velvetgreens.com
+            </a>
+          </li>
+          <li>
+            <span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 21s7-5.4 7-11a7 7 0 1 0-14 0c0 5.6 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>
+              Bogotá, Colombia
+            </span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <p class="vg-footer-copy">© 2026 Velvet Greens. Todos los derechos reservados.</p>
+  </div>
+</div>
+
+<!--
+  WhatsApp flotante: cambia el número en wa.me (código país + número, sin + ni espacios).
+  Ejemplo: +57 300 123 4567 → https://wa.me/573001234567
+-->
+<div id="vg-wa-float-wrap" class="vg-wa-float-wrap" style="position:fixed !important;right:22px;bottom:22px;left:auto;top:auto;width:58px;height:58px;z-index:2147483647;margin:0;padding:0;">
+  <a
+    class="vg-wa-float"
+    href="https://wa.me/573001234567"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Escribir por WhatsApp"
+    style="display:flex;width:58px;height:58px;border-radius:50%;background:#25D366;color:#fff;align-items:center;justify-content:center;text-decoration:none;"
+  >
+    <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor" aria-hidden="true">
+      <path d="M19.05 4.91A9.9 9.9 0 0 0 12.04 2C6.55 2 2.1 6.45 2.1 11.94c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.78 1.22h.01c5.49 0 9.94-4.45 9.94-9.94a9.86 9.86 0 0 0-2.93-7zM12.04 20.15h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.35c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.2-8.23 8.2zm4.52-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.4-.12-.56.13-.17.25-.64.8-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.4-.42-.56-.42h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.24 3.74 1.49.64 1.86.7 2.53.59.41-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.23-.17-.48-.29z"/>
+    </svg>
+  </a>
+</div>
+<script>
+(function () {
+  var wrap = document.getElementById('vg-wa-float-wrap');
+  if (wrap && wrap.parentNode !== document.body) document.body.appendChild(wrap);
+
+  function isCartOpen() {
+    if (document.querySelector('.wc-block-mini-cart__button[aria-expanded="true"]')) return true;
+    if (document.querySelector('.wc-block-mini-cart--open')) return true;
+    var drawer = document.querySelector('.wc-block-mini-cart__drawer, .wc-block-components-drawer');
+    if (drawer && drawer.getAttribute('aria-hidden') === 'false') return true;
+    var overlay = document.querySelector('.wc-block-components-drawer__screen-overlay');
+    if (overlay && !overlay.classList.contains('wc-block-components-drawer__screen-overlay--is-hidden')) return true;
+    return false;
+  }
+
+  function sync() {
+    var el = document.getElementById('vg-wa-float-wrap');
+    if (!el) return;
+    var open = isCartOpen();
+    el.classList.toggle('vg-wa-hidden', open);
+    document.body.classList.toggle('vg-wa-cart-open', open);
+  }
+
+  sync();
+  var obs = new MutationObserver(sync);
+  obs.observe(document.documentElement, {
+    subtree: true,
+    attributes: true,
+    attributeFilter: ['aria-expanded', 'aria-hidden', 'class']
+  });
+  document.addEventListener('click', function () { setTimeout(sync, 30); }, true);
+})();
+</script>

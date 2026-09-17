@@ -1,0 +1,174 @@
+/*
+  SUPERALIMENTOS — una sola franja continua
+  (encabezado + shortcode [products] + botón)
+*/
+
+/* —— Encabezado —— */
+#superalimentos.vg-home {
+  background: var(--vg-cream-2) !important;
+  text-align: center;
+  padding-top: 5rem;
+  padding-bottom: 0 !important;
+  margin: 0 !important;
+}
+
+#superalimentos h2 {
+  font-size: clamp(1.9rem, 3.5vw, 2.5rem);
+  margin-bottom: 0.5rem;
+}
+
+#superalimentos .vg-intro {
+  max-width: 36rem;
+  margin: 0 auto;
+}
+
+/* —— Footer / botón (mismo fondo, sin corte) —— */
+.vg-products-footer {
+  background: var(--vg-cream-2) !important;
+  margin: 0 !important;
+  padding: 1.75rem 0 5rem !important;
+  text-align: center;
+  width: 100%;
+  max-width: none !important;
+}
+
+/* —— Todo lo que el tema mete entre encabezado y botón —— */
+.entry-content:has(#superalimentos) > *:has(.woocommerce),
+.wp-block-post-content:has(#superalimentos) > *:has(.woocommerce),
+.entry-content:has(#superalimentos) > .woocommerce,
+.wp-block-post-content:has(#superalimentos) > .woocommerce,
+.entry-content:has(#superalimentos) > .wp-block-shortcode,
+.wp-block-post-content:has(#superalimentos) > .wp-block-shortcode,
+#superalimentos ~ .woocommerce,
+#superalimentos ~ .wp-block-shortcode,
+#superalimentos ~ [class*="woocommerce"] {
+  background: var(--vg-cream-2) !important;
+  max-width: none !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 2rem 0 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  float: none !important;
+}
+
+/* Por si el shortcode queda envuelto en un grupo del tema */
+.entry-content:has(#superalimentos):has(.vg-products-footer) > *:not(#superalimentos):not(.vg-products-footer):not(.vg-base),
+.wp-block-post-content:has(#superalimentos):has(.vg-products-footer) > *:not(#superalimentos):not(.vg-products-footer):not(.vg-base) {
+  /* Solo afecta bloques intermedios si están entre ambos; mejor no forzar todos */
+}
+
+/* —— Grid de productos (centrado, sin caja extra) —— */
+body.woocommerce ul.products,
+body .woocommerce ul.products,
+.woocommerce ul.products.columns-4,
+.woocommerce ul.products {
+  background: transparent !important;
+  width: min(1200px, calc(100% - 3rem)) !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  list-style: none !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 1.25rem !important;
+  float: none !important;
+}
+
+body .woocommerce ul.products::before,
+body .woocommerce ul.products::after,
+.woocommerce ul.products::before,
+.woocommerce ul.products::after {
+  display: none !important;
+  content: none !important;
+}
+
+body .woocommerce ul.products li.product,
+.woocommerce ul.products li.product {
+  width: min(240px, 100%) !important;
+  max-width: 260px !important;
+  margin: 0 !important;
+  padding: 1.35rem 1.1rem 1.5rem !important;
+  float: none !important;
+  clear: none !important;
+  background: var(--vg-white) !important;
+  border-radius: 1rem !important;
+  box-shadow: 0 4px 24px rgba(42, 61, 36, 0.06);
+  text-align: center;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+}
+
+body .woocommerce ul.products li.product a img,
+body .woocommerce ul.products li.product img {
+  width: 140px !important;
+  height: 140px !important;
+  object-fit: cover !important;
+  border-radius: 50% !important;
+  margin: 0 auto 1rem !important;
+}
+
+body .woocommerce ul.products li.product .woocommerce-loop-product__title {
+  font-family: var(--vg-font-serif) !important;
+  font-size: 1.05rem !important;
+  color: var(--vg-green) !important;
+  padding: 0 !important;
+  margin: 0 0 0.5rem !important;
+}
+
+/* Descripción corta (inyectada por js.js) */
+body .woocommerce ul.products li.product .vg-loop-desc {
+  font-family: var(--vg-font-sans);
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--vg-muted);
+  margin: 0 0 0.85rem;
+  padding: 0;
+  text-align: center;
+  max-width: 100%;
+}
+
+body .woocommerce ul.products li.product .price {
+  font-family: var(--vg-font-serif) !important;
+  font-size: 1.2rem !important;
+  color: var(--vg-green) !important;
+  margin: 0 0 1rem !important;
+}
+
+body .woocommerce ul.products li.product .price del {
+  color: var(--vg-muted);
+  font-size: 0.9rem;
+  margin-right: 0.35rem;
+}
+
+body .woocommerce ul.products li.product .button,
+body .woocommerce ul.products li.product a.button,
+body .woocommerce ul.products li.product .add_to_cart_button {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 100% !important;
+  background: var(--vg-green) !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 999px !important;
+  padding: 0.8rem 1rem !important;
+  font-family: var(--vg-font-sans) !important;
+  font-size: 0.88rem !important;
+  font-weight: 700 !important;
+  margin-top: auto !important;
+}
+
+body .woocommerce ul.products li.product .button:hover,
+body .woocommerce ul.products li.product a.button:hover {
+  background: var(--vg-green-soft) !important;
+}
+
+@media (max-width: 560px) {
+  body .woocommerce ul.products li.product {
+    width: 100% !important;
+    max-width: 320px !important;
+  }
+}

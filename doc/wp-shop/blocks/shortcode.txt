@@ -1,0 +1,1 @@
+[products limit="48" columns="3" orderby="menu_order" order="ASC"]

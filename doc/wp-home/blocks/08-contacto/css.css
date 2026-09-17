@@ -1,0 +1,29 @@
+#contacto.vg-home {
+  background: var(--vg-cream-2);
+  padding: 3.5rem 0;
+}
+.vg-contacto {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+.vg-contacto h2 {
+  font-size: 1.8rem;
+}
+.vg-contacto-box {
+  background: var(--vg-white);
+  border-radius: 1rem;
+  padding: 1.75rem;
+}
+.vg-contacto-box p {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 960px) {
+  .vg-contacto {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}

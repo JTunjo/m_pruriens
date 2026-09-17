@@ -1,0 +1,330 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lato:wght@300;400;700&display=swap');
+
+/*
+  Twenty Twenty-Five pone max-width en los HIJOS del layout constrained
+  (~620 px). Hay que romper ese ancho, no solo el contenedor.
+*/
+footer:has(#vg-footer),
+.wp-block-template-part:has(#vg-footer),
+.wp-block-group:has(#vg-footer),
+.is-layout-constrained:has(#vg-footer),
+.has-global-padding:has(#vg-footer),
+.wp-block-html:has(#vg-footer),
+.vg-footer-host {
+  max-width: none !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: #F5F0E8 !important;
+}
+
+.is-layout-constrained:has(#vg-footer) > *:not(#vg-wa-float-wrap):not(.vg-wa-float),
+.is-layout-constrained:has(#vg-footer) .wp-block-html,
+.wp-block-group:has(#vg-footer) > *:not(#vg-wa-float-wrap):not(.vg-wa-float) {
+  max-width: none !important;
+  width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+#vg-footer.vg-site-footer {
+  --vg-cream: #FDFBF7;
+  --vg-cream-2: #F5F0E8;
+  --vg-green: #2A3D24;
+  --vg-green-soft: #3D5640;
+  --vg-pink: #C75B7A;
+  --vg-muted: #5C6B55;
+  --vg-font-serif: 'Playfair Display', Georgia, serif;
+  --vg-font-sans: 'Lato', Helvetica, Arial, sans-serif;
+
+  font-family: var(--vg-font-sans);
+  color: var(--vg-green);
+  background: var(--vg-cream-2);
+  padding: 4rem 0 1.75rem;
+  line-height: 1.6;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+
+  /* Sale de la caja estrecha del tema y usa toda la ventana */
+  width: 100vw !important;
+  max-width: 100vw !important;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+  position: relative;
+}
+
+#vg-footer *,
+#vg-footer *::before,
+#vg-footer *::after {
+  box-sizing: border-box;
+}
+
+#vg-footer a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.vg-footer-inner {
+  width: min(1200px, calc(100% - 4rem));
+  margin-inline: auto;
+}
+
+.vg-footer-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr 1fr 1.35fr;
+  gap: 2.5rem 3rem;
+  align-items: start;
+}
+
+.vg-footer-logo {
+  display: inline-block;
+  margin-bottom: 0.85rem;
+}
+
+.vg-footer-logo img {
+  display: block;
+  height: 64px;
+  width: auto;
+  max-width: 220px;
+  object-fit: contain;
+}
+
+.vg-footer-brand p {
+  margin: 0;
+  max-width: 16.5rem;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--vg-muted);
+  font-weight: 400;
+}
+
+.vg-footer-social {
+  display: flex;
+  gap: 0.65rem;
+  margin-top: 1.15rem;
+}
+
+.vg-footer-social a {
+  width: 34px;
+  height: 34px;
+  border: 1.5px solid var(--vg-green);
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--vg-green);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.vg-footer-social a svg {
+  width: 15px;
+  height: 15px;
+}
+
+.vg-footer-social a:hover {
+  background: var(--vg-green);
+  color: #fff;
+}
+
+.vg-footer-col h4 {
+  font-family: var(--vg-font-sans);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--vg-green);
+  margin: 0.35rem 0 1rem;
+}
+
+.vg-footer-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.vg-footer-col li {
+  margin: 0 0 0.55rem;
+}
+
+.vg-footer-col a,
+.vg-footer-col span {
+  font-size: 0.9rem;
+  color: var(--vg-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.vg-footer-col a:hover {
+  color: var(--vg-green);
+}
+
+.vg-footer-contact svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: var(--vg-green);
+}
+
+.vg-footer-copy {
+  margin: 2.75rem 0 0;
+  padding-top: 0.25rem;
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--vg-muted);
+}
+
+@media (min-width: 901px) {
+  .vg-footer-col a,
+  .vg-footer-col span {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 900px) {
+  .vg-footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.25rem 1.5rem;
+  }
+
+  .vg-footer-brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 560px) {
+  #vg-footer.vg-site-footer {
+    padding: 3rem 0 1.5rem;
+  }
+
+  .vg-footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .vg-footer-copy {
+    text-align: left;
+    margin-top: 2rem;
+  }
+}
+
+/* Botón WhatsApp: círculo fijo (el tema estiraba el <a> a 100%) */
+body #vg-wa-float-wrap,
+body #vg-wa-float-wrap a.vg-wa-float,
+footer a.vg-wa-float,
+.wp-block-html a.vg-wa-float,
+.is-layout-constrained a.vg-wa-float,
+.wp-block-group a.vg-wa-float {
+  position: fixed !important;
+  top: auto !important;
+  left: auto !important;
+  right: 22px !important;
+  bottom: 22px !important;
+  inset: auto 22px 22px auto !important;
+  z-index: 2147483647 !important;
+  width: 58px !important;
+  height: 58px !important;
+  min-width: 58px !important;
+  max-width: 58px !important;
+  min-height: 58px !important;
+  max-height: 58px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  flex: 0 0 58px !important;
+  align-self: auto !important;
+  box-sizing: border-box !important;
+  border-radius: 50% !important;
+  background: #25d366 !important;
+  color: #fff !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 8px 22px rgba(37, 211, 102, 0.45) !important;
+  text-decoration: none !important;
+  overflow: visible !important;
+  float: none !important;
+  transform: none !important;
+}
+
+body #vg-wa-float-wrap {
+  background: transparent !important;
+  box-shadow: none !important;
+  pointer-events: none !important;
+}
+
+body #vg-wa-float-wrap a.vg-wa-float {
+  pointer-events: auto !important;
+  position: relative !important;
+  inset: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  left: auto !important;
+  top: auto !important;
+}
+
+.vg-wa-float svg {
+  width: 30px !important;
+  height: 30px !important;
+  display: block !important;
+  flex: none !important;
+}
+
+.vg-wa-float:hover {
+  transform: scale(1.08) !important;
+  box-shadow: 0 10px 26px rgba(37, 211, 102, 0.55) !important;
+  color: #fff !important;
+}
+
+.vg-wa-float::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.55);
+  animation: vg-wa-pulse 2.2s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes vg-wa-pulse {
+  70% {
+    box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+@media (max-width: 560px) {
+  body #vg-wa-float-wrap,
+  body #vg-wa-float-wrap a.vg-wa-float,
+  footer a.vg-wa-float {
+    width: 52px !important;
+    height: 52px !important;
+    min-width: 52px !important;
+    max-width: 52px !important;
+    min-height: 52px !important;
+    max-height: 52px !important;
+    right: 16px !important;
+    bottom: max(16px, env(safe-area-inset-bottom)) !important;
+    flex-basis: 52px !important;
+  }
+
+  .vg-wa-float svg {
+    width: 26px !important;
+    height: 26px !important;
+  }
+}
+
+/* Oculta WhatsApp cuando el mini carrito está abierto */
+html:has(.wc-block-mini-cart__button[aria-expanded="true"]) #vg-wa-float-wrap,
+html:has(.wc-block-mini-cart__button[aria-expanded="true"]) #vg-wa-float-wrap a.vg-wa-float,
+html:has(.wc-block-mini-cart--open) #vg-wa-float-wrap,
+html:has(.wc-block-mini-cart__drawer[aria-hidden="false"]) #vg-wa-float-wrap,
+html:has(.wc-block-components-drawer__screen-overlay:not(.wc-block-components-drawer__screen-overlay--is-hidden)) #vg-wa-float-wrap,
+html:has(.wc-block-components-drawer__screen-overlay:not(.wc-block-components-drawer__screen-overlay--is-hidden)) #vg-wa-float-wrap a.vg-wa-float,
+#vg-wa-float-wrap.vg-wa-hidden,
+#vg-wa-float-wrap.vg-wa-hidden a.vg-wa-float,
+body.vg-wa-cart-open #vg-wa-float-wrap,
+body.vg-wa-cart-open #vg-wa-float-wrap a.vg-wa-float {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}

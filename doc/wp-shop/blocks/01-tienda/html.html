@@ -1,0 +1,43 @@
+<!--
+  block01 — pestana HTML (solo markup).
+  Pestana CSS: css.css
+  Pestana JavaScript: pega js.js
+-->
+<section id="tienda" class="vg-home vg-shop">
+  <div class="vg-wrap">
+    <span class="vg-label">Tienda</span>
+    <h1>Ingredientes de Origen</h1>
+    <p class="vg-intro">Ingredientes naturales para acompanar tu dia a dia.</p>
+    <p>Explora ingredientes en polvo y otros formatos seleccionados en Colombia y diferentes lugares del mundo.</p>
+    <p>Elige el que mejor se adapte a tu rutina y descubre nuevas formas de incorporarlo a tus preparaciones.</p>
+
+    <div class="vg-shop-toolbar" aria-label="Filtros">
+      <div class="vg-shop-filters-block">
+        <span class="vg-shop-filter-label" id="vg-shop-cat-label">Categorias</span>
+        <div class="vg-shop-filters" id="vg-shop-filters" role="group" aria-labelledby="vg-shop-cat-label">
+          <button type="button" class="vg-filter is-active" data-cat="" aria-pressed="true">Todos</button>
+          <button type="button" class="vg-filter" data-cat="ingredientes-de-origen" aria-pressed="false">Ingredientes de Origen</button>
+          <button type="button" class="vg-filter" data-cat="ingredientes-de-la-naturaleza" aria-pressed="false">Ingredientes de la naturaleza</button>
+          <button type="button" class="vg-filter" data-cat="origen-colombia" aria-pressed="false">Origen Colombia</button>
+          <button type="button" class="vg-filter" data-cat="importados" aria-pressed="false">Importados</button>
+        </div>
+      </div>
+
+      <div class="vg-shop-toolbar-meta">
+        <div class="vg-shop-sort">
+          <label class="vg-shop-filter-label" for="vg-shop-sort">Ordenar por</label>
+          <div class="vg-shop-select-wrap">
+            <select id="vg-shop-sort" class="vg-shop-select">
+              <option value="menu_order">Orden del catalogo</option>
+              <option value="popularity">Mas vendidos</option>
+              <option value="price">Precio: menor a mayor</option>
+              <option value="price-desc">Precio: mayor a menor</option>
+              <option value="date">Nuevos productos</option>
+            </select>
+          </div>
+        </div>
+        <div class="vg-shop-count" id="vg-shop-count" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+</section>

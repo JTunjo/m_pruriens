@@ -1,0 +1,33 @@
+.vg-mucuna {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+.vg-mucuna h2 {
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  margin-bottom: 0.5rem;
+}
+.vg-mucuna .vg-sub {
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+  color: var(--vg-muted);
+}
+.vg-disclaimer {
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--vg-muted);
+  margin-top: 1.25rem;
+  max-width: 36rem;
+}
+.vg-mucuna-visual .vg-img-ph {
+  border-radius: 1.5rem;
+  min-height: 360px;
+}
+
+@media (max-width: 960px) {
+  .vg-mucuna {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}

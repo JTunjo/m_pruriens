@@ -1,0 +1,121 @@
+  /*
+    MINI CARRITO (cajon del icono del header)
+    Debe cargar en TODAS las paginas, no solo en /carrito.
+    Pegar en: Apariencia, Editor, Estilos, CSS adicional.
+    Solo CSS: sin HTML ni etiquetas.
+  */
+
+  .wc-block-mini-cart__drawer,
+  .wc-block-components-drawer,
+  .wp-block-woocommerce-mini-cart-contents,
+  .wc-block-mini-cart__template-part {
+    font-family: 'Lato', Helvetica, Arial, sans-serif !important;
+    color: #2a3d24 !important;
+    background: #fdfbf7 !important;
+  }
+
+  .wc-block-mini-cart__title,
+  .wp-block-woocommerce-mini-cart-title-block,
+  .wp-block-woocommerce-mini-cart-title-label-block,
+  .wc-block-mini-cart__title h2,
+  .wc-block-mini-cart__title .wc-block-mini-cart__title-text {
+    font-family: 'Playfair Display', Georgia, serif !important;
+    font-weight: 600 !important;
+    color: #2a3d24 !important;
+  }
+
+  .wp-block-woocommerce-mini-cart-title-items-counter-block,
+  .wc-block-mini-cart__badge {
+    font-family: 'Lato', Helvetica, Arial, sans-serif !important;
+    color: #5c6b55 !important;
+  }
+
+  .wc-block-mini-cart__badge {
+    background: #c75b7a !important;
+    color: #fff !important;
+  }
+
+  .wc-block-mini-cart__products-table a,
+  .wc-block-cart-item__product a,
+  .wc-block-components-product-name {
+    font-family: 'Playfair Display', Georgia, serif !important;
+    font-weight: 600 !important;
+    color: #2a3d24 !important;
+    text-decoration: none !important;
+  }
+
+  .wc-block-mini-cart__footer,
+  .wp-block-woocommerce-mini-cart-footer-block {
+    background: #fdfbf7 !important;
+    border-top: 1px solid rgba(42, 61, 36, 0.1) !important;
+  }
+
+  .wc-block-mini-cart__footer .wc-block-components-totals-item__label,
+  .wc-block-mini-cart__footer .wc-block-components-totals-item__value {
+    font-family: 'Playfair Display', Georgia, serif !important;
+    color: #2a3d24 !important;
+    font-weight: 600 !important;
+  }
+
+  .wc-block-components-quantity-selector {
+    border: 1px solid rgba(42, 61, 36, 0.2) !important;
+    border-radius: 8px !important;
+    background: #fff !important;
+  }
+
+  /* Ver mi carrito: borde verde */
+  body .wc-block-mini-cart__footer .wp-block-woocommerce-mini-cart-cart-button-block .wc-block-components-button,
+  body .wc-block-mini-cart__footer .wp-block-woocommerce-mini-cart-cart-button-block .wp-element-button {
+    background: transparent !important;
+    background-color: transparent !important;
+    color: #2a3d24 !important;
+    border: 1.5px solid rgba(42, 61, 36, 0.35) !important;
+    border-radius: 999px !important;
+    font-family: 'Lato', Helvetica, Arial, sans-serif !important;
+    font-weight: 700 !important;
+    box-shadow: none !important;
+  }
+
+  body .wc-block-mini-cart__footer .wp-block-woocommerce-mini-cart-cart-button-block .wc-block-components-button:hover,
+  body .wc-block-mini-cart__footer .wp-block-woocommerce-mini-cart-cart-button-block .wp-element-button:hover {
+    background: #2a3d24 !important;
+    color: #fff !important;
+    border-color: #2a3d24 !important;
+  }
+
+  /* Ir a finalizar compra: verde pastilla (pisa el negro del tema) */
+  body .wc-block-mini-cart__footer .wp-block-woocommerce-mini-cart-checkout-button-block .wc-block-components-button,
+  body .wc-block-mini-cart__footer .wp-block-woocommerce-mini-cart-checkout-button-block .wp-element-button,
+  body .wc-block-mini-cart__footer .wc-block-components-button.contained {
+    background: #2a3d24 !important;
+    background-color: #2a3d24 !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: 999px !important;
+    font-family: 'Lato', Helvetica, Arial, sans-serif !important;
+    font-weight: 700 !important;
+    box-shadow: none !important;
+  }
+
+  body .wc-block-mini-cart__footer .wp-block-woocommerce-mini-cart-checkout-button-block .wc-block-components-button:hover,
+  body .wc-block-mini-cart__footer .wp-block-woocommerce-mini-cart-checkout-button-block .wp-element-button:hover {
+    background: #3d5640 !important;
+    background-color: #3d5640 !important;
+    color: #fff !important;
+  }
+
+  /* Oculta el WhatsApp flotante mientras el cajón del mini carrito está abierto */
+  html:has(.wc-block-mini-cart__button[aria-expanded="true"]) #vg-wa-float-wrap,
+  html:has(.wc-block-mini-cart__button[aria-expanded="true"]) #vg-wa-float-wrap a.vg-wa-float,
+  html:has(.wc-block-mini-cart--open) #vg-wa-float-wrap,
+  html:has(.wc-block-mini-cart__drawer[aria-hidden="false"]) #vg-wa-float-wrap,
+  html:has(.wc-block-components-drawer__screen-overlay:not(.wc-block-components-drawer__screen-overlay--is-hidden)) #vg-wa-float-wrap,
+  html:has(.wc-block-components-drawer__screen-overlay:not(.wc-block-components-drawer__screen-overlay--is-hidden)) #vg-wa-float-wrap a.vg-wa-float,
+  #vg-wa-float-wrap.vg-wa-hidden,
+  #vg-wa-float-wrap.vg-wa-hidden a.vg-wa-float,
+  body.vg-wa-cart-open #vg-wa-float-wrap,
+  body.vg-wa-cart-open #vg-wa-float-wrap a.vg-wa-float {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }

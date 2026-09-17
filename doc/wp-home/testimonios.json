@@ -1,0 +1,23 @@
+[
+  {
+    "nombre": "María José",
+    "ciudad": "Medellín",
+    "texto": "Empecé agregando mucuna a mi café de la mañana. Pequeño cambio, gran diferencia en cómo arranco el día.",
+    "foto": "http://100.77.90.29:8090/wp-content/uploads/2026/09/images-6.jpg",
+    "iniciales": "MJ"
+  },
+  {
+    "nombre": "Andrea Castillo",
+    "ciudad": "Bogotá",
+    "texto": "Me encanta mezclar la cúrcuma en mis smoothies. El color, el aroma y lo fácil que es hacerlo parte del día.",
+    "foto": "http://100.77.90.29:8090/wp-content/uploads/2026/09/images-5.jpg",
+    "iniciales": "AC"
+  },
+  {
+    "nombre": "Daniel Ruiz",
+    "ciudad": "Cali",
+    "texto": "Probé varios superalimentos y ahora tengo mis combinaciones favoritas para yogures y bowls de la tarde.",
+    "foto": "http://100.77.90.29:8090/wp-content/uploads/2026/09/images-4.jpg",
+    "iniciales": "DR"
+  }
+]

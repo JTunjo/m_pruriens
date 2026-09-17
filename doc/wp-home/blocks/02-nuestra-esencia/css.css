@@ -1,0 +1,26 @@
+#nuestra-esencia.vg-home {
+  background: var(--vg-cream-2);
+}
+.vg-esencia {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+.vg-esencia h2 {
+  font-size: clamp(1.9rem, 3.5vw, 2.6rem);
+}
+.vg-esencia-img {
+  max-width: 360px;
+  margin-inline: auto;
+}
+
+@media (max-width: 960px) {
+  .vg-esencia {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .vg-esencia-img {
+    order: -1;
+  }
+}
