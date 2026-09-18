@@ -26,30 +26,35 @@ Cada bloque tiene 3 archivos → 3 pestañas del editor:
 
 ## Superalimentos (productos WooCommerce) — importante
 
-No uses JS para listar productos (la pestaña JS se rompía con HTML).
+El shortcode de WooCommerce **no imprime** la descripción corta. Eso lo pone el JavaScript.
+La pestaña JS del encabezado **no sirve** (se ejecuta antes de los productos o WordPress la ignora).
 
-En la Home, en este orden:
+En la Home, en este orden, **tres bloques seguidos**:
 
-1. **Bloque HTML personalizado** → pega `04-superalimentos/html.html` + CSS del mismo folder. **JS vacío.**
+1. **Bloque HTML de 3 pestañas** → `html.html` + `css.css`. **JavaScript vacío.**
 2. **Bloque Shortcode** (Gutenberg: busca “Shortcode”) con exactamente:
    ```
    [products limit="12" columns="4" orderby="date" order="DESC"]
    ```
-3. **Otro bloque HTML** → pega `04-superalimentos/html-footer.html` (botón “Ver todos”). El CSS ya está en el paso 1.
+3. **Otro bloque HTML de 3 pestañas** (el del botón):
+   - **HTML** → `html-footer.html`
+   - **CSS** → vacío (ya está en el paso 1)
+   - **JavaScript** → `js.js` (obligatorio: descripción corta + refuerzo del carrusel)
 
-Así WooCommerce muestra foto, precio y **Añadir al carrito** solo.
+Sin el JS en el bloque 3 no aparece la descripción corta.
 
 La página completa **Tienda** (`/tienda`) se arma aparte: ver `doc/wp-shop/COMO-PEGAR.md`.
 
 La página **Carrito** (y Checkout) se arma aparte: ver `doc/wp-cart/COMO-PEGAR.md`.
 
 ### Foto y descripción del producto
-En **Productos → Mucuna 90g**:
+En **Productos → editar producto**:
 1. Sube la **Imagen del producto** (ideal 400×400).
-2. Completa la **Descripción corta** (sale en la tarjeta de la Home).
-3. Actualiza / publica.
+2. Completa la **Descripción corta**.
+3. El producto debe estar **Publicado**.
+4. Actualiza.
 
-En el bloque encabezado de superalimentos, pestaña **JavaScript**, pega `04-superalimentos/js.js` (solo JS, sin HTML). Ese script añade la descripción corta bajo el nombre.
+La descripción corta de la ficha del producto es la que sale en la tarjeta de la Home (vía el JS del paso 3).
 
 ## Testimonios
 Bloque `06-testimonios` → pestaña **JavaScript** → variable `VG_TESTIMONIOS_URL`.

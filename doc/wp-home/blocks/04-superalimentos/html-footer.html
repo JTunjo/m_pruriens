@@ -1,7 +1,80 @@
 <!--
-  BLOQUE 04B — BOTÓN debajo del shortcode de productos
-  Colócalo DESPUÉS del bloque Shortcode [products ...]
+  BLOQUE 04B — DESPUÉS del shortcode [products]
+  HTML de este archivo + pestaña JS = js.js (obligatorio, ahí corre el carrusel y la descripción).
 -->
+<style>
+  .vg-super-slider {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: visible;
+  }
+  .vg-super-arrow,
+  .vg-super-dots {
+    display: none;
+  }
+  .vg-super-slider.is-active {
+    padding: 0 2.75rem;
+    overflow: hidden;
+  }
+  .vg-super-slider.is-active .vg-super-arrow {
+    display: flex;
+    position: absolute;
+    top: 42%;
+    transform: translateY(-50%);
+    z-index: 5;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: #2A3D24;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .vg-super-slider.is-active .vg-super-arrow svg { width: 18px; height: 18px; display: block; }
+  .vg-super-slider.is-active .vg-super-prev { left: 0.35rem; }
+  .vg-super-slider.is-active .vg-super-next { right: 0.35rem; }
+  .vg-super-slider.is-active .vg-super-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.45rem;
+    margin: 0.85rem 0 0;
+  }
+  .vg-super-slider.is-active ul.products {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    gap: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    float: none !important;
+    list-style: none !important;
+    scrollbar-width: none;
+    box-sizing: border-box !important;
+  }
+  .vg-super-slider.is-active ul.products li.product {
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    float: none !important;
+    clear: none !important;
+    scroll-snap-align: center;
+    box-sizing: border-box !important;
+  }
+</style>
 <div class="vg-home vg-products-footer">
   <div class="vg-wrap">
     <div class="vg-btn-center">

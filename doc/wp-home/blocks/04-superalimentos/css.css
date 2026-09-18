@@ -50,102 +50,189 @@
   border: none !important;
   box-shadow: none !important;
   float: none !important;
+  overflow-x: hidden !important;
+  overflow-y: visible !important;
+  min-width: 0 !important;
 }
 
-/* Por si el shortcode queda envuelto en un grupo del tema */
-.entry-content:has(#superalimentos):has(.vg-products-footer) > *:not(#superalimentos):not(.vg-products-footer):not(.vg-base),
-.wp-block-post-content:has(#superalimentos):has(.vg-products-footer) > *:not(#superalimentos):not(.vg-products-footer):not(.vg-base) {
-  /* Solo afecta bloques intermedios si están entre ambos; mejor no forzar todos */
-}
-
-/* —— Grid de productos (centrado, sin caja extra) —— */
-body.woocommerce ul.products,
-body .woocommerce ul.products,
-.woocommerce ul.products.columns-4,
-.woocommerce ul.products {
+/* —— Productos: grilla centrada en escritorio; carrusel solo con .is-active —— */
+body:has(#superalimentos) ul.products,
+body:has(#superalimentos) .woocommerce ul.products,
+body:has(#superalimentos) .woocommerce ul.products.columns-4,
+.entry-content:has(.vg-products-footer) ul.products,
+.wp-block-post-content:has(.vg-products-footer) ul.products,
+.vg-super-slider ul.products {
   background: transparent !important;
-  width: min(1200px, calc(100% - 3rem)) !important;
-  max-width: 1200px !important;
-  margin: 0 auto !important;
-  padding: 0 !important;
   list-style: none !important;
   display: flex !important;
+  flex-direction: row !important;
   flex-wrap: wrap !important;
   justify-content: center !important;
+  align-items: stretch !important;
   gap: 1.25rem !important;
+  width: min(1200px, calc(100% - 3rem)) !important;
+  max-width: 1200px !important;
+  min-width: 0 !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
   float: none !important;
+  overflow: visible !important;
+  box-sizing: border-box !important;
 }
 
-body .woocommerce ul.products::before,
-body .woocommerce ul.products::after,
-.woocommerce ul.products::before,
-.woocommerce ul.products::after {
+body:has(#superalimentos) ul.products::before,
+body:has(#superalimentos) ul.products::after,
+body:has(#superalimentos) .woocommerce ul.products::before,
+body:has(#superalimentos) .woocommerce ul.products::after {
   display: none !important;
   content: none !important;
 }
 
-body .woocommerce ul.products li.product,
-.woocommerce ul.products li.product {
+body:has(#superalimentos) ul.products::-webkit-scrollbar,
+.entry-content:has(.vg-products-footer) ul.products::-webkit-scrollbar {
+  display: none;
+}
+
+body:has(#superalimentos) ul.products li.product,
+body:has(#superalimentos) .woocommerce ul.products li.product,
+.entry-content:has(.vg-products-footer) ul.products li.product {
+  min-width: 0 !important;
+  flex: 0 1 240px !important;
   width: min(240px, 100%) !important;
   max-width: 260px !important;
   margin: 0 !important;
-  padding: 1.35rem 1.1rem 1.5rem !important;
+  padding: 1.15rem 1.05rem 1.25rem !important;
   float: none !important;
   clear: none !important;
-  background: var(--vg-white) !important;
-  border-radius: 1rem !important;
+  background: #ede4d4 !important;
+  border-radius: 1.15rem !important;
   box-shadow: 0 4px 24px rgba(42, 61, 36, 0.06);
   text-align: center;
   display: flex !important;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  cursor: pointer;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  box-sizing: border-box !important;
+  overflow: hidden;
 }
 
-body .woocommerce ul.products li.product a img,
-body .woocommerce ul.products li.product img {
-  width: 140px !important;
-  height: 140px !important;
-  object-fit: cover !important;
-  border-radius: 50% !important;
-  margin: 0 auto 1rem !important;
+body:has(#superalimentos) ul.products li.product > a.woocommerce-LoopProduct-link,
+body:has(#superalimentos) ul.products li.product > a.woocommerce-loop-product__link,
+body:has(#superalimentos) ul.products li.product > a:first-child:not(.button):not(.add_to_cart_button) {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  flex: 1 1 auto;
+  color: inherit;
+  text-decoration: none;
 }
 
-body .woocommerce ul.products li.product .woocommerce-loop-product__title {
+body:has(#superalimentos) ul.products li.product a img,
+body:has(#superalimentos) ul.products li.product img {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 1 / 1;
+  object-fit: contain !important;
+  border-radius: 0.85rem !important;
+  margin: 0 0 0.85rem !important;
+  background: transparent;
+}
+
+body:has(#superalimentos) ul.products li.product .woocommerce-loop-product__title,
+body:has(#superalimentos) ul.products li.product h2,
+body:has(#superalimentos) ul.products li.product h3 {
   font-family: var(--vg-font-serif) !important;
-  font-size: 1.05rem !important;
+  font-size: 1.2rem !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
   color: var(--vg-green) !important;
   padding: 0 !important;
-  margin: 0 0 0.5rem !important;
+  margin: 0 0 0.45rem !important;
 }
 
-/* Descripción corta (inyectada por js.js) */
-body .woocommerce ul.products li.product .vg-loop-desc {
+body:has(#superalimentos) ul.products li.product .vg-origin,
+body:has(#superalimentos) ul.products li.product a.vg-origin {
+  display: inline-block;
+  font-family: var(--vg-font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--vg-green);
+  font-weight: 700;
+  margin: 0 0 0.55rem;
+  padding: 0.22rem 0.7rem;
+  background: rgba(42, 61, 36, 0.1);
+  border-radius: 999px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+body:has(#superalimentos) ul.products li.product .vg-origin:hover,
+body:has(#superalimentos) ul.products li.product a.vg-origin:hover {
+  color: var(--vg-pink);
+}
+
+body:has(#superalimentos) ul.products li.product .vg-loop-desc {
   font-family: var(--vg-font-sans);
   font-size: 0.82rem;
+  font-style: italic;
   line-height: 1.45;
   color: var(--vg-muted);
-  margin: 0 0 0.85rem;
+  margin: 0 0 0.7rem;
   padding: 0;
   text-align: center;
   max-width: 100%;
+  flex: 0 0 auto;
 }
 
-body .woocommerce ul.products li.product .price {
+body:has(#superalimentos) ul.products li.product .vg-leaf {
+  display: block;
+  width: 40px;
+  height: 24px;
+  color: var(--vg-green);
+  opacity: 0.55;
+  margin: 0.15rem auto 0.85rem;
+}
+
+body:has(#superalimentos) ul.products li.product .vg-leaf svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+body:has(#superalimentos) ul.products li.product .onsale,
+body:has(#superalimentos) ul.products li.product .star-rating {
+  display: none !important;
+}
+
+body:has(#superalimentos) ul.products li.product .price {
+  display: block !important;
   font-family: var(--vg-font-serif) !important;
-  font-size: 1.2rem !important;
+  font-size: 1.15rem !important;
+  font-weight: 600 !important;
   color: var(--vg-green) !important;
-  margin: 0 0 1rem !important;
+  margin: 0 0 0.85rem !important;
+  padding: 0 !important;
 }
 
-body .woocommerce ul.products li.product .price del {
+body:has(#superalimentos) ul.products li.product .price del {
   color: var(--vg-muted);
   font-size: 0.9rem;
   margin-right: 0.35rem;
 }
 
-body .woocommerce ul.products li.product .button,
-body .woocommerce ul.products li.product a.button,
-body .woocommerce ul.products li.product .add_to_cart_button {
+body:has(#superalimentos) ul.products li.product .price ins {
+  text-decoration: none;
+}
+
+body:has(#superalimentos) ul.products li.product .button,
+body:has(#superalimentos) ul.products li.product a.button,
+body:has(#superalimentos) ul.products li.product .add_to_cart_button {
   display: inline-flex !important;
   align-items: center;
   justify-content: center;
@@ -159,16 +246,139 @@ body .woocommerce ul.products li.product .add_to_cart_button {
   font-size: 0.88rem !important;
   font-weight: 700 !important;
   margin-top: auto !important;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
 }
 
-body .woocommerce ul.products li.product .button:hover,
-body .woocommerce ul.products li.product a.button:hover {
+body:has(#superalimentos) ul.products li.product .button:hover,
+body:has(#superalimentos) ul.products li.product a.button:hover {
   background: var(--vg-green-soft) !important;
 }
 
-@media (max-width: 560px) {
-  body .woocommerce ul.products li.product {
-    width: 100% !important;
-    max-width: 320px !important;
-  }
+body:has(#superalimentos) ul.products li.product a.added_to_cart {
+  display: block;
+  margin-top: 0.45rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--vg-pink);
+  position: relative;
+  z-index: 2;
+}
+
+body:has(#superalimentos) {
+  overflow-x: clip;
+}
+
+.vg-super-slider {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+.vg-super-slider.is-active {
+  padding: 0 2.75rem;
+  overflow: hidden;
+}
+
+.vg-super-slider.is-active ul.products,
+body:has(#superalimentos) .vg-super-slider.is-active ul.products,
+body:has(#superalimentos) .vg-super-slider.is-active .woocommerce ul.products,
+.vg-super-slider.is-active ul.products.columns-4 {
+  flex-wrap: nowrap !important;
+  justify-content: flex-start !important;
+  gap: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.vg-super-slider.is-active ul.products::-webkit-scrollbar {
+  display: none;
+}
+
+.vg-super-slider.is-active ul.products li.product,
+body:has(#superalimentos) .vg-super-slider.is-active ul.products li.product {
+  flex: 0 0 100% !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+}
+
+.vg-super-arrow,
+.vg-super-dots {
+  display: none;
+}
+
+.vg-super-slider.is-active .vg-super-arrow {
+  display: flex;
+  position: absolute;
+  top: 42%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: var(--vg-green);
+  color: #fff;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(42, 61, 36, 0.18);
+}
+
+.vg-super-slider.is-active .vg-super-arrow svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+.vg-super-slider.is-active .vg-super-prev {
+  left: 0.35rem;
+}
+
+.vg-super-slider.is-active .vg-super-next {
+  right: 0.35rem;
+}
+
+.vg-super-slider.is-active .vg-super-arrow:hover {
+  background: var(--vg-green-soft);
+}
+
+.vg-super-slider.is-active .vg-super-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0.85rem 0 0;
+  padding: 0;
+}
+
+.vg-super-dot {
+  appearance: none;
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: rgba(42, 61, 36, 0.22);
+  cursor: pointer;
+}
+
+.vg-super-dot.is-active {
+  width: 22px;
+  background: var(--vg-green);
 }
