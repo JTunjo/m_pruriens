@@ -490,6 +490,10 @@ body.page-slug-home .wp-block-post-title,
   content: "“";
   color: var(--vg-pink);
 }
+.vg-testimonial blockquote p::after {
+  content: "”";
+  color: var(--vg-pink);
+}
 .vg-testimonial footer {
   margin-top: auto;
 }
