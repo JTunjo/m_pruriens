@@ -13,8 +13,10 @@ HTML foot
 | Bloque | HTML | CSS | JavaScript |
 |---|---|---|---|
 | **block0** | `block0/html.html` | `block0/css.css` | `block0/js.js` (solo scroll) |
-| **block01** | `01-tienda/html.html` | `01-tienda/css.css` | **`01-tienda/js.js` (obligatorio, vuelve a pegarlo)** |
+| **block01** | `01-tienda/html.html` | **`01-tienda/css.css` (tarjetas = superalimentos)** | **`01-tienda/js.js` (obligatorio, vuelve a pegarlo)** |
 | **Shortcode** | `[products limit="48" columns="3" orderby="menu_order" order="ASC"]` | — | — |
 | **foot** | `foot/html.html` | vacia | **vacia** |
 
 Comprobacion: Ctrl+F5 y en consola `vgVGFilt` debe ser `function`.
+
+Las tarjetas del catalogo usan el mismo estilo que superalimentos (fondo beige, origen, descripcion, hoja y boton redondo). Vuelve a pegar CSS y JS de **block01**.

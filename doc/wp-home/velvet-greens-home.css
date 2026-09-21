@@ -395,15 +395,22 @@ body.page-slug-home .wp-block-post-title,
   padding: 1.35rem;
 }
 .vg-uso-item .vg-icon {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background: var(--vg-white);
+  width: 72px;
+  height: 48px;
+  border-radius: 0;
+  background: transparent;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   margin-bottom: 0.75rem;
-  color: var(--vg-green);
+  overflow: hidden;
+}
+.vg-uso-item .vg-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: left center;
+  display: block;
 }
 .vg-uso-item h3 {
   font-size: 1.05rem;

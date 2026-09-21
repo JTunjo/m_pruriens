@@ -55,8 +55,8 @@ main:has(.vg-home) .entry-content,
 }
 
 /* Evita que el shortcode de productos quede en una “caja” estrecha del tema */
-.entry-content:has(#superalimentos) > *,
-.wp-block-post-content:has(#superalimentos) > * {
+.entry-content:has(#tienda) > *,
+.wp-block-post-content:has(#tienda) > * {
   max-width: none !important;
   width: 100% !important;
 }
