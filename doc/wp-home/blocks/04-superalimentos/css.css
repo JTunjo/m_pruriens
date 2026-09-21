@@ -266,10 +266,6 @@ body:has(#superalimentos) ul.products li.product a.added_to_cart {
   z-index: 2;
 }
 
-body:has(#superalimentos) {
-  overflow-x: clip;
-}
-
 .vg-super-slider {
   position: relative;
   width: 100%;

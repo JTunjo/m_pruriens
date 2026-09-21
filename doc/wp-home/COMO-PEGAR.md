@@ -79,6 +79,8 @@ Si cambia la URL del servicio, actualiza solo `VG_TESTIMONIOS_URL` en el JS.
 ## Navbar
 `/#inicio` `/#nuestra-esencia` `/#mucuna` `/#superalimentos` `/#modo-de-uso` `/#testimonios` `/#contacto`
 
+El menú del tema se queda fijo arriba al hacer scroll (`position: sticky` en el CSS de `00-base` y del Footer). Vuelve a pegar el CSS de **HTML block0** y, para que aplique en todo el sitio, el HTML del Footer.
+
 ## Footer del sitio (plantilla WordPress)
 
 Esto **no** va en la página Home. Va en el pie de **todo el sitio** (el de Twenty Twenty-Five con el gato, Blog, About, Shop).

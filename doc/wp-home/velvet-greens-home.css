@@ -1,5 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Lato:wght@300;400;700&display=swap');
 
+/* Navbar fijo al hacer scroll */
+.wp-site-blocks > header,
+header.wp-block-template-part {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000;
+  background: rgba(253, 251, 247, 0.94);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 rgba(42, 61, 36, 0.08);
+}
+
 /* Amplía el contenedor del tema cuando contiene la home */
 .entry-content:has(.vg-home),
 .wp-block-post-content:has(.vg-home),

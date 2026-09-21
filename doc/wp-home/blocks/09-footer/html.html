@@ -15,6 +15,18 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lato:wght@300;400;700&display=swap');
 
+/* Navbar fijo al hacer scroll (todo el sitio) */
+.wp-site-blocks > header,
+header.wp-block-template-part {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000;
+  background: rgba(253, 251, 247, 0.94);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 rgba(42, 61, 36, 0.08);
+}
+
 footer:has(#vg-footer),
 .wp-block-template-part:has(#vg-footer),
 .wp-block-group:has(#vg-footer),

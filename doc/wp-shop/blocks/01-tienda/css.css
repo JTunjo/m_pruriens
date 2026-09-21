@@ -219,10 +219,6 @@ body.page:has(#tienda) .woocommerce-notices-wrapper:empty {
 }
 
 /* —— Productos: mismas tarjetas que superalimentos —— */
-body:has(#tienda) {
-  overflow-x: clip;
-}
-
 body.page:has(#tienda) ul.products,
 body:has(#tienda) .woocommerce ul.products,
 body:has(#tienda) .woocommerce ul.products.columns-3,
