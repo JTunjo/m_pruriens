@@ -260,6 +260,33 @@
     });
   }
 
+  function productLink(card) {
+    return (
+      card.querySelector('a.woocommerce-LoopProduct-link') ||
+      card.querySelector('a.woocommerce-loop-product__link') ||
+      card.querySelector('a[href]:not(.button):not(.add_to_cart_button):not(.added_to_cart):not(.vg-origin)')
+    );
+  }
+
+  function arrangeCard(card) {
+    var link = productLink(card);
+    if (!link) return;
+    var img = card.querySelector('img');
+    var title = titleOf(card);
+    var nodes = [
+      img,
+      title,
+      card.querySelector('.vg-origin'),
+      card.querySelector('.vg-loop-desc'),
+      card.querySelector('.vg-leaf'),
+      card.querySelector('.price')
+    ];
+    nodes.forEach(function (node) {
+      if (!node || node === link) return;
+      link.appendChild(node);
+    });
+  }
+
   function decorateCard(card, product) {
     var url = permalinkOf(card, product);
     ensureOrigin(card, originOf(product), url);
@@ -268,6 +295,7 @@
     if (text.length > 140) text = text.slice(0, 137) + '\u2026';
     ensureDesc(card, text);
     ensureLeaf(card);
+    arrangeCard(card);
     bindCardNav(card, url);
   }
 
